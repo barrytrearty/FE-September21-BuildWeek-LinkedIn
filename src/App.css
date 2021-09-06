@@ -59,3 +59,42 @@ button.morebutton{
   border-radius : 50px;
   font-weight: 500;
 }
+
+.modallink{
+ font-weight: 500;
+ cursor: pointer;
+}
+
+#linkedincontacticon{
+margin-right: 15px;
+}
+#emailcontacticon{
+  margin-right: 20px;
+}
+.contactdetailstext{
+  font-weight: 600;
+}
+#contactnametext{
+font-weight: 400;
+font-size: 1.3rem;
+}
+.contactdetailslinks{
+  font-weight:500;
+  font-size: 0.9rem;
+}
+.educationtext{
+  font-size: 0.9rem;
+  font-weight:600;
+  vertical-align: middle;
+}
+.educationicon{
+height: 32px;
+width: 32px;
+}
+#aboutheader{
+  font-weight: 400;
+}
+
+#abouttext{
+font-size:0.9rem;
+}

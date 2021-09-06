@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Container, Image, Card, Button, Row, Col } from 'react-bootstrap';
+import ContactInfoModal from './ContactInfoModal';
+
 
 class ProfileTopCard extends Component {
     state = {
         user: [],
       };
+      
 
       componentDidMount = async () => {
         try {
@@ -39,7 +42,7 @@ class ProfileTopCard extends Component {
         return (
             <Container>
                            
-                <Card style={{ width: '70%' }}>
+                <Card style={{ width: '70%', borderRadius: "8px" }}>
                 <Card.Img variant="top" src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fjosephliu%2Ffiles%2F2019%2F06%2F10-ferdinand-stohr-149422-unsplash-1200x298.jpg" />
                 <Image className="profileimage" src={this.state.user.image} roundedCircle />
                 
@@ -47,30 +50,46 @@ class ProfileTopCard extends Component {
                 <div style={{ height: '1.8em' }}></div>
                     <Row className="ml-1 mr-3">
 
-                    <Col sm={9}>
+                    <Col sm={8}>
                     <Card.Title className="mb-0" style={{ fontSize: "1.5em" }}>{this.state.user.name} {this.state.user.surname} <small className="text-muted">1st</small></Card.Title>
                     <Card.Text className="mb-0">{this.state.user.title}</Card.Text>
-                    <Card.Text className="mb-0"><small className="text-muted">{this.state.user.area} <a style={{ fontWeight: "500" }} href="">Contact info</a></small></Card.Text>
+                    
+                    <Card.Text className="mb-0"><small className="text-muted">{this.state.user.area} <ContactInfoModal email={this.state.user.email}/></small></Card.Text>
                     <Card.Text><small className="text-muted"><a style={{ fontWeight: "500" }} href="">96 connections</a></small></Card.Text>
                     <Card.Text><small className="text-muted"><a style={{ fontWeight: "500", color: "inherit" }} href="">2 mutual connections: <span style={{ fontWeight: "400" }}>Magdalena Sochon and Tetiana Yaremko</span></a></small></Card.Text>
                     <Button className="mr-2 messagebutton px-3 py-1" variant="primary">Message</Button>
                     <Button className="morebutton px-3 py-1" variant="outline-secondary">More</Button>
                     </Col>
 
-                    <Col className="bg-success" sm={3}>sm=3</Col>
+                    <Col sm={4}>
+                        <Row>
+                        <Col sm={2}><img className="educationicon mr-2" src="https://media-exp1.licdn.com/dms/image/C4D0BAQFFQIjyDsOK0w/company-logo_100_100/0/1593351903670?e=1639008000&v=beta&t=38emh8r8X3fw7Ah3ky91KyaVJT_6wSkxl1MqF2QRf5E" alt="" /> </Col>
+                        <Col sm={10}><p className="educationtext">Strive School</p> </Col>
+                        </Row>
+
+                       
+                        <Row>
+                        <Col sm={2}><img className="educationicon mr-2" src="https://media-exp1.licdn.com/dms/image/C4D0BAQEPAshgi0NNtg/company-logo_100_100/0/1618903558900?e=1639008000&v=beta&t=nlhuo43cPg_xzu6NZrwq0kJ22L64B7upOmHUgAKlZGs" alt="" /> </Col>
+                        <Col sm={10}><p className="educationtext">Buckinghamshire New University</p> </Col>
+                        </Row>
+                        
+                        {/* <p className="educationtext"><img className="educationicon mr-2" src="https://media-exp1.licdn.com/dms/image/C4D0BAQEPAshgi0NNtg/company-logo_100_100/0/1618903558900?e=1639008000&v=beta&t=nlhuo43cPg_xzu6NZrwq0kJ22L64B7upOmHUgAKlZGs" alt="" />Buckinghamshire New University</p> */}
+                    </Col>
                     </Row>
                 
                     
                 </Card.Body>
                 </Card>
 
-                <Card style={{ width: '70%' , marginTop: "1rem", paddingLeft: "15px"}}>
+                <Card style={{ width: '70%' , marginTop: "1rem", paddingLeft: "15px",  borderRadius: "8px"}}>
                 <Card.Body>
-                <Card.Title >About</Card.Title>
-                <Card.Text>{this.state.user.bio}</Card.Text>
+                <Card.Title id="aboutheader">About</Card.Title>
+                <Card.Text id="abouttext">{this.state.user.bio}</Card.Text>
                 </Card.Body>
                 </Card>
+                
             </Container>
+            
         );
     }
 }
