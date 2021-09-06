@@ -1,4 +1,5 @@
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
+import StriveLogo from '../data/logo.png'
 
 const AfterMain = () => {
   return (
@@ -15,7 +16,7 @@ const AfterMain = () => {
             <Col xs={12} md={6}>
               <Row>
                 <Col xs={2}>
-                  <img src="src\data\logo.png" alt="" />
+                  <img src={StriveLogo} alt="" />
                 </Col>
                 <Col>
                   <p className="activity">
@@ -28,7 +29,7 @@ const AfterMain = () => {
             <Col xs={12} md={6}>
               <Row>
                 <Col xs={2}>
-                  <img src="data\logo.png" alt="" />
+                  <img src={StriveLogo} alt="" />
                 </Col>
                 <Col>
                   <p className="activity">
@@ -55,7 +56,7 @@ const AfterMain = () => {
             {/* <Card> */}
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p className="p-heading">Student</p>
@@ -68,7 +69,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p className="p-heading">Student</p>
@@ -80,7 +81,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p className="p-heading">Student</p>
@@ -91,7 +92,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p className="p-heading">Student</p>
@@ -102,7 +103,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p className="p-heading">Student</p>
@@ -119,7 +120,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p className="p-heading">Buckinghamshire New University</p>
@@ -130,7 +131,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p className="p-heading">De Montfort University</p>
@@ -142,7 +143,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p className="p-heading">Princeton University</p>
@@ -158,7 +159,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p className="p-heading">
@@ -171,7 +172,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p p className="p-heading">
@@ -185,7 +186,7 @@ const AfterMain = () => {
           <Row className="border-bottom">
             <Col xs={2}>
               {" "}
-              <img src="data\logo.png" alt="" />
+              <img src={StriveLogo} alt="" className="mt-3"/>
             </Col>
             <Col className="my-3">
               <p p className="p-heading">

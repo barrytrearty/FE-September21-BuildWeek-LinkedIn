@@ -1,8 +1,7 @@
 import "./App.css";
 import AfterMain from "./components/AfterMain";
 import "bootstrap/dist/css/bootstrap.min.css";
-import PeopleSection from './components/PeopleAlsoView';
-
+import PeopleSection from "./components/PeopleAlsoView";
 
 function App() {
   return (
@@ -23,9 +22,8 @@ function App() {
         </a>
       </header> */}
       <AfterMain />
-       <PeopleSection sectionTitle="People also view"/>
-      <PeopleSection sectionTitle="People you may know"/>
-
+      <PeopleSection sectionTitle="People also view" />
+      <PeopleSection sectionTitle="People you may know" />
     </div>
   );
 }

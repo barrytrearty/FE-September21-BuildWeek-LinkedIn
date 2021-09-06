@@ -93,3 +93,9 @@
 .p-muted {
   color: grey;
 }
+
+.after-main img{
+  width: 4rem;
+  height: 4rem;
+}
+
