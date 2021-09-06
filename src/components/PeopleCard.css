@@ -1,0 +1,13 @@
+.PeopleCardImage{
+    height: 6rem; 
+    width: 6rem;
+    border-radius: 50%;
+}
+
+.MessageButton{
+    border-radius: 5rem;
+}
+
+.PeopleCard{
+    border-style: none;
+}
