@@ -1,12 +1,31 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css";
+import AfterMain from "./components/AfterMain";
+import "bootstrap/dist/css/bootstrap.min.css";
 import PeopleSection from './components/PeopleAlsoView';
+
 
 function App() {
   return (
+    // <div className="App">
     <div>
-      <PeopleSection sectionTitle="People also view"/>
+      {/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header> */}
+      <AfterMain />
+       <PeopleSection sectionTitle="People also view"/>
       <PeopleSection sectionTitle="People you may know"/>
+
     </div>
   );
 }
