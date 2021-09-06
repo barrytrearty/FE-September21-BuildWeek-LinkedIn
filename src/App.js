@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return(
     <div>
-   <div>linkedin</div>
+   <div>Navbar</div>
     <ProfileTopCard/>
     </div>
  

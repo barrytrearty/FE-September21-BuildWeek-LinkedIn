@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Image, Card, Button } from 'react-bootstrap';
+import { Container, Image, Card, Button, Row, Col } from 'react-bootstrap';
 
 class ProfileTopCard extends Component {
     state = {
@@ -39,19 +39,37 @@ class ProfileTopCard extends Component {
         return (
             <Container>
                            
-                <Card style={{ width: '100%' }}>
-                <Card.Img variant="top" src="https://media-exp1.licdn.com/dms/image/C4D16AQHOVtvrNfDs2A/profile-displaybackgroundimage-shrink_200_800/0/1583686615635?e=1636588800&v=beta&t=thI_7pWSrHybQgGGFshRJOBzD4DLZDWKigk6TksLidA" />
+                <Card style={{ width: '70%' }}>
+                <Card.Img variant="top" src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fjosephliu%2Ffiles%2F2019%2F06%2F10-ferdinand-stohr-149422-unsplash-1200x298.jpg" />
+                <Image className="profileimage" src={this.state.user.image} roundedCircle />
+                
                 <Card.Body>
-                <Image className="w-25" src={this.state.user.image} roundedCircle />    
-                    <Card.Title>{this.state.user.name} {this.state.user.surname}</Card.Title>
-                    <Card.Text>{this.state.user.title}</Card.Text>
-                    <Card.Text><small className="text-muted">{this.state.user.area} <a href="">Contact info</a></small></Card.Text>
-                    <Button className="mr-2" variant="primary">Message</Button>
-                    <Button variant="outline-secondary">More</Button>
+                <div style={{ height: '1.8em' }}></div>
+                    <Row className="ml-1 mr-3">
 
+                    <Col sm={9}>
+                    <Card.Title className="mb-0" style={{ fontSize: "1.5em" }}>{this.state.user.name} {this.state.user.surname} <small className="text-muted">1st</small></Card.Title>
+                    <Card.Text className="mb-0">{this.state.user.title}</Card.Text>
+                    <Card.Text className="mb-0"><small className="text-muted">{this.state.user.area} <a style={{ fontWeight: "500" }} href="">Contact info</a></small></Card.Text>
+                    <Card.Text><small className="text-muted"><a style={{ fontWeight: "500" }} href="">96 connections</a></small></Card.Text>
+                    <Card.Text><small className="text-muted"><a style={{ fontWeight: "500", color: "inherit" }} href="">2 mutual connections: <span style={{ fontWeight: "400" }}>Magdalena Sochon and Tetiana Yaremko</span></a></small></Card.Text>
+                    <Button className="mr-2 messagebutton px-3 py-1" variant="primary">Message</Button>
+                    <Button className="morebutton px-3 py-1" variant="outline-secondary">More</Button>
+                    </Col>
+
+                    <Col className="bg-success" sm={3}>sm=3</Col>
+                    </Row>
+                
+                    
                 </Card.Body>
                 </Card>
-                <p>{this.state.user.bio}</p>
+
+                <Card style={{ width: '70%' , marginTop: "1rem", paddingLeft: "15px"}}>
+                <Card.Body>
+                <Card.Title >About</Card.Title>
+                <Card.Text>{this.state.user.bio}</Card.Text>
+                </Card.Body>
+                </Card>
             </Container>
         );
     }
