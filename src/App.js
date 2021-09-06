@@ -1,26 +1,13 @@
 import "./App.css";
+import ProfileTopCard from "./components/ProfileTopCard";
 import AfterMain from "./components/AfterMain";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PeopleSection from "./components/PeopleAlsoView";
 
 function App() {
   return (
-    // <div className="App">
     <div>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <ProfileTopCard/>
       <AfterMain />
       <PeopleSection sectionTitle="People also view" />
       <PeopleSection sectionTitle="People you may know" />
