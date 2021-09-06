@@ -7,16 +7,26 @@ import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Row, Col, Container } from "react-bootstrap";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <ProfileTopCard />
-      <AfterMain />
-      <PeopleSection sectionTitle="People also view" />
-      <PeopleSection sectionTitle="People you may know" />
-      <Footer />
+      <Container>
+        <Row>
+          <Col xs={12} sm={8}>
+            <ProfileTopCard />
+            <AfterMain />
+          </Col>
+          <Col xs={12} sm={4}>
+            <PeopleSection sectionTitle="People also view" />
+            <PeopleSection sectionTitle="People you may know" />
+          </Col>
+        </Row>
+
+        <Footer />
+      </Container>
     </div>
   );
 }
