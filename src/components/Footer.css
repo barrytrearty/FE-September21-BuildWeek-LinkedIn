@@ -1,0 +1,20 @@
+footer {
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+  }
+  
+a {
+    color: rgb(59, 59, 59);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.DropdownButton {
+    background-color: white;
+}
+
+#managePrivacy {
+    color: pink;
+}
