@@ -81,7 +81,7 @@ class ProfileTopCard extends Component {
                 </Card.Body>
                 </Card>
 
-                <Card style={{ width: '70%' , marginTop: "1rem", paddingLeft: "15px",  borderRadius: "8px"}}>
+                <Card style={{ width: '70%' , marginTop: "1rem", paddingLeft: "15px",  borderRadius: "8px"}} className="mb-3">
                 <Card.Body>
                 <Card.Title id="aboutheader">About</Card.Title>
                 <Card.Text id="abouttext">{this.state.user.bio}</Card.Text>
