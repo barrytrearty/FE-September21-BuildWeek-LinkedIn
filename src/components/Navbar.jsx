@@ -1,4 +1,5 @@
 import React from 'react'
+import LinkedInLogo from '../data/linkedin_logo.png'
 
 import {
     BrowserRouter as Router,
@@ -23,7 +24,7 @@ class BootstrapNavbar extends React.Component{
                         <Router>
                             <Navbar bg="light" variant="light" expand="lg" sticky="top">
                                 <Navbar.Brand><a href="#">
-    <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/linkedin_original_logo_icon_146435.png" width="40" height="40" alt=""/>
+    <img src={LinkedInLogo} width="40" height="40" alt=""/>
     </a>
   </Navbar.Brand>
                                 <Form inline>
