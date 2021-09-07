@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faQuestion } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => (
-  <footer className="page-footer font-small blue pt-4">
+  <footer className="page-footer font-small blue pt-4 d-flex mx-5">
     <div className="container-fluid text-md-left">
       <div className="row">
         <hr className="clearfix w-100 d-md-none pb-0" />
