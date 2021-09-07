@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
 import EditModal from "./EditModal";
+
+import { format, parseISO } from "date-fns";
+
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
 import { BiPurchaseTag } from "react-icons/bi";
@@ -38,20 +41,31 @@ const Experiences = ({ match }) => {
     }
   };
 
+  const fixDate = (date) => {
+    try {
+      return format(
+        parseISO(date), // 1)
+        "yyyy MMMM dd"
+      );
+    } catch {
+      return `No date found`;
+    }
+  };
+
   useEffect(() => {
     getArray();
   }, []);
 
-
   return (
-    <section className="px-5 py-2">
+    <Card className="px-4 py-2">
       <Row className="d-flex justify-content-between">
-        <h3>Experience</h3>
+        <Card.Title className="px-3">Experience</Card.Title>
+        {isMe === true && <AddExperienceModal />}
       </Row>
       {console.log(experienceArray)}
 
       {experienceArray.map((experience) => (
-        <Row className="border-bottom" key={experience._id}>
+        <Row key={experience._id}>
           <Col xs={2}>
             <img src={StriveLogo} alt="" className="mt-3" />
           </Col>
@@ -60,11 +74,21 @@ const Experiences = ({ match }) => {
             <p>{experience._id}</p>
             <p className="p-secondary">{experience.company}</p>
             <p className="p-muted">
-              {experience.startDate} - {experience.EndDate}{" "}
+              {fixDate(experience.startDate)} - {fixDate(experience.endDate)}{" "}
             </p>
             <p className="p-secondary">{experience.description}</p>
-            {isMe === true && <EditExperienceModal userId= {userId} experienceId = {experience._id}/>}
-            {isMe === true && <AddExperienceModal userId= {userId} experienceId = {experience._id}/>}
+            {isMe === true && (
+              <EditExperienceModal
+                userId={userId}
+                experienceId={experience._id}
+              />
+            )}
+            {isMe === true && (
+              <AddExperienceModal
+                userId={userId}
+                experienceId={experience._id}
+              />
+            )}
 
             {/* - GET https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
     Get a specific experience
@@ -73,7 +97,7 @@ const Experiences = ({ match }) => {
           </Col>{" "}
         </Row>
       ))}
-    </section>
+    </Card>
   );
 };
 
