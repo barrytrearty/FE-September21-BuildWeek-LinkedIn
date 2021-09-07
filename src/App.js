@@ -6,28 +6,47 @@ import PeopleSection from "./components/PeopleSection";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Container>
-        <Row>
-          <Col xs={12} sm={12} lg={8}>
-            <ProfileTopCard />
-            <AfterMain />
-          </Col>
-          <Col xs={12} sm={12} lg={4}>
-            <PeopleSection sectionTitle="People also view" />
-            <PeopleSection sectionTitle="People you may know" />
-          </Col>
-        </Row>
+      <Switch>
+        <Container>
+          {/* needs profile id  */}
+          <Route path="/:id">
+            <Row>
+              <Col xs={12} sm={12} lg={8}>
+                <ProfileTopCard />
+                <AfterMain />
+              </Col>
 
-        <Footer />
-      </Container>
-    </div>
+              <Col xs={12} sm={12} lg={4}>
+                <PeopleSection sectionTitle="People also view" />
+                <PeopleSection sectionTitle="People you may know" />
+              </Col>
+            </Row>
+          </Route>
+          {/* we are James for now (me) */}
+          <Route path="/" exact>
+            <Row>
+              <Col xs={12} sm={12} lg={8}>
+                <ProfileTopCard />
+                <AfterMain />
+              </Col>
+
+              <Col xs={12} sm={12} lg={4}>
+                <PeopleSection sectionTitle="People also view" />
+                <PeopleSection sectionTitle="People you may know" />
+              </Col>
+            </Row>
+          </Route>
+        </Container>
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 
