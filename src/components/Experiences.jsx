@@ -1,7 +1,9 @@
 import React from "react";
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
-import { CgMathPlus } from "react-icons/cg";
+
+import { render } from "@testing-library/react";
+import AddExperienceModal from "./AddExperienceModal";
 
 const Experiences = () => {
   console.log("url" + window.location.href);
@@ -18,7 +20,7 @@ const Experiences = () => {
       {/* <section> */}
       <Row className="d-flex justify-content-between">
         <h3>Experience</h3>
-        {isMe === true && <CgMathPlus size={27} />}
+        {isMe === true && <AddExperienceModal />}
       </Row>
       <Row className="border-bottom">
         {/* <Card> */}
