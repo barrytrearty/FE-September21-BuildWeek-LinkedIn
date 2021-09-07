@@ -3,7 +3,6 @@ import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
 import EditModal from "./EditModal.jsx";
 
-
 import { format, parseISO } from "date-fns";
 
 import { render } from "@testing-library/react";
@@ -11,7 +10,6 @@ import AddExperienceModal from "./AddExperienceModal";
 
 import { BiPurchaseTag } from "react-icons/bi";
 import EditExperienceModal from "./EditModal";
-
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -31,7 +29,6 @@ const Experiences = ({ match }) => {
   const getArray = async () => {
     try {
       let response = await fetch(
-
         `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
 
         {
@@ -47,7 +44,6 @@ const Experiences = ({ match }) => {
       console.log(error);
     }
   };
-
 
   const fixDate = (date) => {
     try {
@@ -65,10 +61,9 @@ const Experiences = ({ match }) => {
   }, []);
 
   return (
-
-    <Card className="px-4 py-2">
+    <Card className="px-4 py-2 sectiontext pt-4">
       <Row className="d-flex justify-content-between">
-        <Card.Title className="px-3">Experience</Card.Title>
+        <Card.Title className="px-3 sectionheader">Experience</Card.Title>
 
         {isMe === true && <AddExperienceModal />}
       </Row>
@@ -79,17 +74,17 @@ const Experiences = ({ match }) => {
           <Col xs={2}>
             <img src={experience.image} alt="" className="mt-3" />
           </Col>
-          <Col className="my-3 d-flex flex-row">
+          <Col className="my-3 d-flex flex-row ml-4">
             <div className="Experience">
-            <p className="p-heading">{experience.role}</p>
-            <p>{experience._id}</p>
-            <p className="p-secondary">{experience.company}</p>
-            <p className="p-muted">
-              {fixDate(experience.startDate)} - {fixDate(experience.endDate)}{" "}
-            </p>
-            <p className="p-secondary">{experience.description}</p>
+              <p className="p-heading">{experience.role}</p>
+              <p>{experience._id}</p>
+              <p className="p-secondary">{experience.company}</p>
+              <p className="p-muted">
+                {fixDate(experience.startDate)} - {fixDate(experience.endDate)}{" "}
+              </p>
+              <p className="p-secondary">{experience.description}</p>
             </div>
-              <EditModal />
+            <EditModal />
             {isMe === true && (
               <EditExperienceModal
                 userId={userId}

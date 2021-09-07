@@ -44,12 +44,17 @@ body {
 
 .profileimage {
   border: 4px solid white;
-  position: absolute;
-  width: 20%;
-  top: 80px;
-  left: 30px;
+  width: 10rem;
+  margin-top: 65px;
+  z-index: 4;
 }
-
+.bannerImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 button.messagebutton {
   background-color: #1d66c2;
   border-radius: 50px;
@@ -93,12 +98,13 @@ button.morebutton {
   height: 32px;
   width: 32px;
 }
-#aboutheader {
-  font-weight: 400;
+.sectionheader {
+  font-weight: 400 !important;
+  font-size: 20px !important;
 }
 
-#abouttext {
-  font-size: 0.9rem;
+.sectiontext {
+  font-size: 14px !important;
 }
 
 /*  after main section (Barry)*/
@@ -161,7 +167,6 @@ button.morebutton {
   height: 4rem;
 }
 
-
 /* ADD EXPERIENCE MODAL SECTION */
 #savemodalbutton {
   border-radius: 25px;
@@ -182,4 +187,3 @@ button.morebutton {
   width: 4rem;
   height: 4rem;
 } */
-
