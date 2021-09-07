@@ -19,19 +19,23 @@ function App() {
           {/* needs profile id  */}
           <Route path="/:id">
             <Row>
-              <Col xs={12} sm={12} lg={8}>
+              <Col xs={12} sm={12} lg={8} className="px-0">
                 <ProfileTopCard />
                 <AfterMain />
               </Col>
 
-              <Col xs={12} sm={12} lg={4}>
+              <Col xs={12} sm={12} lg={4} className="px-3">
                 <PeopleSection sectionTitle="People also view" />
                 <PeopleSection sectionTitle="People you may know" />
               </Col>
             </Row>
           </Route>
           {/* we are James for now (me) */}
-          <Route path="/me" exact render={(routerProps) => <MeSection{...routerProps}/>}/>
+          <Route
+            path="/me"
+            exact
+            render={(routerProps) => <MeSection {...routerProps} />}
+          />
         </Container>
       </Switch>
       <Footer />

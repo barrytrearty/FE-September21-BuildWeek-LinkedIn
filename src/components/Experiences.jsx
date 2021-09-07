@@ -71,10 +71,10 @@ const Experiences = ({ match }) => {
 
       {experienceArray.map((experience) => (
         <Row key={experience._id}>
-          <Col xs={2}>
+          <Col xs={1} className="mr-4">
             <img src={experience.image} alt="" className="mt-3" />
           </Col>
-          <Col className="my-3 d-flex flex-row ml-4">
+          <Col className="my-3 d-flex flex-row ml-3">
             <div className="Experience">
               <p className="p-heading">{experience.role}</p>
               <p>{experience._id}</p>
