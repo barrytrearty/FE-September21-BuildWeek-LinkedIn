@@ -3,6 +3,7 @@ import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
 import EditModal from "./EditModal.jsx";
 
+
 import { format, parseISO } from "date-fns";
 
 import { render } from "@testing-library/react";
@@ -10,6 +11,7 @@ import AddExperienceModal from "./AddExperienceModal";
 
 import { BiPurchaseTag } from "react-icons/bi";
 import EditExperienceModal from "./EditModal";
+
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -29,7 +31,9 @@ const Experiences = ({ match }) => {
   const getArray = async () => {
     try {
       let response = await fetch(
+
         `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
+
         {
           headers: {
             Authorization:
@@ -43,6 +47,7 @@ const Experiences = ({ match }) => {
       console.log(error);
     }
   };
+
 
   const fixDate = (date) => {
     try {
@@ -60,9 +65,11 @@ const Experiences = ({ match }) => {
   }, []);
 
   return (
+
     <Card className="px-4 py-2">
       <Row className="d-flex justify-content-between">
         <Card.Title className="px-3">Experience</Card.Title>
+
         {isMe === true && <AddExperienceModal />}
       </Row>
       {console.log(experienceArray)}
@@ -70,7 +77,7 @@ const Experiences = ({ match }) => {
       {experienceArray.map((experience) => (
         <Row key={experience._id}>
           <Col xs={2}>
-            <img src={StriveLogo} alt="" className="mt-3" />
+            <img src={experience.image} alt="" className="mt-3" />
           </Col>
           <Col className="my-3 d-flex flex-row">
             <div className="Experience">
