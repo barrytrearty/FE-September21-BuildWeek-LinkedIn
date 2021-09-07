@@ -48,10 +48,10 @@ const Experiences = ({ match }) => {
     try {
       return format(
         parseISO(date), // 1)
-        "yyyy MMMM dd"
+        "yyyy MMMM"
       );
     } catch {
-      return `No date found`;
+      return `Present`;
     }
   };
 
