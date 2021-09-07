@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
+import EditModal from "./EditModal";
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -22,9 +23,13 @@ const Experiences = ({ match }) => {
     }
   };
 
+
+
+
   useEffect(() => {
     getArray();
   });
+
 
   return (
     <section className="px-5 py-2">
