@@ -1,10 +1,24 @@
+
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
 import EditModal from "./EditModal";
+import { render } from "@testing-library/react";
+import AddExperienceModal from "./AddExperienceModal";
+
+
+
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
+    let urlstring = window.location.href.slice(-2);
+  let isMe = false;
+  if (urlstring === "me") {
+    isMe = true;
+  } else {
+    isMe = false;
+  }
+  
   const experienceId = "611d2acd2d52620015b6de6e";
   const [experienceArray, setExperienceArray] = useState([]);
 
@@ -33,8 +47,9 @@ const Experiences = ({ match }) => {
 
   return (
     <section className="px-5 py-2">
-      <Row>
+ <Row className="d-flex justify-content-between">
         <h3>Experience</h3>
+        {isMe === true && <AddExperienceModal />}
       </Row>
       {console.log(experienceArray)}
 
