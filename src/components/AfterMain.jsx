@@ -5,9 +5,64 @@ import Experiences from "./Experiences";
 const AfterMain = () => {
   return (
     <Container>
+      <Card
+        id="activity-card"
+        style={{
+          width: "100%",
+          marginTop: "1rem",
+          paddingLeft: "15px",
+          borderRadius: "8px",
+        }}
+        className="mb-3"
+      >
+        <Card.Body>
+          <Card.Title>
+            {/* <h3>Activity</h3> */}
+            Activity
+          </Card.Title>
+          <Card.Text>
+            {/* <h4>97 Followers</h4> */}
+            97 Followers
+          </Card.Text>
+        </Card.Body>
+        <Row>
+          <Col xs={12} md={6}>
+            <Row>
+              <Col xs={3}>
+                <img src={StriveLogo} alt="" />
+              </Col>
+              <Col xs={9}>
+                <p className="activity">
+                  I'm studying Web Development with Strive School!
+                </p>
+                <p className="text-muted"> James replied to a comment</p>
+              </Col>
+            </Row>
+          </Col>
+          <Col xs={12} md={6}>
+            <Row>
+              <Col xs={3}>
+                <img src={StriveLogo} alt="" />
+              </Col>
+              <Col xs={9}>
+                <p className="activity">
+                  I'm studying Web Development with Strive School!
+                </p>
+                <p className="text-muted"> James replied to a comment</p>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <a href="#somewhere">
+          <Row className="text-center">
+            <p className="text-muted mx-auto">See all activity</p>
+          </Row>
+        </a>
+      </Card>
+
       <div className="after-main">
         <section className="px-5 py-2 mb-4 activities">
-          <Row>
+          {/* <Row>
             <div>
               <h3>Activity</h3>
               <h4>97 Followers</h4>
@@ -45,9 +100,10 @@ const AfterMain = () => {
             <Row className="text-center">
               <p className="text-muted mx-auto">See all activity</p>
             </Row>
-          </a>
+          </a> */}
         </section>
-      <Experiences/>
+
+        <Experiences />
 
         <section className="px-5 mb-4">
           <Row>
