@@ -2,7 +2,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProfileTopCard from "./components/ProfileTopCard";
 import AfterMain from "./components/AfterMain";
-import PeopleSection from "./components/PeopleAlsoView";
+import PeopleSection from "./components/PeopleSection";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";

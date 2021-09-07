@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
-import "./PeopleAlsoView.css";
 import { Container, Button } from "react-bootstrap";
 import PeopleRow from "./PeopleRow";
 import "./ShowButton.css";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import "./PeopleSection.css";
 
-const PeopleSection = ({sectionTitle}) => {
+const PeopleSection = ({ sectionTitle }) => {
   const [peopleInfos, setPeopleInfos] = useState([]);
   const [show, setShow] = useState(true);
 
-  //fetching to get image
-  const getImage = async () => {
+  const getInfo = async () => {
     try {
       const response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/",
@@ -32,19 +31,19 @@ const PeopleSection = ({sectionTitle}) => {
   };
 
   useEffect(() => {
-    getImage();
+    getInfo();
   }, []);
 
   console.log(peopleInfos);
   return (
-    <Container className="my-4">
-        <h5>{sectionTitle}</h5>
+    <Container className="my-4 PeopleContainer container-fluid">
+      <h5 className="mt-3">{sectionTitle}</h5>
       <PeopleRow peopleInfos={peopleInfos} show={show} />
-      <div className="ShowDiv text-center">
+      <div className="ShowDiv text-center p-0">
         <Button
           type="button"
           id="ShowButton"
-        //   variant="outline-secondary"
+          //   variant="outline-secondary"
           onClick={() => setShow(!show)}
         >
           {show && (
@@ -64,5 +63,3 @@ const PeopleSection = ({sectionTitle}) => {
 };
 
 export default PeopleSection;
-
-

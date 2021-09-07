@@ -1,19 +1,6 @@
-.ShowDiv {
-  border: 1px solid grey;
+.ShowDiv{
+  width: 100%;
 }
-
-/* .ShowDiv Button{
-    border-style: none;
-    background-color: transparent;
-    color: black;
-
-} */
-/* 
-.ShowDiv Button:hover {
-    background-color: transparent;
-    color: black;
-    transform: scale(1.1);
-  } */
 
 #ShowButton {
   border: 0px !important;

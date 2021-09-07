@@ -6,6 +6,11 @@
 
 .MessageButton{
     border-radius: 5rem;
+    border-color: #6C757D;
+    width: 6rem;
+    padding-top: 0.17rem;
+    padding-bottom: 0.17rem;
+
 }
 
 .PeopleCard{
