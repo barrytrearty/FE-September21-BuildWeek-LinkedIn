@@ -8,14 +8,14 @@ function AddExperienceModal() {
     role: "",
     company: "",
     startDate: "2020-05-14",
-    endDate: null,
+    endDate: "",
     description: "",
     area: "",
     company: "",
     image: "",
   });
 
-  const [currentlyWorking, setcurrentlyWorking] = useState(true);
+  const [currentlyWorking, setcurrentlyWorking] = useState(false);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -70,6 +70,9 @@ function AddExperienceModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (experience.endDate === "") {
+      setExperience({ ...experience, endDate: null });
+    }
     postData();
   };
 
