@@ -5,70 +5,22 @@ import Experiences from "./Experiences";
 const AfterMain = () => {
   return (
     <Container>
-      <Card
-        id="activity-card"
-        style={{
-          width: "100%",
-          marginTop: "1rem",
-          paddingLeft: "15px",
-          borderRadius: "8px",
-        }}
-        className="mb-3"
-      >
-        <Card.Body>
-          <Card.Title>
-            {/* <h3>Activity</h3> */}
-            Activity
-          </Card.Title>
-          <Card.Text>
-            {/* <h4>97 Followers</h4> */}
-            97 Followers
-          </Card.Text>
-        </Card.Body>
-        <Row>
-          <Col xs={12} md={6}>
-            <Row>
-              <Col xs={3}>
-                <img src={StriveLogo} alt="" />
-              </Col>
-              <Col xs={9}>
-                <p className="activity">
-                  I'm studying Web Development with Strive School!
-                </p>
-                <p className="text-muted"> James replied to a comment</p>
-              </Col>
-            </Row>
-          </Col>
-          <Col xs={12} md={6}>
-            <Row>
-              <Col xs={3}>
-                <img src={StriveLogo} alt="" />
-              </Col>
-              <Col xs={9}>
-                <p className="activity">
-                  I'm studying Web Development with Strive School!
-                </p>
-                <p className="text-muted"> James replied to a comment</p>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <a href="#somewhere">
-          <Row className="text-center">
-            <p className="text-muted mx-auto">See all activity</p>
-          </Row>
-        </a>
-      </Card>
-
       <div className="after-main">
-        <section className="px-5 py-2 mb-4 activities">
-          {/* <Row>
-            <div>
-              <h3>Activity</h3>
-              <h4>97 Followers</h4>
-            </div>
-          </Row>
-          <Row>
+        <Card
+          id="activity-card"
+          style={{
+            width: "100%",
+            marginTop: "1rem",
+            paddingLeft: "15px",
+            borderRadius: "8px",
+          }}
+          className="py-2 mb-4 activities"
+        >
+          <Card.Body>
+            <Card.Title>Activity</Card.Title>
+            <Card.Text>97 Followers</Card.Text>
+          </Card.Body>
+          <Row className="px-3">
             <Col xs={12} md={6}>
               <Row>
                 <Col xs={3}>
@@ -100,18 +52,17 @@ const AfterMain = () => {
             <Row className="text-center">
               <p className="text-muted mx-auto">See all activity</p>
             </Row>
-          </a> */}
-        </section>
+          </a>
+        </Card>
 
         <Experiences />
 
-        <section className="px-5 mb-4">
+        <Card className="px-4 py-2 mb-4">
           <Row>
-            <h3>Education</h3>
+            <Card.Title className="px-3">Education</Card.Title>
           </Row>
-          <Row className="border-bottom">
+          <Row>
             <Col xs={2}>
-              {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
             </Col>
             <Col className="my-3">
@@ -120,7 +71,7 @@ const AfterMain = () => {
               <p className="p-muted">2015-2018</p>
             </Col>
           </Row>
-          <Row className="border-bottom">
+          <Row>
             <Col xs={2}>
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
@@ -132,7 +83,7 @@ const AfterMain = () => {
             </Col>
           </Row>
 
-          <Row className="border-bottom">
+          <Row>
             <Col xs={2}>
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
@@ -143,12 +94,13 @@ const AfterMain = () => {
               <p className="p-muted">2015-2018</p>
             </Col>
           </Row>
-        </section>
-        <section className="px-5 py-2 mb-4">
+        </Card>
+
+        <Card className="px-4 py-2 mb-4">
           <Row>
-            <h3>Licenses & Certifications</h3>
+            <Card.Title className="px-3">Licenses & Certifications</Card.Title>
           </Row>
-          <Row className="border-bottom">
+          <Row>
             <Col xs={2}>
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
@@ -161,7 +113,7 @@ const AfterMain = () => {
               <p className="p-muted">Issued Sep 2021 - No Expiration Date</p>
             </Col>
           </Row>
-          <Row className="border-bottom">
+          <Row>
             <Col xs={2}>
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
@@ -175,7 +127,7 @@ const AfterMain = () => {
             </Col>
           </Row>
 
-          <Row className="border-bottom">
+          <Row>
             <Col xs={2}>
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
@@ -188,15 +140,17 @@ const AfterMain = () => {
               <p className="p-muted">Issued Jun 2021 - No Expiration Date</p>
             </Col>
           </Row>
-          <Row>Show more</Row>
-        </section>
+          <Row className="text-center">
+            <p className="text-muted mx-auto">Show More</p>
+          </Row>
+        </Card>
 
-        <section className="px-5 mb-4">
+        <Card className="px-4 py-2 mb-4">
           <Row>
-            <h3>Interests</h3>
+            <Card.Title className="px-3">Interests</Card.Title>
           </Row>
           <Row>
-            <Col xs={6}>
+            <Col xs={12} md={6}>
               <Row>
                 <Col xs={3}>
                   <img src={StriveLogo} alt="" className="mt-3" />
@@ -210,7 +164,7 @@ const AfterMain = () => {
                 </Col>
               </Row>
             </Col>
-            <Col xs={6}>
+            <Col xs={12} md={6}>
               <Row>
                 <Col xs={3}>
                   <img src={StriveLogo} alt="" className="mt-3" />
@@ -224,7 +178,7 @@ const AfterMain = () => {
                 </Col>
               </Row>
             </Col>
-            <Col xs={6}>
+            <Col xs={12} md={6}>
               <Row>
                 <Col xs={3}>
                   <img src={StriveLogo} alt="" className="mt-3" />
@@ -238,7 +192,7 @@ const AfterMain = () => {
                 </Col>
               </Row>
             </Col>
-            <Col xs={6}>
+            <Col xs={12} md={6}>
               <Row>
                 <Col xs={3}>
                   <img src={StriveLogo} alt="" className="mt-3" />
@@ -252,7 +206,7 @@ const AfterMain = () => {
                 </Col>
               </Row>
             </Col>
-            <Col xs={6}>
+            <Col xs={12} md={6}>
               <Row>
                 <Col xs={3}>
                   <img src={StriveLogo} alt="" className="mt-3" />
@@ -266,7 +220,7 @@ const AfterMain = () => {
                 </Col>
               </Row>
             </Col>
-            <Col xs={6}>
+            <Col xs={12} md={6}>
               <Row>
                 <Col xs={3}>
                   <img src={StriveLogo} alt="" className="mt-3" />
@@ -284,7 +238,7 @@ const AfterMain = () => {
           <Row className="text-center">
             <p className="text-muted mx-auto">Show More</p>
           </Row>
-        </section>
+        </Card>
       </div>
     </Container>
   );
