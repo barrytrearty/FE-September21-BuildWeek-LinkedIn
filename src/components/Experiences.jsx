@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
-import EditModal from "./EditModal";
+import EditModal from "./EditModal.jsx";
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -43,13 +43,16 @@ const Experiences = ({ match }) => {
           <Col xs={2}>
             <img src={StriveLogo} alt="" className="mt-3" />
           </Col>
-          <Col className="my-3">
+          <Col className="my-3 d-flex flex-row">
+            <div className="Experience">
             <p className="p-heading">{experience.role}</p>
             <p className="p-secondary">{experience.company}</p>
             <p className="p-muted">
               {experience.startDate} - {experience.EndDate}{" "}
             </p>
             <p className="p-secondary">{experience.description}</p>
+            </div>
+              <EditModal />
           </Col>{" "}
         </Row>
       ))}

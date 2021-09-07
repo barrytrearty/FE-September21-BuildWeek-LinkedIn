@@ -6,6 +6,8 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BiPencil } from "react-icons/bi";
 import { Form, FormControl, Dropdown, DropdownButton, ButtonGroup } from "react-bootstrap";
 import "./EditModal.css"
+import "./DeleteExperience.jsx"
+
 
 function EditModal(props) {
     const [show, setShow] = useState(false);
@@ -113,8 +115,8 @@ function EditModal(props) {
     ))}
           </Modal.Body>
           <Modal.Footer>
-    <Button variant="secondary">Delete experience</Button>
-    <Button variant="primary">Save</Button>
+    <Button variant="secondary" className="modalButton">Delete experience</Button>
+   
   </Modal.Footer>
 
         </Modal>
@@ -123,3 +125,4 @@ function EditModal(props) {
   }
 
 export default EditModal;
+
