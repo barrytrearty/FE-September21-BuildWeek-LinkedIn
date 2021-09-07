@@ -1,7 +1,22 @@
 import React, { Component } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import {
+  Modal,
+  Row,
+  Col,
+  Button,
+  Form,
+  FormControl,
+  Dropdown,
+  DropdownButton,
+  ButtonGroup,
+} from "react-bootstrap";
+import { FaLinkedin } from "react-icons/fa";
+import { AiOutlineMail } from "react-icons/ai";
+import { BiPencil } from "react-icons/bi";
+import "./EditModal.css";
+import "./DeleteExperience.jsx";
 import { FiEdit2 } from "react-icons/fi";
-import { useEffect, useState,useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 function EditExperienceModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
@@ -34,11 +49,12 @@ function EditExperienceModal({ userId, experienceId }) {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        setRole(data.role)
-        setCompany(data.company)
-        setLocation(data.location)
-        setStartDate(data.startDate)
-        setEndDate(data.endDate)
+        setRole(data.role);
+        setCompany(data.company);
+        setLocation(data.location);
+        setStartDate(data.startDate);
+        setEndDate(data.endDate);
+        setDescription(data.description);
       }
     } catch (error) {
       console.log(error);
@@ -48,8 +64,8 @@ function EditExperienceModal({ userId, experienceId }) {
     getExperience();
   }, [getExperience]);
 
-  console.log(role)
-  console.log(company)
+  console.log(role);
+  console.log(company);
 
   return (
     <>
@@ -127,7 +143,11 @@ function EditExperienceModal({ userId, experienceId }) {
 
             <small>End date*</small>
             <div className="d-flex mb-4">
-              <Form.Control className="mr-2 border-dark" size="sm" type="text" />
+              <Form.Control
+                className="mr-2 border-dark"
+                size="sm"
+                type="text"
+              />
               {/* <option>Month</option>
               </Form.Control>
 
