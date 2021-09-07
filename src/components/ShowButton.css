@@ -2,11 +2,16 @@
   width: 100%;
 }
 
+.ShowDiv button {
+  box-shadow: none !important;
+}
+
 #ShowButton {
   border: 0px !important;
   border-style: none !important;
   background-color: transparent;
   color: black;
+
 }
 
 #ShowButton:hover {

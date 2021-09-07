@@ -15,11 +15,11 @@ function App() {
       <Navbar />
       <Container>
         <Row>
-          <Col xs={12} sm={8}>
+          <Col xs={12} sm={12} lg={8}>
             <ProfileTopCard />
             <AfterMain />
           </Col>
-          <Col xs={12} sm={4}>
+          <Col xs={12} sm={12} lg={4}>
             <PeopleSection sectionTitle="People also view" />
             <PeopleSection sectionTitle="People you may know" />
           </Col>
