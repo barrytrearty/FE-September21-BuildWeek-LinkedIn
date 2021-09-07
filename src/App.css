@@ -155,7 +155,13 @@ button.morebutton {
   color: grey;
 } */
 
-.after-main img {
+.after-main img,
+#activity-card img {
   width: 4rem;
   height: 4rem;
 }
+
+/* #activity-card img {
+  width: 4rem;
+  height: 4rem;
+} */
