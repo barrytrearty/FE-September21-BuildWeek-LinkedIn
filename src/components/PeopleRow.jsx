@@ -5,6 +5,7 @@ import PeopleCard from "./PeopleCard";
 
 const PeopleRow = ({ peopleInfos, show }) => {
 
+
   // Requiring the lodash library 
 const _  = require("lodash"); 
 

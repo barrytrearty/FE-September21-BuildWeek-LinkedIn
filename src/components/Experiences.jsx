@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
-import EditModal from "./EditModal.jsx";
-
+import EditModal from "./EditModal";
 import { format, parseISO } from "date-fns";
-
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
-
 import { BiPurchaseTag } from "react-icons/bi";
-import EditExperienceModal from "./EditModal";
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -64,7 +60,6 @@ const Experiences = ({ match }) => {
     <Card className="px-4 py-2 sectiontext pt-4">
       <Row className="d-flex justify-content-between">
         <Card.Title className="px-3 sectionheader">Experience</Card.Title>
-
         {isMe === true && <AddExperienceModal />}
       </Row>
       {console.log(experienceArray)}
@@ -74,34 +69,33 @@ const Experiences = ({ match }) => {
           <Col xs={1} className="mr-4">
             <img src={experience.image} alt="" className="mt-3" />
           </Col>
+
           <Col className="my-3 d-flex flex-row ml-3">
             <div className="Experience">
+
               <p className="p-heading">{experience.role}</p>
-              <p>{experience._id}</p>
               <p className="p-secondary">{experience.company}</p>
               <p className="p-muted">
                 {fixDate(experience.startDate)} - {fixDate(experience.endDate)}{" "}
               </p>
               <p className="p-secondary">{experience.description}</p>
             </div>
-            <EditModal />
+
             {isMe === true && (
-              <EditExperienceModal
-                userId={userId}
-                experienceId={experience._id}
-              />
-            )}
-            {isMe === true && (
-              <AddExperienceModal
+              <EditModal
                 userId={userId}
                 experienceId={experience._id}
               />
             )}
 
-            {/* - GET https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
-    Get a specific experience
-    - PUT https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
-    Get a specific experience */}
+            {/* dont need the add experience on exsiting experience */}
+            {/* {isMe === true && (
+              <AddExperienceModal
+                userId={userId}
+                experienceId={experience._id}
+              />
+            )} */}
+
           </Col>{" "}
         </Row>
       ))}
