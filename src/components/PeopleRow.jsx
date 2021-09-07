@@ -2,7 +2,20 @@ import { Row, Col } from "react-bootstrap";
 import PeopleCard from "./PeopleCard";
 
 const PeopleRow = ({ peopleInfos, show }) => {
-  return (
+
+
+// Requiring the lodash library 
+const _ = require("lodash"); 
+       
+// Original array 
+var array = peopleInfos 
+   
+// Use of _.shuffle() method
+let shuffled_array = _.shuffle(array);
+
+console.log(shuffled_array)
+// Printing the output 
+console.log(shuffled_array);  return (
     <>
       <Row>
         {show && peopleInfos.slice(0, 4).map((peopleInfo) => (

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { FiEdit2 } from "react-icons/fi";
-import { useEffect, useState,useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
+import "./Edit.css";
 
 function EditExperienceModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
@@ -25,7 +26,7 @@ function EditExperienceModal({ userId, experienceId }) {
 
         {
           headers: {
-            method: "PUT",
+            method: "GET",
             Authorization:
               "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
           },
@@ -34,11 +35,12 @@ function EditExperienceModal({ userId, experienceId }) {
       if (response.ok) {
         const data = await response.json();
         console.log(data);
-        setRole(data.role)
-        setCompany(data.company)
-        setLocation(data.location)
-        setStartDate(data.startDate)
-        setEndDate(data.endDate)
+        setRole(data.role);
+        setCompany(data.company);
+        setLocation(data.location);
+        setStartDate(data.startDate);
+        setEndDate(data.endDate);
+        setDescription(data.description);
       }
     } catch (error) {
       console.log(error);
@@ -48,13 +50,13 @@ function EditExperienceModal({ userId, experienceId }) {
     getExperience();
   }, [getExperience]);
 
-  console.log(role)
-  console.log(company)
+  console.log(role);
+  console.log(company);
 
   return (
     <>
-      <a onClick={handleShow} className="modallink">
-        <FiEdit2 size={27} />
+      <a onClick={handleShow} className="modallink ml-auto">
+        <FiEdit2 className="EditIcon" />
       </a>
 
       <Modal size="lg" show={show} onHide={handleClose}>
@@ -74,6 +76,7 @@ function EditExperienceModal({ userId, experienceId }) {
                 placeholder="Ex: Retail Sales Manager"
                 className="border border-dark"
                 defaultValue={role}
+                onChange={(e) => setRole(e.target.value)}
               />
             </Form.Group>
 
@@ -87,6 +90,7 @@ function EditExperienceModal({ userId, experienceId }) {
                 type="text"
                 placeholder="Ex: Microsoft"
                 defaultValue={company}
+                onChange={(e) => setCompany(e.target.value)}
               />
             </Form.Group>
 
@@ -99,6 +103,8 @@ function EditExperienceModal({ userId, experienceId }) {
                 type="text"
                 className="border border-dark"
                 placeholder="Ex: London, United Kingdom"
+                defaultValue={location}
+                onChange={(e) => setLocation(e.target.value)}
               />
             </Form.Group>
 
@@ -116,6 +122,8 @@ function EditExperienceModal({ userId, experienceId }) {
                 className="mr-2 border border-dark"
                 size="sm"
                 type="text"
+                defaultValue={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
               />
               {/* <option>Month</option>
               </Form.Control>
@@ -127,7 +135,13 @@ function EditExperienceModal({ userId, experienceId }) {
 
             <small>End date*</small>
             <div className="d-flex mb-4">
-              <Form.Control className="mr-2 border-dark" size="sm" type="text" />
+              <Form.Control
+                className="mr-2 border-dark"
+                size="sm"
+                type="text"
+                defaultValue={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
               {/* <option>Month</option>
               </Form.Control>
 
@@ -141,7 +155,13 @@ function EditExperienceModal({ userId, experienceId }) {
               controlId="formJobDescription"
             >
               <Form.Label>Description</Form.Label>
-              <Form.Control className="border-dark" type="textarea" rows={3} />
+              <Form.Control
+                className="border-dark"
+                type="textarea"
+                rows={3}
+                defaultValue={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
             </Form.Group>
 
             <Form.Group>
@@ -150,8 +170,11 @@ function EditExperienceModal({ userId, experienceId }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button id="savemodalbutton" variant="primary" type="button">
-            Save
+          <Button id="savemodalbutton" variant="primary">
+            Edit
+          </Button>
+          <Button id="savemodalbutton" variant="secondary" type="button">
+            Cancel
           </Button>
         </Modal.Footer>
       </Modal>
