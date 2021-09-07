@@ -44,7 +44,7 @@ const AfterMain = () => {
           <a href="#somewhere">
             <Row className="text-center">
               <p className="text-muted mx-auto">See all activity</p>
-            </Row>{" "}
+            </Row>
           </a>
         </section>
       <Experiences/>
@@ -135,8 +135,99 @@ const AfterMain = () => {
           <Row>Show more</Row>
         </section>
 
-        <section>
-          <Row></Row>
+        <section className="px-5 mb-4">
+          <Row>
+            <h3>Interests</h3>
+          </Row>
+          <Row>
+            <Col xs={6}>
+              <Row>
+                <Col xs={3}>
+                  <img src={StriveLogo} alt="" className="mt-3" />
+                </Col>
+                {/* <Col className=""> */}
+                <Col xs={9} className="mt-4">
+                  <p p className="p-heading">
+                    Princeton University
+                  </p>
+                  <p className="p-muted">2456634 followers</p>
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={6}>
+              <Row>
+                <Col xs={3}>
+                  <img src={StriveLogo} alt="" className="mt-3" />
+                </Col>
+                {/* <Col className=""> */}
+                <Col xs={9} className="mt-4">
+                  <p p className="p-heading">
+                    Princeton University
+                  </p>
+                  <p className="p-muted">2456634 followers</p>
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={6}>
+              <Row>
+                <Col xs={3}>
+                  <img src={StriveLogo} alt="" className="mt-3" />
+                </Col>
+                {/* <Col className=""> */}
+                <Col xs={9} className="mt-4">
+                  <p p className="p-heading">
+                    Princeton University
+                  </p>
+                  <p className="p-muted">2456634 followers</p>
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={6}>
+              <Row>
+                <Col xs={3}>
+                  <img src={StriveLogo} alt="" className="mt-3" />
+                </Col>
+                {/* <Col className=""> */}
+                <Col xs={9} className="mt-4">
+                  <p p className="p-heading">
+                    Princeton University
+                  </p>
+                  <p className="p-muted">2456634 followers</p>
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={6}>
+              <Row>
+                <Col xs={3}>
+                  <img src={StriveLogo} alt="" className="mt-3" />
+                </Col>
+                {/* <Col className=""> */}
+                <Col xs={9} className="mt-4">
+                  <p p className="p-heading">
+                    Princeton University
+                  </p>
+                  <p className="p-muted">2456634 followers</p>
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={6}>
+              <Row>
+                <Col xs={3}>
+                  <img src={StriveLogo} alt="" className="mt-3" />
+                </Col>
+                {/* <Col className=""> */}
+                <Col xs={9} className="mt-4">
+                  <p p className="p-heading">
+                    Princeton University
+                  </p>
+                  <p className="p-muted">2456634 followers</p>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+          <Row className="text-center">
+            <p className="text-muted mx-auto">Show More</p>
+          </Row>
         </section>
       </div>
     </Container>
