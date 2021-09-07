@@ -1,10 +1,26 @@
 import React, { Component } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import {
+  Modal,
+  Row,
+  Col,
+  Button,
+  Form,
+  FormControl,
+  Dropdown,
+  DropdownButton,
+  ButtonGroup,
+} from "react-bootstrap";
+import { FaLinkedin } from "react-icons/fa";
+import { AiOutlineMail } from "react-icons/ai";
+import { BiPencil } from "react-icons/bi";
+import "./EditModal.css";
+import "./DeleteExperience.jsx";
 import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
 
-function EditExperienceModal({ userId, experienceId }) {
+
+function EditModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -141,6 +157,7 @@ function EditExperienceModal({ userId, experienceId }) {
                 type="text"
                 defaultValue={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
+
               />
               {/* <option>Month</option>
               </Form.Control>
@@ -182,4 +199,4 @@ function EditExperienceModal({ userId, experienceId }) {
   );
 }
 
-export default EditExperienceModal;
+export default EditModal;

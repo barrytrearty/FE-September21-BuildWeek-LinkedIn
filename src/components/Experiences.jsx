@@ -6,7 +6,6 @@ import { format, parseISO } from "date-fns";
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
 import { BiPurchaseTag } from "react-icons/bi";
-import EditExperienceModal from "./EditModal";
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -18,13 +17,16 @@ const Experiences = ({ match }) => {
     isMe = false;
   }
 
+  const experienceId = "611d2acd2d52620015b6de6e";
   const userId = "611d2acd2d52620015b6de6e";
+
   const [experienceArray, setExperienceArray] = useState([]);
 
   const getArray = async () => {
     try {
       let response = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
+
         {
           headers: {
             Authorization:
@@ -43,10 +45,10 @@ const Experiences = ({ match }) => {
     try {
       return format(
         parseISO(date), // 1)
-        "yyyy MMMM dd"
+        "yyyy MMMM"
       );
     } catch {
-      return `No date found`;
+      return `Present`;
     }
   };
 
@@ -55,20 +57,22 @@ const Experiences = ({ match }) => {
   }, []);
 
   return (
-    <Card className="px-4 py-2">
+    <Card className="px-4 py-2 sectiontext pt-4">
       <Row className="d-flex justify-content-between">
-        <Card.Title className="px-3">Experience</Card.Title>
-        {/* {isMe === true && <AddExperienceModal />} */}
+        <Card.Title className="px-3 sectionheader">Experience</Card.Title>
+        {isMe === true && <AddExperienceModal />}
       </Row>
       {console.log(experienceArray)}
 
       {experienceArray.map((experience) => (
         <Row key={experience._id}>
-          <Col xs={2}>
-            <img src={StriveLogo} alt="" className="mt-3" />
+          <Col xs={1} className="mr-4">
+            <img src={experience.image} alt="" className="mt-3" />
           </Col>
-          <Col className="my-3 d-flex flex-col">
-            <div>
+
+          <Col className="my-3 d-flex flex-row ml-3">
+            <div className="Experience">
+
               <p className="p-heading">{experience.role}</p>
               <p className="p-secondary">{experience.company}</p>
               <p className="p-muted">
@@ -76,23 +80,22 @@ const Experiences = ({ match }) => {
               </p>
               <p className="p-secondary">{experience.description}</p>
             </div>
-            {isMe && (
-              <EditExperienceModal
+
+            {isMe === true && (
+              <EditModal
                 userId={userId}
                 experienceId={experience._id}
               />
             )}
-            {/* {isMe && (
+
+            {/* dont need the add experience on exsiting experience */}
+            {/* {isMe === true && (
               <AddExperienceModal
                 userId={userId}
                 experienceId={experience._id}
               />
             )} */}
 
-            {/* - GET https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
-    Get a specific experience
-    - PUT https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
-    Get a specific experience */}
           </Col>{" "}
         </Row>
       ))}
