@@ -38,22 +38,23 @@ class ProfileTopCard extends Component {
 
   render() {
     return (
-      <Container>
+      <Container className="px-0">
         <Card style={{ width: "100%", borderRadius: "8px" }}>
           <Card.Img
             variant="top"
             src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fjosephliu%2Ffiles%2F2019%2F06%2F10-ferdinand-stohr-149422-unsplash-1200x298.jpg"
+            className="bannerImage"
           />
+
           <Image
-            className="profileimage"
+            className="profileimage ml-4"
             src={this.state.user.image}
             roundedCircle
           />
 
-          <Card.Body>
-            <div style={{ height: "1.8em" }}></div>
+          <Card.Body className="pt-1 px-1 pb-2">
             <Row className="ml-1 mr-3">
-              <Col sm={8}>
+              <Col xs={12} sm={8}>
                 <Card.Title className="mb-0" style={{ fontSize: "1.5em" }}>
                   {this.state.user.name} {this.state.user.surname}{" "}
                   <small className="text-muted">1st</small>
@@ -84,20 +85,20 @@ class ProfileTopCard extends Component {
                   </small>
                 </Card.Text>
                 <Button
-                  className="mr-2 messagebutton px-3 py-1"
+                  className="mr-2 messagebutton px-3 py-1 mb-3"
                   variant="primary"
                 >
                   Message
                 </Button>
                 <Button
-                  className="morebutton px-3 py-1"
+                  className="morebutton px-3 py-1 mb-3"
                   variant="outline-secondary"
                 >
                   More
                 </Button>
               </Col>
 
-              <Col sm={4}>
+              <Col xs={0} sm={4} className="d-none d-md-block">
                 <Row>
                   <Col sm={2}>
                     <img
@@ -136,14 +137,15 @@ class ProfileTopCard extends Component {
           style={{
             width: "100%",
             marginTop: "1rem",
-            paddingLeft: "15px",
             borderRadius: "8px",
           }}
           className="mb-3"
         >
-          <Card.Body>
-            <Card.Title id="aboutheader">About</Card.Title>
-            <Card.Text id="abouttext">{this.state.user.bio}</Card.Text>
+          <Card.Body className="py-4 px-4">
+            <Card.Title class="sectionheader pb-3">About</Card.Title>
+            <Card.Text class="sectiontext mb-0">
+              {this.state.user.bio}
+            </Card.Text>
           </Card.Body>
         </Card>
       </Container>
