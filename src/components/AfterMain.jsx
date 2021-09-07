@@ -50,9 +50,12 @@ const AfterMain = () => {
               </Row>
             </Col>
           </Row>
+          <hr className="my-2" />
           <a href="#somewhere">
             <Row className="text-center">
-              <p className="text-muted mx-auto">See all activity</p>
+              <p className="text-muted mx-auto pb-1 sectiontext">
+                See all activity
+              </p>
             </Row>
           </a>
         </Card>
@@ -64,21 +67,21 @@ const AfterMain = () => {
             <Card.Title className="px-3 sectionheader">Education</Card.Title>
           </Row>
           <Row>
-            <Col xs={2}>
+            <Col xs={1} className="mr-4">
               <img src={StriveLogo} alt="" className="mt-3" />
             </Col>
-            <Col className="my-3 pr-5 ml-4">
+            <Col className="my-3 ml-3">
               <p className="p-heading">Buckinghamshire New University</p>
               <p className="p-secondary">Independent - Game Production</p>
               <p className="p-muted">2015-2018</p>
             </Col>
           </Row>
           <Row>
-            <Col xs={2}>
+            <Col xs={1} className="mr-4">
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
             </Col>
-            <Col className="my-3 pr-5 ml-4">
+            <Col className="my-3 ml-3">
               <p className="p-heading">De Montfort University</p>
               <p className="p-secondary">Film Production Technology</p>
               <p className="p-muted">2015-2016</p>
@@ -86,11 +89,11 @@ const AfterMain = () => {
           </Row>
 
           <Row>
-            <Col xs={2}>
+            <Col xs={1} className="mr-4">
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
             </Col>
-            <Col className="my-3 pr-5 ml-4">
+            <Col className="my-3 ml-3">
               <p className="p-heading">Princeton University</p>
               <p className="p-secondary">Certification</p>
               <p className="p-muted">2015-2018</p>
@@ -105,11 +108,11 @@ const AfterMain = () => {
             </Card.Title>
           </Row>
           <Row>
-            <Col xs={2}>
+            <Col xs={1} className="mr-4">
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
             </Col>
-            <Col className="my-3 ml-4">
+            <Col className="my-3 ml-3">
               <p className="p-heading">
                 Module 4 - ReactJS / SPA / Components/ Routing
               </p>
@@ -118,11 +121,11 @@ const AfterMain = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs={2}>
+            <Col xs={1} className="mr-4">
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
             </Col>
-            <Col className="my-3 ml-4">
+            <Col className="my-3 ml-3">
               <p p className="p-heading">
                 Module 3 - Advanced JS - ES6 / Promises / AJAX
               </p>
@@ -131,12 +134,12 @@ const AfterMain = () => {
             </Col>
           </Row>
 
-          <Row>
-            <Col xs={2}>
+          <Row className="mb-2">
+            <Col xs={1} className="mr-4">
               {" "}
               <img src={StriveLogo} alt="" className="mt-3" />
             </Col>
-            <Col className="my-3 ml-4">
+            <Col className="my-3 ml-3">
               <p p className="p-heading">
                 Module 2 - CSS / UX / UI / Bootstrap
               </p>
@@ -144,8 +147,9 @@ const AfterMain = () => {
               <p className="p-muted">Issued Jun 2021 - No Expiration Date</p>
             </Col>
           </Row>
+          <hr className="my-2" />
           <Row className="text-center">
-            <p className="text-muted mx-auto">Show More</p>
+            <p className="text-muted mx-auto pb-1">Show More</p>
           </Row>
         </Card>
 
@@ -155,7 +159,7 @@ const AfterMain = () => {
               Interests
             </Card.Title>
           </Row>
-          <Row>
+          <Row className="mb-2">
             <Col xs={12} md={6}>
               <Row>
                 <Col xs={2}>
@@ -241,8 +245,9 @@ const AfterMain = () => {
               </Row>
             </Col>
           </Row>
+          <hr className="my-2" />
           <Row className="text-center">
-            <p className="text-muted mx-auto">Show More</p>
+            <p className="text-muted mx-auto pb-1">Show More</p>
           </Row>
         </Card>
       </div>
