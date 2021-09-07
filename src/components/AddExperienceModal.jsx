@@ -1,9 +1,17 @@
-import React, { useEffect } from "react";
+
+import React, { Component, useEffect } from "react";
+
 import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 import { CgMathPlus } from "react-icons/cg";
+import { parseISO, format } from "date-fns";
 
-function AddExperienceModal() {
+
+function AddExperienceModal(props) {
+  const [show, setShow] = useState(false);
+  const [startDate, setStartDate] = useState({ year: "", month: "" });
+  const [endDate, setEndDate] = useState({ year: "", month: "" });
+
   const [experience, setExperience] = useState({
     role: "",
     company: "",
@@ -17,9 +25,32 @@ function AddExperienceModal() {
 
   const [currentlyWorking, setcurrentlyWorking] = useState(false);
 
-  const [show, setShow] = useState(false);
+let years = [];
+  for (let i = 2021; i >= 1921; i--) {
+    years.push(i);
+  }
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
+  useEffect(() => {
+    // console.log(startDate, endDate);
+    const parsedDate = format(
+      new Date(startDate.year, startDate.month, 1),
+      "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"
+    );
+    console.log(parsedDate);
+  }, [startDate]);
+
+  useEffect(() => {
+    // console.log(startDate, endDate);
+    const parsedDate = format(
+      new Date(endDate.year, endDate.month, 1),
+      "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"
+    );
+    console.log(parsedDate);
+  }, [endDate]);
 
   const postData = async () => {
     try {
@@ -75,6 +106,7 @@ function AddExperienceModal() {
     }
     postData();
   };
+
 
   return (
     <>
@@ -139,102 +171,183 @@ function AddExperienceModal() {
             <small>Start date*</small>
             <div className="d-flex mb-4">
               <Form.Control
+                value={startDate.month}
                 className="mr-2 border border-dark"
                 size="sm"
                 as="select"
-                onChange={(e) => handleDateInput(e, "startDateMonth")}
+
+                placeholder="Month"
+                onChange={(e) =>
+                  setStartDate({ ...startDate, month: e.target.value })
+                }
               >
-                <option>Month</option>
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
+                <option key="-1" value="-1">
+                  Month
+                </option>
+                <option value="0">Jan</option>
+                <option value="1">Feb</option>
+                <option value="2">Mar</option>
+                <option value="3">Apr</option>
+                <option value="4">May</option>
+                <option value="5">Jun</option>
+                <option value="6">Jul</option>
+                <option value="7">Aug</option>
+                <option value="8">Sep</option>
+                <option value="9">Oct</option>
+                <option value="10">Nov</option>
+                <option value="11">Dec</option>
               </Form.Control>
 
               <Form.Control
+                value={startDate.year}
                 className="border-dark"
                 size="sm"
                 as="select"
-                onChange={(e) => handleDateInput(e, "startDateYear")}
+                onChange={(e) =>
+                  setStartDate({ ...startDate, year: e.target.value })
+                }
               >
                 <option>Year</option>
-                <option>2021</option>
-                <option>2020</option>
-                <option>2019</option>
-                <option>2018</option>
-                <option>2017</option>
-                <option>2016</option>
-                <option>2015</option>
-                <option>2014</option>
-                <option>2013</option>
-                <option>2012</option>
-                <option>2011</option>
-                <option>2010</option>
-                <option>2009</option>
-                <option>2008</option>
-                <option>2007</option>
-                <option>2006</option>
-                <option>2005</option>
+                {years.map((year) => (
+                  <option>{year}</option>
+                ))}
+//James
+//                 onChange={(e) => handleDateInput(e, "startDateMonth")}
+//               >
+//                 <option>Month</option>
+//                 <option>January</option>
+//                 <option>February</option>
+//                 <option>March</option>
+//                 <option>April</option>
+//                 <option>May</option>
+//                 <option>June</option>
+//                 <option>July</option>
+//                 <option>August</option>
+//                 <option>September</option>
+//                 <option>October</option>
+//                 <option>November</option>
+//                 <option>December</option>
+//               </Form.Control>
+
+//               <Form.Control
+//                 className="border-dark"
+//                 size="sm"
+//                 as="select"
+//                 onChange={(e) => handleDateInput(e, "startDateYear")}
+//               >
+//                 <option>Year</option>
+//                 <option>2021</option>
+//                 <option>2020</option>
+//                 <option>2019</option>
+//                 <option>2018</option>
+//                 <option>2017</option>
+//                 <option>2016</option>
+//                 <option>2015</option>
+//                 <option>2014</option>
+//                 <option>2013</option>
+//                 <option>2012</option>
+//                 <option>2011</option>
+//                 <option>2010</option>
+//                 <option>2009</option>
+//                 <option>2008</option>
+//                 <option>2007</option>
+//                 <option>2006</option>
+//                 <option>2005</option>
+// James
               </Form.Control>
             </div>
 
             <small>End date*</small>
             <div className="d-flex mb-4">
               <Form.Control
+
+                value={endDate.month}
                 className="mr-2 border-dark"
                 size="sm"
                 as="select"
-                disabled={currentlyWorking}
-                onChange={(e) => handleDateInput(e, "endDateMonth")}
+                placeholder="Month"
+                onChange={(e) =>
+                  setEndDate({ ...endDate, month: e.target.value })
+                }
               >
-                <option>Month</option>
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
+                <option key="-1" value="-1">
+                  Month
+                </option>
+                <option value="0">Jan</option>
+                <option value="1">Feb</option>
+                <option value="2">Mar</option>
+                <option value="3">Apr</option>
+                <option value="4">May</option>
+                <option value="5">Jun</option>
+                <option value="6">Jul</option>
+                <option value="7">Aug</option>
+                <option value="8">Sep</option>
+                <option value="9">Oct</option>
+                <option value="10">Nov</option>
+                <option value="11">Dec</option>
               </Form.Control>
 
               <Form.Control
-                disabled={currentlyWorking}
+                value={endDate.year}
                 className="border-dark"
                 size="sm"
                 as="select"
-                onChange={(e) => handleDateInput(e, "endDateYear")}
+                onChange={(e) =>
+                  setEndDate({ ...endDate, year: e.target.value })
+                }
               >
                 <option>Year</option>
-                <option>2021</option>
-                <option>2020</option>
-                <option>2019</option>
-                <option>2018</option>
-                <option>2017</option>
-                <option>2016</option>
-                <option>2015</option>
-                <option>2014</option>
-                <option>2013</option>
-                <option>2012</option>
-                <option>2011</option>
-                <option>2010</option>
-                <option>2009</option>
-                <option>2008</option>
-                <option>2007</option>
-                <option>2006</option>
-                <option>2005</option>
+                {years.map((year) => (
+                  <option>{year}</option>
+                ))}
+//JAMES
+//                 className="mr-2 border-dark"
+//                 size="sm"
+//                 as="select"
+//                 disabled={currentlyWorking}
+//                 onChange={(e) => handleDateInput(e, "endDateMonth")}
+//               >
+//                 <option>Month</option>
+//                 <option>January</option>
+//                 <option>February</option>
+//                 <option>March</option>
+//                 <option>April</option>
+//                 <option>May</option>
+//                 <option>June</option>
+//                 <option>July</option>
+//                 <option>August</option>
+//                 <option>September</option>
+//                 <option>October</option>
+//                 <option>November</option>
+//                 <option>December</option>
+//               </Form.Control>
+
+//               <Form.Control
+//                 disabled={currentlyWorking}
+//                 className="border-dark"
+//                 size="sm"
+//                 as="select"
+//                 onChange={(e) => handleDateInput(e, "endDateYear")}
+//               >
+//                 <option>Year</option>
+//                 <option>2021</option>
+//                 <option>2020</option>
+//                 <option>2019</option>
+//                 <option>2018</option>
+//                 <option>2017</option>
+//                 <option>2016</option>
+//                 <option>2015</option>
+//                 <option>2014</option>
+//                 <option>2013</option>
+//                 <option>2012</option>
+//                 <option>2011</option>
+//                 <option>2010</option>
+//                 <option>2009</option>
+//                 <option>2008</option>
+//                 <option>2007</option>
+//                 <option>2006</option>
+//                 <option>2005</option>
+ //jAMES
               </Form.Control>
             </div>
 
