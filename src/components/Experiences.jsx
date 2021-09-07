@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
-import EditModal from "./EditModal.jsx";
-
+import EditModal from "./EditModal";
 import { format, parseISO } from "date-fns";
-
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
-
 import { BiPurchaseTag } from "react-icons/bi";
 
 const Experiences = ({ match }) => {
@@ -72,8 +69,10 @@ const Experiences = ({ match }) => {
           <Col xs={1} className="mr-4">
             <img src={experience.image} alt="" className="mt-3" />
           </Col>
+
           <Col className="my-3 d-flex flex-row ml-3">
             <div className="Experience">
+
               <p className="p-heading">{experience.role}</p>
               <p className="p-secondary">{experience.company}</p>
               <p className="p-muted">
@@ -88,6 +87,7 @@ const Experiences = ({ match }) => {
                 experienceId={experience._id}
               />
             )}
+
             {/* dont need the add experience on exsiting experience */}
             {/* {isMe === true && (
               <AddExperienceModal
@@ -96,10 +96,6 @@ const Experiences = ({ match }) => {
               />
             )} */}
 
-            {/* - GET https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
-    Get a specific experience
-    - PUT https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
-    Get a specific experience */}
           </Col>{" "}
         </Row>
       ))}
