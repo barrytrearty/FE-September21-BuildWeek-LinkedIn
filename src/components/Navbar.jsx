@@ -63,29 +63,29 @@ class BootstrapNavbar extends React.Component {
                     <Nav className="row-md-12 ml-5 mb-5">
                         
                       <Nav.Link href="/">
-                        <FontAwesomeIcon icon={faHouseUser} className="ml-2" /><br/>
+                        <FontAwesomeIcon icon={faHouseUser} className="ml-2 navicon" color="#4d4d4d" /><br/>
                         Home
                       </Nav.Link>
                       <Nav.Link href="/">
-                        <FontAwesomeIcon icon={faUser} className="ml-4" /><br/>
+                        <FontAwesomeIcon icon={faUser} className="ml-4 navicon" color="#4d4d4d" /><br/>
                         My Network
                       </Nav.Link>
                       <Nav.Link href="/">
-                        <FontAwesomeIcon icon={faSuitcase} className="ml-2" /><br/>
+                        <FontAwesomeIcon icon={faSuitcase} className="ml-2 navicon" color="#4d4d4d" /><br/>
                         Jobs
                       </Nav.Link>
                       <Nav.Link href="/">
-                        <FontAwesomeIcon icon={faCommentDots} className="ml-4" /><br/>
+                        <FontAwesomeIcon icon={faCommentDots} className="ml-4 navicon" color="#4d4d4d" /><br/>
                         Messaging
                       </Nav.Link>
                       <Nav.Link href="/">
-                        <FontAwesomeIcon icon={faBell} className="ml-4" /><br/>
+                        <FontAwesomeIcon icon={faBell} className="ml-4 navicon" color="#4d4d4d" /><br/>
                         Notifications
                       </Nav.Link>
                       
                       
                       <div className="ml-4">
-                      <NavDropdown title="Me" id="basic-nav-dropdown" className="mt-4">
+                      <NavDropdown title="Me" id="basic-nav-dropdown" className="mt-3">
                       <Button
                   className="connectbutton ml-4"
                   variant="outline-primary"
@@ -126,7 +126,7 @@ class BootstrapNavbar extends React.Component {
                         
                       
                       <div className="ml-5">
-                      <FontAwesomeIcon className="ml-3" icon={faTable}/><br/>
+                      <FontAwesomeIcon className="ml-3" icon={faTable} color="#4d4d4d" /><br/>
                       
                       <NavDropdown title="Work" className="mb-5" id="basic-nav-dropdown">
                       <NavDropdown.Item href="#action/3.1">

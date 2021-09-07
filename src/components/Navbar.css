@@ -2,3 +2,8 @@
     border-radius: 30px;
     font-size: 12px;
 }
+
+.navicon {
+    transform: scale(1.5)
+    
+}
