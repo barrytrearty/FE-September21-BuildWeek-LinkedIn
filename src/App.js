@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
+import MeSection from "./components/MeSection";
 
 function App() {
   return (
@@ -30,19 +31,7 @@ function App() {
             </Row>
           </Route>
           {/* we are James for now (me) */}
-          <Route path="/" exact>
-            <Row>
-              <Col xs={12} sm={12} lg={8}>
-                <ProfileTopCard />
-                <AfterMain />
-              </Col>
-
-              <Col xs={12} sm={12} lg={4}>
-                <PeopleSection sectionTitle="People also view" />
-                <PeopleSection sectionTitle="People you may know" />
-              </Col>
-            </Row>
-          </Route>
+          <Route path="/me" exact render={(routerProps) => <MeSection{...routerProps}/>}/>
         </Container>
       </Switch>
       <Footer />

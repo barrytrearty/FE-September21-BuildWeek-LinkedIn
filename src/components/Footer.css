@@ -3,6 +3,7 @@ footer {
     /* left:0; */
     bottom:0;
     /* right:0; */
+    margin-left: 165px;
   }
   
 a {
@@ -28,9 +29,3 @@ a {
     color: pink;
 }
 
-<<<<<<< Updated upstream
-/* .selectLanguage {
-    font-size: 
-} */
-=======
->>>>>>> Stashed changes

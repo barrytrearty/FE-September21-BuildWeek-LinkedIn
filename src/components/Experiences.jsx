@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import StriveLogo from "../data/logo.png";
+import EditModal from "./EditModal";
 
 
 
@@ -9,7 +10,8 @@ const Experiences = () => {
               <section className="px-5 py-2">
           {/* <section> */}
           <Row>
-            <h3>Experience</h3>
+              <h3>Experience</h3>
+             
           </Row>
           <Row className="border-bottom">
             {/* <Card> */}
@@ -18,10 +20,15 @@ const Experiences = () => {
               <img src={StriveLogo} alt="" className="mt-3" />
             </Col>
             <Col className="my-3">
-              <p className="p-heading">Student</p>
-              <p className="p-secondary">Strive Student- Full-time</p>
-              <p className="p-muted">May 2021-Present 3 years</p>
-              <p className="p-secondary">Learning Frontend Web Development</p>
+          <div className="d-flex flex-row">
+             <div>
+                  <p className="p-heading">Student</p>
+                  <p className="p-secondary">Strive Student- Full-time</p>
+                  <p className="p-muted">May 2021-Present 3 years</p>
+                  <p className="p-secondary">Learning Frontend Web Development</p>
+             </div>
+              <EditModal />
+          </div>
             </Col>
             {/* </Card> */}
           </Row>
