@@ -161,7 +161,25 @@ button.morebutton {
   height: 4rem;
 }
 
+
+/* ADD EXPERIENCE MODAL SECTION */
+#savemodalbutton {
+  border-radius: 25px;
+  background-color: #1d66c2;
+  border: none;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
+.modal-content {
+  -webkit-border-radius: 11px !important;
+  -moz-border-radius: 11px !important;
+  border-radius: 11px !important;
+  box-shadow: 0px 0px 5px rgb(61, 61, 61);
+}
+
 /* #activity-card img {
   width: 4rem;
   height: 4rem;
 } */
+
