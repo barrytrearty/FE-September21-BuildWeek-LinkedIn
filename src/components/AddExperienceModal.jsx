@@ -211,7 +211,7 @@ let years = [];
                 {years.map((year) => (
                   <option>{year}</option>
                 ))}
-//James
+{/* //James
 //                 onChange={(e) => handleDateInput(e, "startDateMonth")}
 //               >
 //                 <option>Month</option>
@@ -229,8 +229,8 @@ let years = [];
 //                 <option>December</option>
 //               </Form.Control>
 
-//               <Form.Control
-//                 className="border-dark"
+//               <Form.Control */}
+{/* //                 className="border-dark"
 //                 size="sm"
 //                 as="select"
 //                 onChange={(e) => handleDateInput(e, "startDateYear")}
@@ -253,7 +253,8 @@ let years = [];
 //                 <option>2007</option>
 //                 <option>2006</option>
 //                 <option>2005</option>
-// James
+// James */}
+    
               </Form.Control>
             </div>
 
@@ -300,7 +301,7 @@ let years = [];
                 {years.map((year) => (
                   <option>{year}</option>
                 ))}
-//JAMES
+{/* //JAMES
 //                 className="mr-2 border-dark"
 //                 size="sm"
 //                 as="select"
@@ -322,8 +323,8 @@ let years = [];
 //                 <option>December</option>
 //               </Form.Control>
 
-//               <Form.Control
-//                 disabled={currentlyWorking}
+//               <Form.Control */}
+{/* //                 disabled={currentlyWorking}
 //                 className="border-dark"
 //                 size="sm"
 //                 as="select"
@@ -347,7 +348,7 @@ let years = [];
 //                 <option>2007</option>
 //                 <option>2006</option>
 //                 <option>2005</option>
- //jAMES
+ //jAMES */}
               </Form.Control>
             </div>
 

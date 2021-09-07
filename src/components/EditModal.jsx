@@ -18,7 +18,7 @@ import "./DeleteExperience.jsx";
 import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 
-function EditExperienceModal({ userId, experienceId }) {
+function EditModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -179,4 +179,4 @@ function EditExperienceModal({ userId, experienceId }) {
   );
 }
 
-export default EditExperienceModal;
+export default EditModal;

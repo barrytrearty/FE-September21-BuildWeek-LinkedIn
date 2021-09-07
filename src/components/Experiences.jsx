@@ -9,7 +9,6 @@ import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
 
 import { BiPurchaseTag } from "react-icons/bi";
-import EditExperienceModal from "./EditModal";
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -64,7 +63,6 @@ const Experiences = ({ match }) => {
     <Card className="px-4 py-2 sectiontext pt-4">
       <Row className="d-flex justify-content-between">
         <Card.Title className="px-3 sectionheader">Experience</Card.Title>
-
         {isMe === true && <AddExperienceModal />}
       </Row>
       {console.log(experienceArray)}
@@ -77,26 +75,26 @@ const Experiences = ({ match }) => {
           <Col className="my-3 d-flex flex-row ml-3">
             <div className="Experience">
               <p className="p-heading">{experience.role}</p>
-              <p>{experience._id}</p>
               <p className="p-secondary">{experience.company}</p>
               <p className="p-muted">
                 {fixDate(experience.startDate)} - {fixDate(experience.endDate)}{" "}
               </p>
               <p className="p-secondary">{experience.description}</p>
             </div>
-            <EditModal />
+
             {isMe === true && (
-              <EditExperienceModal
+              <EditModal
                 userId={userId}
                 experienceId={experience._id}
               />
             )}
-            {isMe === true && (
+            {/* dont need the add experience on exsiting experience */}
+            {/* {isMe === true && (
               <AddExperienceModal
                 userId={userId}
                 experienceId={experience._id}
               />
-            )}
+            )} */}
 
             {/* - GET https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
     Get a specific experience
