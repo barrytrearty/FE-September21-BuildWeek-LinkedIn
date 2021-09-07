@@ -8,6 +8,9 @@ import { format, parseISO } from "date-fns";
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
 
+import { BiPurchaseTag } from "react-icons/bi";
+import EditExperienceModal from "./EditModal";
+
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
   let urlstring = window.location.href.slice(-2);
@@ -19,12 +22,14 @@ const Experiences = ({ match }) => {
   }
 
   const experienceId = "611d2acd2d52620015b6de6e";
+  const userId = "611d2acd2d52620015b6de6e";
+
   const [experienceArray, setExperienceArray] = useState([]);
 
   const getArray = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${experienceId}/experiences`,
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
         {
           headers: {
             Authorization:
@@ -69,11 +74,29 @@ const Experiences = ({ match }) => {
           </Col>
           <Col className="my-3">
             <p className="p-heading">{experience.role}</p>
+            <p>{experience._id}</p>
             <p className="p-secondary">{experience.company}</p>
             <p className="p-muted">
               {fixDate(experience.startDate)} - {fixDate(experience.endDate)}{" "}
             </p>
             <p className="p-secondary">{experience.description}</p>
+            {isMe === true && (
+              <EditExperienceModal
+                userId={userId}
+                experienceId={experience._id}
+              />
+            )}
+            {isMe === true && (
+              <AddExperienceModal
+                userId={userId}
+                experienceId={experience._id}
+              />
+            )}
+
+            {/* - GET https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
+    Get a specific experience
+    - PUT https://striveschool-api.herokuapp.com/api/profile/:userId/experiences/:expId
+    Get a specific experience */}
           </Col>{" "}
         </Row>
       ))}
