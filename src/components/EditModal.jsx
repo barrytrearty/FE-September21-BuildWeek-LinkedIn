@@ -1,5 +1,11 @@
-import React, { Component } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+
+import React, { Component } from 'react';
+import { Modal, Row, Col, Button, Modal, Form, FormControl, Dropdown, DropdownButton, ButtonGroup   } from 'react-bootstrap';
+import { FaLinkedin } from "react-icons/fa";
+import { AiOutlineMail } from "react-icons/ai";
+import { BiPencil } from "react-icons/bi";
+import "./EditModal.css"
+import "./DeleteExperience.jsx"
 import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState,useCallback } from "react";
 
@@ -39,6 +45,7 @@ function EditExperienceModal({ userId, experienceId }) {
         setLocation(data.location)
         setStartDate(data.startDate)
         setEndDate(data.endDate)
+        setDescription(data.description)
       }
     } catch (error) {
       console.log(error);
@@ -160,3 +167,4 @@ function EditExperienceModal({ userId, experienceId }) {
 }
 
 export default EditExperienceModal;
+
