@@ -44,9 +44,9 @@ const RightSection = ({ sectionTitle }) => {
     <div>
    <Container  style={{ minWidth: "23vw" }} className="mr-5 pl-2 mb-2 PeopleContainer container-fluid">
       <h5 className="mt-3 ml-2">{sectionTitle}Add to your feed</h5>
-      
-      <RightSectionRow peopleInfos={peopleInfos} show={show} />
       <div className="ShowDiv text-left p-0">
+      <RightSectionRow peopleInfos={peopleInfos} show={show} />
+      
         <Button
           type="button"
           id="ViewButton"

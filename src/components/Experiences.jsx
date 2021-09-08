@@ -81,10 +81,7 @@ const Experiences = ({ match }) => {
 
             {isMe === true && (
 
-
-
-             /* <div className="deleteButton"> */
-
+           <div className="deleteButton">
               <EditModal
                 userId={userId}
                 experienceId={experience._id}
