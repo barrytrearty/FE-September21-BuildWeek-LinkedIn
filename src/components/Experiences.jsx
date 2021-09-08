@@ -6,6 +6,7 @@ import { format, parseISO } from "date-fns";
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
 import { BiPurchaseTag } from "react-icons/bi";
+import deleteExperience from "./DeleteExperience"
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -78,11 +79,19 @@ const Experiences = ({ match }) => {
               </p>
               <p className="p-secondary">{experience.description}</p>
             </div>
-
+            
             {isMe === true && (
-              <EditModal userId={userId} experienceId={experience._id} />
-            )}
 
+              <div className="deleteButton">
+              <EditModal
+                userId={userId}
+                experienceId={experience._id}
+              />
+              <deleteExperience/>
+              </div>
+
+            )}
+            
             {/* dont need the add experience on exsiting experience */}
             {/* {isMe === true && (
               <AddExperienceModal
