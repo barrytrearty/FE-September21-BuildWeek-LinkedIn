@@ -1,6 +1,9 @@
 import { Button } from "react-bootstrap";
 import { AiFillDelete } from "react-icons/ai";
 import { useEffect, useState, useCallback } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import "./DeleteExperience.css"
 
 const DeleteExperience = ({ userId, experienceId }) => {
   // e.preventDefault()
@@ -35,9 +38,11 @@ const DeleteExperience = ({ userId, experienceId }) => {
   };
 
   return (
-    <Button onClick={deleteThisExperience}  variant="secondary" type="button">
-      Delete
+     
+    <Button onClick={deleteThisExperience} className="deleteButton mr-auto" variant="secondary-outline" type="button">
+    Delete experience
     </Button>
+    
   );
 };
 export default DeleteExperience;

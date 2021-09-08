@@ -216,6 +216,17 @@ function EditModal({ userId, experienceId }) {
             </Button>
           </Form>
         </Modal.Body>
+
+        <Modal.Footer>
+          <div className="mr-auto">
+            <DeleteExperience userId={userId} experienceId={experienceId} />
+</div>
+          <Button id="savemodalbutton" variant="primary" type="submit">
+            Edit
+          </Button>
+         
+        </Modal.Footer>
+/*
 //         <Modal.Footer></Modal.Footer>
 //         <Modal.Footer>
 //             <DeleteExperience userId={userId} experienceId={experienceId} />
@@ -227,6 +238,7 @@ function EditModal({ userId, experienceId }) {
 //             Cancel
 //           </Button>
 //         </Modal.Footer>
+*/
 
       </Modal>
     </>
