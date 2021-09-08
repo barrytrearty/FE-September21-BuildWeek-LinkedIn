@@ -1,11 +1,11 @@
-import { Button } from 'react-bootstrap';
+import {Button} from "react-bootstrap";
 
 
-const deleteExperience = async (e) => {
-    e.preventDefault() 
+const deleteExperience = async () => {
+    // e.preventDefault() 
   
-    const userId = this.props.userId
-    const expId = this.state.experience._id
+    // const userId = this.props.userId
+    // const expId = this.state.experience._id
     
     try {
         const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`, {
@@ -22,6 +22,10 @@ const deleteExperience = async (e) => {
         }
     } catch (err) {
         console.log(err)
+    }
+
+    return {
+
     }
   
 }

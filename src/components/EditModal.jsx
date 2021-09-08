@@ -1,24 +1,10 @@
 import React, { Component } from "react";
-import {
-  Modal,
-  Row,
-  Col,
-  Button,
-  Form,
-  FormControl,
-  Dropdown,
-  DropdownButton,
-  ButtonGroup,
-} from "react-bootstrap";
-import { FaLinkedin } from "react-icons/fa";
-import { AiOutlineMail } from "react-icons/ai";
-import { BiPencil } from "react-icons/bi";
+import { Modal, Button, Form } from "react-bootstrap";
 import "./EditModal.css";
-import "./DeleteExperience.jsx";
+import deleteExperience from "./DeleteExperience";
 import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
-
 
 function EditModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
@@ -35,10 +21,12 @@ function EditModal({ userId, experienceId }) {
 
   //fetching existing info
 
+  const endpoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}`;
+
   const getExperience = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}`,
+        endpoint,
 
         {
           headers: {
@@ -69,6 +57,29 @@ function EditModal({ userId, experienceId }) {
   console.log(role);
   console.log(company);
 
+  // edit info
+  const handleExperience = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        // fill in the () here with the states
+        body: JSON.stringify(),
+        headers: {
+          Authorization:
+            "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        const ExperienceResponse = await response.json();
+        console.log("Profile is updated.");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <a onClick={handleShow} className="modallink ml-auto">
@@ -80,7 +91,7 @@ function EditModal({ userId, experienceId }) {
           <Modal.Title id="contactnametext">Edit experience</Modal.Title>
         </Modal.Header>
         <Modal.Body className="px-4">
-          <Form>
+          <Form onSubmit={handleExperience}>
             {/* title */}
             <Form.Group className="mb-4" controlId="formJobTitle">
               <Form.Label className="mb-0">
@@ -157,7 +168,6 @@ function EditModal({ userId, experienceId }) {
                 type="text"
                 defaultValue={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
-
               />
               {/* <option>Month</option>
               </Form.Control>
@@ -187,7 +197,9 @@ function EditModal({ userId, experienceId }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button id="savemodalbutton" variant="primary">
+          <deleteExperience userId={userId} experienceId={experienceId} />
+
+          <Button id="savemodalbutton" variant="primary" type="submit">
             Edit
           </Button>
           <Button id="savemodalbutton" variant="secondary" type="button">
