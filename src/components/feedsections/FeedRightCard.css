@@ -1,0 +1,20 @@
+.RightFeedButton {
+    border-radius: 5rem;
+    border-color: #6C757D;
+    width: 6rem;
+    padding-top: 0.17rem;
+    padding-bottom: 0.17rem;
+    font-weight: 600;
+
+}
+
+.RightFeedImage {
+    height: 5rem; 
+    width: 5rem;
+    border-radius: 50%;
+}
+
+.RightFeedTitle {
+    font-size: 1rem;
+    font-weight: 600;
+}

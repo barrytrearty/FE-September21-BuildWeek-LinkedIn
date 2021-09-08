@@ -17,7 +17,6 @@ function App() {
       <Navbar />
       <Switch>
         <Container>
-
           {/* needs profile id  */}
 
           <Route
@@ -56,7 +55,7 @@ function App() {
           <Route path="/feed" exact component={NewsFeed} />
         </Container>
       </Switch>
-      {window.location.pathname !== "/feed" ? <Footer /> : null}
+      {window.location.pathname !== "/feed" ? <Footer /> : null }
     </Router>
   );
 }
