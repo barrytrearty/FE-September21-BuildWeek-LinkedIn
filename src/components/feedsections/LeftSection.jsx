@@ -3,13 +3,7 @@ import { Card, Image } from "react-bootstrap";
 import { IoIosBookmark } from "react-icons/io";
 import { BsSquareFill } from "react-icons/bs";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
-  Link,
-} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 class LeftSection extends Component {
   state = {
@@ -56,64 +50,88 @@ class LeftSection extends Component {
           />
 
           <Card.Body className="px-0 py-0">
-            <Link to="/me">
-              <div>
-                <div className="d-flex justify-content-center">
-                  <Image
-                    className="profileimagesmall"
-                    src={this.state.user.image}
-                    roundedCircle
-                  />
-                </div>
-
-                <Card.Title
-                  id="feedprofileheader"
-                  className="mt-2 mb-0 text-center"
-                >
-                  {this.state.user.name} {this.state.user.surname}
-                </Card.Title>
-              </div>
-            </Link>
-            <Card.Text className="text-muted mb-3 text-center">
-              <small>{this.state.user.title}</small>
-            </Card.Text>
-
-            <hr className="my-2" />
-            <Card.Text className="mb-1 px-3">
+            <div id="feedprofileheadersection">
               <Link to="/me">
-                <div style={{ lineHeight: "14px" }}>
-                  <div className="d-flex justify-content-between mb-0 mt-3">
-                    <small className="text-muted">Connections</small>
-                    <small className="text-primary">98</small>
+                <div>
+                  <div className="d-flex justify-content-center">
+                    <Image
+                      className="profileimagesmall"
+                      src={this.state.user.image}
+                      roundedCircle
+                    />
                   </div>
 
-                  <small className="feedboldtext">Grow your network</small>
+                  <Card.Title
+                    id="feedprofileheader"
+                    className="mt-2 mb-0 text-center"
+                  >
+                    {this.state.user.name} {this.state.user.surname}
+                  </Card.Title>
                 </div>
               </Link>
-              <div className="d-flex justify-content-between mt-2 mb-3">
-                <small className="text-muted">Who viewed your profile</small>
-                <small className="text-primary">23</small>
-              </div>
-            </Card.Text>
-            <hr className="my-1" />
-            <Card.Text style={{ lineHeight: "16px" }} className="mb-1 px-3">
-              <small className="text-muted">
-                Access exclusive tools & insights
-              </small>
-              <p>
-                <small className="text-dark feedboldtext">
-                  <BsSquareFill className="mr-1" size={12} color="orange" />{" "}
-                  <span className="align-text-top">Reactivate Premium</span>
-                </small>
-              </p>
-            </Card.Text>
-            <hr className="my-1" />
-            <Card.Text id="feedmyitems" className="pr-3">
-              <small className="feedboldtext">
-                {" "}
-                <IoIosBookmark size={20} color="grey" /> My items
-              </small>
-            </Card.Text>
+              <Card.Text className="text-muted mb-3 text-center">
+                <small>{this.state.user.title}</small>
+              </Card.Text>
+            </div>
+            <hr className="my-2" />
+            <div id="feedprofilelinkssection">
+              <Card.Text
+                id="profileconnectionssection"
+                className="pb-2 px-3 mb-0"
+              >
+                <Link to="/mynetwork">
+                  <div>
+                    <div className="d-flex justify-content-between pt-2">
+                      <small className="text-muted">Connections</small>
+                      <small className="text-primary">98</small>
+                    </div>
+
+                    <small className="feedboldtext">Grow your network</small>
+                  </div>
+                </Link>
+              </Card.Text>
+
+              <Card.Text className="px-3 mb-2" id="viewedprofilesection">
+                <Link to="#">
+                  <div className="d-flex justify-content-between mt-2 mb-0">
+                    <small className="text-muted">
+                      Who viewed your profile
+                    </small>
+                    <small className="text-primary">23</small>
+                  </div>
+                </Link>
+              </Card.Text>
+
+              <hr className="mt-1 mb-0" />
+              <Card.Text
+                style={{ lineHeight: "16px" }}
+                className="pt-2 mb-0 pb-1 px-3"
+                id="reactivatepremiumsection"
+              >
+                <Link to="#">
+                  <small className="text-muted">
+                    Access exclusive tools & insights
+                  </small>
+                  <p className="my-0 pb-2">
+                    <small className="text-dark feedboldtext">
+                      <BsSquareFill className="mr-1" size={12} color="orange" />{" "}
+                      <span className="align-text-top">Reactivate Premium</span>
+                    </small>
+                  </p>
+                </Link>
+              </Card.Text>
+              <hr className="my-0" />
+              <Card.Text id="feedmyitems" className="pr-3">
+                <Link to="#">
+                  <div>
+                    <small className="feedboldtext">
+                      {" "}
+                      <IoIosBookmark size={20} color="grey" /> My items
+                    </small>
+                  </div>
+                </Link>
+              </Card.Text>
+            </div>
           </Card.Body>
         </Card>
         <Card className="cardstyling text-center" style={{ height: "20vh" }}>
