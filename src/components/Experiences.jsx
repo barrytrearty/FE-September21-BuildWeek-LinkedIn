@@ -62,7 +62,7 @@ const Experiences = ({ match }) => {
         <Card.Title className="px-3 sectionheader">Experience</Card.Title>
         {isMe === true && <AddExperienceModal />}
       </Row>
-      {console.log(experienceArray)}
+      {/* {console.log(experienceArray)} */}
 
       {experienceArray.map((experience) => (
         <Row key={experience._id}>
@@ -81,9 +81,7 @@ const Experiences = ({ match }) => {
 
             {isMe === true && (
 
-
-
-             /* <div className="deleteButton"> */
+              <div className="deleteButton ml-auto">
 
               <EditModal
                 userId={userId}
