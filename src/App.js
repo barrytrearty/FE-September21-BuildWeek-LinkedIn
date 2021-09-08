@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import MeSection from "./components/MeSection";
+import NewsFeed from "./components/NewsFeed";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Switch>
         <Container>
           {/* needs profile id  */}
-          <Route path="/:id">
+          <Route path="/profile:id">
             <Row>
               <Col xs={12} sm={12} lg={8} className="px-0">
                 <ProfileTopCard />
@@ -36,9 +37,10 @@ function App() {
             exact
             render={(routerProps) => <MeSection {...routerProps} />}
           />
+          <Route path="/feed" exact component={NewsFeed} />
         </Container>
       </Switch>
-      <Footer />
+      {window.location.pathname !== "/feed" ? <Footer /> : null}
     </Router>
   );
 }
