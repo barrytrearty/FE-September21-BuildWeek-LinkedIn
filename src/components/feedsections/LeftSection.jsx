@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card, Image } from "react-bootstrap";
 import { IoIosBookmark } from "react-icons/io";
 import { BsSquareFill } from "react-icons/bs";
-
+import { GoPlus } from "react-icons/go";
 import { Link, NavLink } from "react-router-dom";
 
 class LeftSection extends Component {
@@ -136,7 +136,7 @@ class LeftSection extends Component {
           <Card.Body className="px-0 py-0 feedadminlinks">
             <Link to="#">
               <Image
-                className="adminimagesmall pl-3 pt-2"
+                className="adminimagesmall pl-3 pt-2 mb-2"
                 src="https://media-exp1.licdn.com/dms/image/C4E0BAQGErmO8l_sw9A/company-logo_100_100/0/1628086804749?e=1639008000&v=beta&t=L7d6AQCiS0FsRPC4SwgLOwXk3x5_4eJyXBUyotu4cc8"
               />
             </Link>
@@ -177,10 +177,42 @@ class LeftSection extends Component {
           </Card.Body>
         </Card>
 
-        <Card className="cardstyling text-center" style={{ height: "14vh" }}>
-          <Card.Body>
-            <Card.Title>Groups and Events</Card.Title>
-            <Card.Text>Some quick example text.</Card.Text>
+        <Card className="cardstyling feedleftcards">
+          <Card.Body className="px-0 py-0">
+            <div className="mx-3 my-2">
+              <Link to="#">
+                <Card.Text className="mb-1">
+                  <small className="text-primary feedboldtext">Groups</small>
+                </Card.Text>
+              </Link>
+              <div className="d-flex justify-content-between">
+                <Card.Text className="mb-1">
+                  <Link to="#">
+                    <small className="text-primary feedboldtext">Events</small>
+                  </Link>
+                </Card.Text>
+                <Link to="#">
+                  <div id="eventsplusdiv">
+                    <GoPlus className="m-auto" size={16} color="grey" />
+                  </div>
+                </Link>
+              </div>
+              <Card.Text className="mb-1">
+                <Link to="#">
+                  <small className="text-primary feedboldtext">
+                    Followed Hashtags
+                  </small>
+                </Link>
+              </Card.Text>
+            </div>
+            <hr className="my-0" />
+            <div id="discovertext">
+              <Link>
+                <Card.Text className="text-center">
+                  <span className="text-muted feedboldtext">Discover more</span>
+                </Card.Text>
+              </Link>
+            </div>
           </Card.Body>
         </Card>
       </>

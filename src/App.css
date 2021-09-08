@@ -290,3 +290,28 @@ button.morebutton {
   text-decoration: none;
   color: inherit;
 }
+
+#discovertext {
+  font-size: 14px !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#discovertext a:hover {
+  text-decoration: none;
+}
+
+#discovertext:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}
+
+#eventsplusdiv {
+  border-radius: 50%;
+  height: 28px;
+  width: 28px;
+  display: flex;
+}
+
+#eventsplusdiv:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}
