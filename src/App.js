@@ -16,21 +16,13 @@ function App() {
       <Navbar />
       <Switch>
         <Container>
-          {/* needs profile id  */}
-          <Route path="/:id">
-            <Row>
-              <Col xs={12} sm={12} lg={8} className="px-0">
-                <ProfileTopCard />
-                <AfterMain />
-              </Col>
-
-              <Col xs={12} sm={12} lg={4} className="px-3">
-                <PeopleSection sectionTitle="People also view" />
-                <PeopleSection sectionTitle="People you may know" />
-              </Col>
-            </Row>
-          </Route>
-          {/* we are James for now (me) */}
+          {/* needs profile id  /}
+          <Route
+            path="/linkedin/:id"
+            exact
+            render={(routerProps) => <MeSection {...routerProps} />}
+          />
+          {/ we are James for now (me) */}
           <Route
             path="/me"
             exact
