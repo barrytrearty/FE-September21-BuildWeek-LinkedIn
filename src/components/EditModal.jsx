@@ -6,7 +6,6 @@ import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
 import DeleteExperience from './DeleteExperience'
 
-
 function EditModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -15,9 +14,9 @@ function EditModal({ userId, experienceId }) {
   // preload this info in edit modal
   const [role, setRole] = useState("");
   const [company, setCompany] = useState("");
-  const [location, setLocation] = useState("");
+  const [area, setArea] = useState("");
   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [endDate, setEndDate] = useState(null);
   const [description, setDescription] = useState("");
 
   //fetching existing info
@@ -39,10 +38,9 @@ function EditModal({ userId, experienceId }) {
       );
       if (response.ok) {
         const data = await response.json();
-        // console.log(data);
         setRole(data.role);
         setCompany(data.company);
-        setLocation(data.location);
+        setArea(data.area);
         setStartDate(data.startDate);
         setEndDate(data.endDate);
         setDescription(data.description);
@@ -59,13 +57,22 @@ function EditModal({ userId, experienceId }) {
   console.log(company);
 
   // edit info
-  const handleExperience = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch(endpoint, {
         method: "POST",
         // fill in the () here with the states
-        body: JSON.stringify(),
+        body: JSON.stringify({
+        "role": "CEO",
+          "company": "Strive Restaurant",
+          "startDate": "2019-06-16",
+          "endDate": "2019-06-16", //could be null
+          "description": "Doing stuffsss",
+          "area": "Berlin",
+        }),
+
         headers: {
           Authorization:
             "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
@@ -73,8 +80,15 @@ function EditModal({ userId, experienceId }) {
         },
       });
       if (response.ok) {
+  
         const ExperienceResponse = await response.json();
-        console.log("Profile is updated.");
+        console.log(ExperienceResponse)
+        alert("Profile is updated.");
+
+        return ExperienceResponse
+      } else {
+        alert("Profile is not edited.");
+
       }
     } catch (error) {
       console.log(error);
@@ -92,7 +106,7 @@ function EditModal({ userId, experienceId }) {
           <Modal.Title id="contactnametext">Edit experience</Modal.Title>
         </Modal.Header>
         <Modal.Body className="px-4">
-          <Form onSubmit={handleExperience}>
+          <Form onSubmit={handleSubmit}>
             {/* title */}
             <Form.Group className="mb-4" controlId="formJobTitle">
               <Form.Label className="mb-0">
@@ -131,8 +145,8 @@ function EditModal({ userId, experienceId }) {
                 type="text"
                 className="border border-dark"
                 placeholder="Ex: London, United Kingdom"
-                defaultValue={location}
-                onChange={(e) => setLocation(e.target.value)}
+                defaultValue={area}
+                onChange={(e) => setArea(e.target.value)}
               />
             </Form.Group>
 
@@ -195,18 +209,25 @@ function EditModal({ userId, experienceId }) {
             <Form.Group>
               <Form.File id="imageUpload" label="Media" />
             </Form.Group>
+
+            <DeleteExperience userId={userId} experienceId={experienceId} />
+            <Button id="savemodalbutton" variant="primary" type="submit">
+              Edit Experience
+            </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-            <DeleteExperience userId={userId} experienceId={experienceId} />
+//         <Modal.Footer></Modal.Footer>
+//         <Modal.Footer>
+//             <DeleteExperience userId={userId} experienceId={experienceId} />
 
-          <Button id="savemodalbutton" variant="primary" type="submit">
-            Edit
-          </Button>
-          <Button id="savemodalbutton" variant="secondary" type="button">
-            Cancel
-          </Button>
-        </Modal.Footer>
+//           <Button id="savemodalbutton" variant="primary" type="submit">
+//             Edit
+//           </Button>
+//           <Button id="savemodalbutton" variant="secondary" type="button">
+//             Cancel
+//           </Button>
+//         </Modal.Footer>
+
       </Modal>
     </>
   );
