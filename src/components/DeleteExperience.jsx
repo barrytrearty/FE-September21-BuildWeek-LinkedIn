@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import { AiFillDelete } from "react-icons/ai";
 import { useEffect, useState, useCallback } from "react";
 
-const deleteExperience = ({ userId, experienceId }) => {
+const DeleteExperience = ({ userId, experienceId }) => {
   // e.preventDefault()
 
   // const userId = this.props.userId
@@ -18,14 +18,14 @@ const deleteExperience = ({ userId, experienceId }) => {
         {
           method: "DELETE",
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZjE4YzJkNTI2MjAwMTViNmRjOTIiLCJpYXQiOjE2MzA5MTgwNDIsImV4cCI6MTYzMjEyNzY0Mn0.2hhEx_eDgxioUecToSSqJQuMR6ezl3BCgvP7z6HtkS4`,
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg`,
           },
         }
       );
       if (response.ok) {
         // this.props.fetchExperiences();
         // this.props.onHide();
-        console.log("Respponse ok")
+        console.log("Response ok")
       } else {
         console.log("Delete unsuccessful");
       }
@@ -35,9 +35,9 @@ const deleteExperience = ({ userId, experienceId }) => {
   };
 
   return (
-    <Button  variant="secondary" type="button">
-      Cancel
+    <Button onClick={deleteThisExperience}  variant="secondary" type="button">
+      Delete
     </Button>
   );
 };
-export default deleteExperience;
+export default DeleteExperience;

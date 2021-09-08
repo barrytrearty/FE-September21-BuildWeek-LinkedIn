@@ -4,7 +4,7 @@ import "./EditModal.css";
 import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
-import deleteExperience from './deleteExperience'
+import DeleteExperience from "./DeleteExperience";
 
 function EditModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
@@ -38,6 +38,7 @@ function EditModal({ userId, experienceId }) {
       );
       if (response.ok) {
         const data = await response.json();
+        console.log(endpoint)
         console.log(data);
         setRole(data.role);
         setCompany(data.company);
@@ -58,13 +59,18 @@ function EditModal({ userId, experienceId }) {
   console.log(company);
 
   // edit info
-  const handleExperience = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch(endpoint, {
-        method: "POST",
+        method: "PUT",
         // fill in the () here with the states
-        body: JSON.stringify(),
+        body: JSON.stringify({
+          role: role,
+          company: company,
+          location: location,
+          description: description,
+        }),
         headers: {
           Authorization:
             "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
@@ -73,7 +79,9 @@ function EditModal({ userId, experienceId }) {
       });
       if (response.ok) {
         const ExperienceResponse = await response.json();
-        console.log("Profile is updated.");
+        return ExperienceResponse
+      } else {
+        alert("Profile is not edited.");
       }
     } catch (error) {
       console.log(error);
@@ -91,7 +99,7 @@ function EditModal({ userId, experienceId }) {
           <Modal.Title id="contactnametext">Edit experience</Modal.Title>
         </Modal.Header>
         <Modal.Body className="px-4">
-          <Form onSubmit={handleExperience}>
+          <Form onSubmit={handleSubmit}>
             {/* title */}
             <Form.Group className="mb-4" controlId="formJobTitle">
               <Form.Label className="mb-0">
@@ -194,18 +202,14 @@ function EditModal({ userId, experienceId }) {
             <Form.Group>
               <Form.File id="imageUpload" label="Media" />
             </Form.Group>
+
+            <DeleteExperience userId={userId} experienceId={experienceId} />
+            <Button id="savemodalbutton" variant="primary" type="submit">
+              Edit Experience
+            </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-            <deleteExperience userId={userId} experienceId={experienceId} />
-
-          <Button id="savemodalbutton" variant="primary" type="submit">
-            Edit
-          </Button>
-          <Button id="savemodalbutton" variant="secondary" type="button">
-            Cancel
-          </Button>
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
   );
