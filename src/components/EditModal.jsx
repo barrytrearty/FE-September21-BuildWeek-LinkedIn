@@ -197,14 +197,13 @@ function EditModal({ userId, experienceId }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
+          <div className="mr-auto">
             <DeleteExperience userId={userId} experienceId={experienceId} />
-
+</div>
           <Button id="savemodalbutton" variant="primary" type="submit">
             Edit
           </Button>
-          <Button id="savemodalbutton" variant="secondary" type="button">
-            Cancel
-          </Button>
+         
         </Modal.Footer>
       </Modal>
     </>

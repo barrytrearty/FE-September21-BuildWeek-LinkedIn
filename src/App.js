@@ -50,7 +50,7 @@ function App() {
           <Route path="/feed" exact component={NewsFeed} />
         </Container>
       </Switch>
-      {window.location.pathname !== "/feed" ? <Footer /> : null}
+      
     </Router>
   );
 }
