@@ -19,7 +19,6 @@ import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
 
-
 function EditModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -50,7 +49,7 @@ function EditModal({ userId, experienceId }) {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setRole(data.role);
         setCompany(data.company);
         setLocation(data.location);
@@ -157,7 +156,6 @@ function EditModal({ userId, experienceId }) {
                 type="text"
                 defaultValue={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
-
               />
               {/* <option>Month</option>
               </Form.Control>
