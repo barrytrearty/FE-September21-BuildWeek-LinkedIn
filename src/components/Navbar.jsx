@@ -7,6 +7,7 @@ import {
   Switch,
   Route,
   useParams,
+  Link,
 } from "react-router-dom";
 import {
   Navbar,
@@ -36,7 +37,7 @@ class BootstrapNavbar extends React.Component {
         style={{
           backgroundColor: "white",
           height: "4.1rem",
-          marginBottom: "40px",
+          marginBottom: "2px",
         }}
       >
         <Container className="pt-0">
@@ -44,17 +45,19 @@ class BootstrapNavbar extends React.Component {
             <div className="col-md-12">
               <Router>
                 <Navbar variant="light" expand="lg" sticky="top">
-                  <Navbar.Brand className="mb-5">
-                    <a className="mb-5" href="#">
-                      <img
-                        className="mb-5 ml-1 pb-1"
-                        src={LinkedInLogo}
-                        width="45"
-                        height="45"
-                        alt=""
-                      />
-                    </a>
-                  </Navbar.Brand>
+                  <Link to="/feed">
+                    <Navbar.Brand className="mb-5">
+                      <a className="mb-5" href="#">
+                        <img
+                          className="mb-5 ml-1 pb-1"
+                          src={LinkedInLogo}
+                          width="45"
+                          height="45"
+                          alt=""
+                        />
+                      </a>
+                    </Navbar.Brand>
+                  </Link>
 
                   <div className="mb-5">
                     <Form inline>
