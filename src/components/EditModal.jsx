@@ -6,6 +6,7 @@ import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
 import DeleteExperience from './DeleteExperience'
 
+
 function EditModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -38,7 +39,7 @@ function EditModal({ userId, experienceId }) {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setRole(data.role);
         setCompany(data.company);
         setLocation(data.location);
