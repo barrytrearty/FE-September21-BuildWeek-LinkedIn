@@ -165,7 +165,7 @@ class BootstrapNavbar extends React.Component {
                             color="#4d4d4d"
                           />
                           <br />
-/*
+{/*
                 <div className="mb-5">
                   <Form inline>
                     <FormControl
@@ -277,8 +277,8 @@ class BootstrapNavbar extends React.Component {
                           icon={faTable}
                           color="#4d4d4d"
                         />
-                        <br />
-*/
+<br /> */}
+
 
                         <NavDropdown
                           title="Work"
