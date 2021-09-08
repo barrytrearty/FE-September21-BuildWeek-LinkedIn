@@ -4,7 +4,7 @@ import "./EditModal.css";
 import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
-import DeleteExperience from "./DeleteExperience";
+import DeleteExperience from './DeleteExperience'
 
 function EditModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
@@ -38,8 +38,6 @@ function EditModal({ userId, experienceId }) {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(endpoint)
-        console.log(data);
         setRole(data.role);
         setCompany(data.company);
         setArea(data.area);
@@ -59,12 +57,12 @@ function EditModal({ userId, experienceId }) {
   console.log(company);
 
   // edit info
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let test 
       const response = await fetch(endpoint, {
-        method: "PUT",
+        method: "POST",
         // fill in the () here with the states
         body: JSON.stringify({
         "role": "CEO",
@@ -74,6 +72,7 @@ function EditModal({ userId, experienceId }) {
           "description": "Doing stuffsss",
           "area": "Berlin",
         }),
+
         headers: {
           Authorization:
             "Bearer   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
@@ -84,9 +83,12 @@ function EditModal({ userId, experienceId }) {
   
         const ExperienceResponse = await response.json();
         console.log(ExperienceResponse)
+        alert("Profile is updated.");
+
         return ExperienceResponse
       } else {
         alert("Profile is not edited.");
+
       }
     } catch (error) {
       console.log(error);
@@ -214,7 +216,18 @@ function EditModal({ userId, experienceId }) {
             </Button>
           </Form>
         </Modal.Body>
-        <Modal.Footer></Modal.Footer>
+//         <Modal.Footer></Modal.Footer>
+//         <Modal.Footer>
+//             <DeleteExperience userId={userId} experienceId={experienceId} />
+
+//           <Button id="savemodalbutton" variant="primary" type="submit">
+//             Edit
+//           </Button>
+//           <Button id="savemodalbutton" variant="secondary" type="button">
+//             Cancel
+//           </Button>
+//         </Modal.Footer>
+
       </Modal>
     </>
   );

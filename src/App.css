@@ -187,3 +187,9 @@ button.morebutton {
   width: 4rem;
   height: 4rem;
 } */
+
+/* NEWS FEED SECTION */
+.cardstyling {
+  border-radius: 8px !important;
+  margin-bottom: 6px;
+}
