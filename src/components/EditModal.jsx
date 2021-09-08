@@ -14,9 +14,9 @@ function EditModal({ userId, experienceId }) {
   // preload this info in edit modal
   const [role, setRole] = useState("");
   const [company, setCompany] = useState("");
-  const [location, setLocation] = useState("");
+  const [area, setArea] = useState("");
   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [endDate, setEndDate] = useState(null);
   const [description, setDescription] = useState("");
 
   //fetching existing info
@@ -42,7 +42,7 @@ function EditModal({ userId, experienceId }) {
         console.log(data);
         setRole(data.role);
         setCompany(data.company);
-        setLocation(data.location);
+        setArea(data.area);
         setStartDate(data.startDate);
         setEndDate(data.endDate);
         setDescription(data.description);
@@ -62,14 +62,17 @@ function EditModal({ userId, experienceId }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      let test 
       const response = await fetch(endpoint, {
         method: "PUT",
         // fill in the () here with the states
         body: JSON.stringify({
-          role: role,
-          company: company,
-          location: location,
-          description: description,
+        "role": "CEO",
+          "company": "Strive Restaurant",
+          "startDate": "2019-06-16",
+          "endDate": "2019-06-16", //could be null
+          "description": "Doing stuffsss",
+          "area": "Berlin",
         }),
         headers: {
           Authorization:
@@ -78,7 +81,9 @@ function EditModal({ userId, experienceId }) {
         },
       });
       if (response.ok) {
+  
         const ExperienceResponse = await response.json();
+        console.log(ExperienceResponse)
         return ExperienceResponse
       } else {
         alert("Profile is not edited.");
@@ -138,8 +143,8 @@ function EditModal({ userId, experienceId }) {
                 type="text"
                 className="border border-dark"
                 placeholder="Ex: London, United Kingdom"
-                defaultValue={location}
-                onChange={(e) => setLocation(e.target.value)}
+                defaultValue={area}
+                onChange={(e) => setArea(e.target.value)}
               />
             </Form.Group>
 
