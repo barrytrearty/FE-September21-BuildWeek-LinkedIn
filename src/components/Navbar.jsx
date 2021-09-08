@@ -73,7 +73,7 @@ class BootstrapNavbar extends React.Component {
                   <Navbar.Collapse id="basic-navbar-nav">
                     <div className="mt-1 ml-5">
                       <Nav className="row-md-12 ml-5 mb-5">
-                        <Nav.Link href="/">
+                        <Nav.Link href="/feed">
                           <FontAwesomeIcon
                             icon={faHouseUser}
                             className="ml-2 navicon"
@@ -128,6 +128,7 @@ class BootstrapNavbar extends React.Component {
                             <Button
                               className="connectbutton ml-4"
                               variant="outline-primary"
+                              href="/me"
                             >
                               View Profile
                             </Button>
