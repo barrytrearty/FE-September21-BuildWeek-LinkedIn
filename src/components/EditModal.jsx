@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "./EditModal.css";
-import deleteExperience from "./DeleteExperience";
 import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
+import deleteExperience from './deleteExperience'
 
 function EditModal({ userId, experienceId }) {
   const [show, setShow] = useState(false);
@@ -197,7 +197,7 @@ function EditModal({ userId, experienceId }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <deleteExperience userId={userId} experienceId={experienceId} />
+            <deleteExperience userId={userId} experienceId={experienceId} />
 
           <Button id="savemodalbutton" variant="primary" type="submit">
             Edit
