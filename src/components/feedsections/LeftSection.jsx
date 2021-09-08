@@ -42,7 +42,7 @@ class LeftSection extends Component {
   render() {
     return (
       <>
-        <Card className="cardstyling feedprofilecard">
+        <Card className="cardstyling feedleftcards">
           <Card.Img
             variant="top"
             src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fjosephliu%2Ffiles%2F2019%2F06%2F10-ferdinand-stohr-149422-unsplash-1200x298.jpg"
@@ -61,10 +61,7 @@ class LeftSection extends Component {
                     />
                   </div>
 
-                  <Card.Title
-                    id="feedprofileheader"
-                    className="mt-2 mb-0 text-center"
-                  >
+                  <Card.Title className="mt-2 mb-0 text-center feedleftsectionheader">
                     {this.state.user.name} {this.state.user.surname}
                   </Card.Title>
                 </div>
@@ -93,7 +90,7 @@ class LeftSection extends Component {
 
               <Card.Text className="px-3 mb-2" id="viewedprofilesection">
                 <Link to="#">
-                  <div className="d-flex justify-content-between mt-2 mb-0">
+                  <div className="d-flex justify-content-between mt-1 mb-0">
                     <small className="text-muted">
                       Who viewed your profile
                     </small>
@@ -134,15 +131,52 @@ class LeftSection extends Component {
             </div>
           </Card.Body>
         </Card>
-        <Card className="cardstyling text-center" style={{ height: "20vh" }}>
-          <Card.Body>
-            <Card.Title>Page Admin Section</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+
+        <Card className="cardstyling feedleftcards">
+          <Card.Body className="px-0 py-0 feedadminlinks">
+            <Link to="#">
+              <Image
+                className="adminimagesmall pl-3 pt-2"
+                src="https://media-exp1.licdn.com/dms/image/C4E0BAQGErmO8l_sw9A/company-logo_100_100/0/1628086804749?e=1639008000&v=beta&t=L7d6AQCiS0FsRPC4SwgLOwXk3x5_4eJyXBUyotu4cc8"
+              />
+            </Link>
+
+            <div className="">
+              <Link to="#">
+                <Card.Title className="feedleftsectionheader mx-3">
+                  Meetinex
+                </Card.Title>
+              </Link>
+            </div>
+            <hr
+              className="my-0"
+              style={{ width: "50px", marginLeft: "15px" }}
+            />
+            <Card.Text className="mb-2 mt-1">
+              <Link to="#">
+                <div className="d-flex justify-content-between mt-1 mr-3">
+                  <small className="text-muted mx-3">Page notifications</small>
+                  <small className="text-primary">0</small>
+                </div>
+              </Link>
+              <Link to="#">
+                <div className="d-flex justify-content-between mt-1 mr-3">
+                  <small className="text-muted mx-3">Page visitors</small>
+                  <small className="text-primary">6</small>
+                </div>
+              </Link>
             </Card.Text>
+            <hr className="my-0" />
+            <div id="analyticslink">
+              <Link to="#">
+                <Card.Text className="text-center py-2">
+                  <small className="feedboldtext">See visitor analytics</small>
+                </Card.Text>
+              </Link>
+            </div>
           </Card.Body>
         </Card>
+
         <Card className="cardstyling text-center" style={{ height: "14vh" }}>
           <Card.Body>
             <Card.Title>Groups and Events</Card.Title>

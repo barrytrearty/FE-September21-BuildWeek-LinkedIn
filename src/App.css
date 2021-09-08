@@ -244,8 +244,16 @@ button.morebutton {
   z-index: 4 !important;
 }
 
-.feedprofilecard {
+.feedleftcards {
   font-size: 15px;
+}
+
+.feedadminlinks a {
+  color: inherit;
+}
+
+.feedadminlinks a:hover {
+  color: inherit;
 }
 
 .feedboldtext {
@@ -266,10 +274,19 @@ button.morebutton {
   text-decoration: none;
 }
 
-#feedprofileheader {
-  font-size: 18px;
+.feedleftsectionheader {
+  font-size: 16px !important;
 }
 
 #feedprofileimagelink {
   z-index: 4 !important;
+}
+
+.adminimagesmall {
+  width: 4rem;
+}
+
+#analyticslink a {
+  text-decoration: none;
+  color: inherit;
 }
