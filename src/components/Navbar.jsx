@@ -1,6 +1,7 @@
 import React from "react";
 import LinkedInLogo from "../data/linkedin_logo.png";
 import "./Navbar.css";
+import NavbarProfile from './NavbarProfile'
 
 import {
   BrowserRouter as Router,
@@ -17,6 +18,7 @@ import {
   FormControl,
   Button,
   Container,
+  Card,
 } from "react-bootstrap";
 import Profile from "../pages/Profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,6 +31,10 @@ import {
   faHouseUser,
   faBell,
 } from "@fortawesome/free-solid-svg-icons";
+import NavbarProfileImage from "./NavbarProfileImage";
+
+
+
 
 class BootstrapNavbar extends React.Component {
   render() {
@@ -36,7 +42,7 @@ class BootstrapNavbar extends React.Component {
       <div
         style={{
           backgroundColor: "white",
-          height: "4.1rem",
+          height: "4.2rem",
           marginBottom: "2px",
         }}
       >
@@ -118,19 +124,18 @@ class BootstrapNavbar extends React.Component {
                           <br />
                           Notifications
                         </Nav.Link>
+                        
+                        <div className="ml-0">
+                        <NavbarProfileImage/>
 
-                        <div className="ml-4">
                           <NavDropdown
                             title="Me"
                             id="basic-nav-dropdown"
-                            className="mt-3"
+                            className="ml-2"
                           >
-                            <Button
-                              className="connectbutton ml-4"
-                              variant="outline-primary"
-                            >
-                              View Profile
-                            </Button>
+                            <NavbarProfile/>
+
+                            <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.1">
                               Account
                             </NavDropdown.Item>
@@ -163,7 +168,7 @@ class BootstrapNavbar extends React.Component {
                           </NavDropdown>
                         </div>
 
-                        <div className="ml-5">
+                        <div className="ml-2">
                           <FontAwesomeIcon
                             className="ml-3"
                             icon={faTable}
