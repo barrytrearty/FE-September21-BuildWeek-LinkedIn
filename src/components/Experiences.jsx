@@ -69,10 +69,8 @@ const Experiences = ({ match }) => {
           <Col xs={1} className="mr-4">
             <img src={experience.image} alt="" className="mt-3" />
           </Col>
-
           <Col className="my-3 d-flex flex-row ml-3">
             <div className="Experience">
-
               <p className="p-heading">{experience.role}</p>
               <p className="p-secondary">{experience.company}</p>
               <p className="p-muted">
@@ -82,10 +80,19 @@ const Experiences = ({ match }) => {
             </div>
 
             {isMe === true && (
+
+
+
+             /* <div className="deleteButton"> */
+
               <EditModal
                 userId={userId}
                 experienceId={experience._id}
               />
+
+              <deleteExperience/>
+              </div>
+
             )}
 
             {/* dont need the add experience on exsiting experience */}
@@ -95,7 +102,6 @@ const Experiences = ({ match }) => {
                 experienceId={experience._id}
               />
             )} */}
-
           </Col>{" "}
         </Row>
       ))}

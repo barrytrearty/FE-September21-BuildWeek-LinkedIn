@@ -1,13 +1,19 @@
 footer {
+  position: relative;
+  /* left:0; */
+  bottom: 0;
+  /* right:0; */
+  margin-left: 165px;
+}
 
-    position:relative;
-    /* left:0; */
-    bottom:0;
-    /* right:0; */
-    margin-left: 165px;
-  }
+footer a {
+  color: rgb(59, 59, 59);
+  font-weight: 600;
+  font-size: 12px;
+}
 
-a {
+
+.navbar a {
   color: rgb(59, 59, 59);
   font-weight: 600;
   font-size: 12px;

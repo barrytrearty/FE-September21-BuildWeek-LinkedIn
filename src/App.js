@@ -17,8 +17,13 @@ function App() {
       <Navbar />
       <Switch>
         <Container>
-
           {/* needs profile id  */}
+
+          <Route
+            path="/linkedin/:id"
+            exact
+            render={(routerProps) => <MeSection {...routerProps} />}
+          />
           <Route path="/profile:id">
             <Row>
               <Col xs={12} sm={12} lg={8} className="px-0">
