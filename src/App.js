@@ -17,7 +17,6 @@ function App() {
       <Navbar />
       <Switch>
         <Container>
-
           {/* needs profile id  */}
           <Route path="/profile:id">
             <Row>

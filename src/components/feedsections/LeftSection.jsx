@@ -80,13 +80,16 @@ class LeftSection extends Component {
 
             <hr className="my-2" />
             <Card.Text className="mb-1 px-3">
-              <div style={{ lineHeight: "14px" }}>
-                <div className="d-flex justify-content-between mb-0 mt-3">
-                  <small className="text-muted">Connections</small>
-                  <small className="text-primary">98</small>
+              <Link to="/me">
+                <div style={{ lineHeight: "14px" }}>
+                  <div className="d-flex justify-content-between mb-0 mt-3">
+                    <small className="text-muted">Connections</small>
+                    <small className="text-primary">98</small>
+                  </div>
+
+                  <small className="feedboldtext">Grow your network</small>
                 </div>
-                <small className="feedboldtext">Grow your network</small>
-              </div>
+              </Link>
               <div className="d-flex justify-content-between mt-2 mb-3">
                 <small className="text-muted">Who viewed your profile</small>
                 <small className="text-primary">23</small>
