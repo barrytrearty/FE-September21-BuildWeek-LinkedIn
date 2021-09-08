@@ -1,7 +1,7 @@
 import React from "react";
 import LinkedInLogo from "../data/linkedin_logo.png";
 import "./Navbar.css";
-import NavbarProfile from './NavbarProfile'
+import NavbarProfile from "./NavbarProfile";
 
 import {
   BrowserRouter as Router,
@@ -33,9 +33,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import NavbarProfileImage from "./NavbarProfileImage";
 
-
-
-
 class BootstrapNavbar extends React.Component {
   render() {
     return (
@@ -64,109 +61,108 @@ class BootstrapNavbar extends React.Component {
                   </Navbar.Brand>
                 </Link>
 
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <div className="mt-1 ml-5">
+                    <Nav className="row-md-12 ml-5 mb-5">
+                      <Nav.Link href="/">
+                        <FontAwesomeIcon
+                          icon={faHouseUser}
+                          className="ml-2 navicon"
+                          color="#4d4d4d"
+                        />
+                        <br />
+                        Home
+                      </Nav.Link>
+                      <Nav.Link href="/">
+                        <FontAwesomeIcon
+                          icon={faUser}
+                          className="ml-4 navicon"
+                          color="#4d4d4d"
+                        />
+                        <br />
+                        My Network
+                      </Nav.Link>
+                      <Nav.Link href="/">
+                        <FontAwesomeIcon
+                          icon={faSuitcase}
+                          className="ml-2 navicon"
+                          color="#4d4d4d"
+                        />
+                        <br />
+                        Jobs
+                      </Nav.Link>
+                      <Nav.Link href="/">
+                        <FontAwesomeIcon
+                          icon={faCommentDots}
+                          className="ml-4 navicon"
+                          color="#4d4d4d"
+                        />
+                        <br />
+                        Messaging
+                      </Nav.Link>
+                      <Nav.Link href="/">
+                        <FontAwesomeIcon
+                          icon={faBell}
+                          className="ml-4 navicon"
+                          color="#4d4d4d"
+                        />
+                        <br />
+                        Notifications
+                      </Nav.Link>
 
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav">
-                    <div className="mt-1 ml-5">
-                      <Nav className="row-md-12 ml-5 mb-5">
-                        <Nav.Link href="/">
-                          <FontAwesomeIcon
-                            icon={faHouseUser}
-                            className="ml-2 navicon"
-                            color="#4d4d4d"
-                          />
-                          <br />
-                          Home
-                        </Nav.Link>
-                        <Nav.Link href="/">
-                          <FontAwesomeIcon
-                            icon={faUser}
-                            className="ml-4 navicon"
-                            color="#4d4d4d"
-                          />
-                          <br />
-                          My Network
-                        </Nav.Link>
-                        <Nav.Link href="/">
-                          <FontAwesomeIcon
-                            icon={faSuitcase}
-                            className="ml-2 navicon"
-                            color="#4d4d4d"
-                          />
-                          <br />
-                          Jobs
-                        </Nav.Link>
-                        <Nav.Link href="/">
-                          <FontAwesomeIcon
-                            icon={faCommentDots}
-                            className="ml-4 navicon"
-                            color="#4d4d4d"
-                          />
-                          <br />
-                          Messaging
-                        </Nav.Link>
-                        <Nav.Link href="/">
-                          <FontAwesomeIcon
-                            icon={faBell}
-                            className="ml-4 navicon"
-                            color="#4d4d4d"
-                          />
-                          <br />
-                          Notifications
-                        </Nav.Link>
-                        
-                        <div className="ml-0">
-                        <NavbarProfileImage/>
+                      <div className="ml-0">
+                        <NavbarProfileImage />
 
-                          <NavDropdown
-                            title="Me"
-                            id="basic-nav-dropdown"
-                            className="ml-2"
-                          >
-                            <NavbarProfile/>
+                        <NavDropdown
+                          title="Me"
+                          id="basic-nav-dropdown"
+                          className="ml-2"
+                        >
+                          <NavbarProfile />
 
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.1">
-                              Account
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                              Settings and Privacy
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">
-                              Help
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4">
-                              Language
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.5">
-                              Manage
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.6">
-                              Posts and Activity
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.7">
-                              Company
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.8">
-                              Job Posting Account
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.9">
-                              Sign Out
-                            </NavDropdown.Item>
-                          </NavDropdown>
-                        </div>
+                          <NavDropdown.Divider />
+                          <NavDropdown.Item href="#action/3.1">
+                            Account
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="#action/3.2">
+                            Settings and Privacy
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="#action/3.3">
+                            Help
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="#action/3.4">
+                            Language
+                          </NavDropdown.Item>
+                          <NavDropdown.Divider />
+                          <NavDropdown.Item href="#action/3.5">
+                            Manage
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="#action/3.6">
+                            Posts and Activity
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="#action/3.7">
+                            Company
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="#action/3.8">
+                            Job Posting Account
+                          </NavDropdown.Item>
+                          <NavDropdown.Divider />
+                          <NavDropdown.Item href="#action/3.9">
+                            Sign Out
+                          </NavDropdown.Item>
+                        </NavDropdown>
+                      </div>
 
-                        <div className="ml-2">
-                          <FontAwesomeIcon
-                            className="ml-3"
-                            icon={faTable}
-                            color="#4d4d4d"
-                          />
-                          <br />
-/*
-                <div className="mb-5">
+                      <div className="ml-2">
+                        <FontAwesomeIcon
+                          className="ml-3"
+                          icon={faTable}
+                          color="#4d4d4d"
+                        />
+                        <br />
+                        /*
+                        {/* <div className="mb-5">
                   <Form inline>
                     <FormControl
                       type="text"
@@ -277,9 +273,7 @@ class BootstrapNavbar extends React.Component {
                           icon={faTable}
                           color="#4d4d4d"
                         />
-                        <br />
-*/
-
+                        <br /> */}
                         <NavDropdown
                           title="Work"
                           className="mb-5"

@@ -80,19 +80,11 @@ const Experiences = ({ match }) => {
             </div>
 
             {isMe === true && (
+              <div className="deleteButton">
+                <EditModal userId={userId} experienceId={experience._id} />
 
-
-
-             /* <div className="deleteButton"> */
-
-              <EditModal
-                userId={userId}
-                experienceId={experience._id}
-              />
-
-              <deleteExperience/>
+                <deleteExperience />
               </div>
-
             )}
 
             {/* dont need the add experience on exsiting experience */}
