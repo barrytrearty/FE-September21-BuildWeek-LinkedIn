@@ -3,7 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Card, Col, Button, Row } from "react-bootstrap";
 import "./MidSection.css";
 import { CgMathPlus } from "react-icons/cg";
-// import { AiOutlineLike } from "react-icons/fa";
+import { AiOutlineLike } from "react-icons/ai";
+import { BiCommentDetail } from "react-icons/bi";
+import { RiSendPlaneFill, RiShareForwardLine } from "react-icons/ri";
+// import {RiShareForwardLine}
 
 
 const MidSection = () => {
@@ -78,7 +81,8 @@ const MidSection = () => {
     
 
       {postsArray.map((post) => (
-        <Card className="cardstyling"  key={post._id}>
+        <Card className="cardstyling" key={post._id}>
+
           <Card.Body>
             <div>
               <div className="border-bottom">
@@ -96,8 +100,8 @@ const MidSection = () => {
                     <span className="text-muted">3rd+</span>
                     <div>{post.title} 45m</div>
                   </div>
-                  <div className="mt-2">
-                    Follow <CgMathPlus size={27} />
+                  <div id="follow" className="mt-2">
+                    <CgMathPlus size={27} /> <span>Follow</span>
                   </div>
                 </div>
               </Col>
@@ -105,15 +109,36 @@ const MidSection = () => {
                 <p>{post.text}</p>
               </div>
             </div>
+
            
-            <div id="interaction">
-              <div>32. 13 Comments</div>
-              <div className="d-flex justify-content-around">
-                <span>Like</span> <span>Comment</span> <span> Share </span>
-                <span>Send</span>
-              </div>
-            </div>
+           // <div id="interaction">
+           //   <div>32. 13 Comments</div>
+           //   <div className="d-flex justify-content-around">
+            //    <span>Like</span> <span>Comment</span> <span> Share </span>
+             //   <span>Send</span>
+            //  </div>
+           // </div>
+
           </Card.Body>
+          {/* <div> */}
+          <div
+            id="interaction"
+            className="d-flex justify-content-around flex-end mb-1"
+          >
+            <span>
+              <AiOutlineLike /> Like
+            </span>
+            <span>
+              <BiCommentDetail /> Comment
+            </span>
+            <span>
+              <RiShareForwardLine /> Share
+            </span>
+            <span>
+              <RiSendPlaneFill /> Send
+            </span>
+          </div>
+          {/* </div> */}
         </Card>
       ))}
     </div>
