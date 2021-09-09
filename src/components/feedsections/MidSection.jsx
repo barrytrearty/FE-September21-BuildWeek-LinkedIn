@@ -41,16 +41,6 @@ const MidSection = () => {
 
   return (
     <div>
-      {console.log(postsArray[0])}
-
-      <Card className="cardstyling text-center" style={{ height: "15vh" }}>
-        <Card.Title>Start a post</Card.Title>
-
-        <Card.Body>
-          <Card.Text></Card.Text>
-        </Card.Body>
-      </Card>
-
       <hr />
       {isLoading ? (
         <div>
@@ -66,7 +56,6 @@ const MidSection = () => {
       )}
 
       <Card className="mt-3 mb-3">
-
         <Card.Body>
           <Row>
             <Col className="col-md-1">
@@ -124,10 +113,8 @@ const MidSection = () => {
       </Card>
 
       {postsArray.map((post) => NewsFeedItem(post))}
-
     </div>
   );
 };
-
 
 export default MidSection;
