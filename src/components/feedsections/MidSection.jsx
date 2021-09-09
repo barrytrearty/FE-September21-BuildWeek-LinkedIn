@@ -66,6 +66,7 @@ const MidSection = () => {
       )}
 
       <Card className="mt-3 mb-3">
+
         <Card.Body>
           <Row>
             <Col className="col-md-1">
@@ -123,8 +124,10 @@ const MidSection = () => {
       </Card>
 
       {postsArray.map((post) => NewsFeedItem(post))}
+
     </div>
   );
 };
+
 
 export default MidSection;

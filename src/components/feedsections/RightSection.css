@@ -37,3 +37,8 @@ p {
     font-size: 0.9rem;
   
   }
+
+  .footerlogo {
+    max-width: 3.8rem;
+    height: 0.9rem;
+  }

@@ -135,9 +135,8 @@ const RightSection = ({ sectionTitle }) => {
                 alt=""
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
 
-                width="50em"
-                height="15em"
-                className="d-inline-block align-top mr-2 ml-4"
+                
+                className="footerlogo d-inline-block align-top mr-1 ml-3"
             /><p>Linkedin Corporation © 2021</p>
             
     </div>
