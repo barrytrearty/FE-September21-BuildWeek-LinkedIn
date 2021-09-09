@@ -1,4 +1,4 @@
-import { useToggle } from "react";
+import { useState } from "react";
 import { Card, Col, Button, Row } from "react-bootstrap";
 import "./MidSection.css";
 import { CgMathPlus } from "react-icons/cg";
@@ -64,7 +64,7 @@ const NewsFeedItem = (post) => {
           <AiOutlineLike /> "Like"
         </Button>
 
-        {/* <Button variant="light" onClick={setLiked}>
+        {/* <Button variant="light" onClick={setLiked(true)}>
           {liked ? <AiFillLike /> + "Like" : <AiOutlineLike /> + "Unlike"}
         </Button> */}
 
