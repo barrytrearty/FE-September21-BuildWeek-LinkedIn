@@ -57,7 +57,7 @@ class NavbarProfile extends Component {
               <Button
                               className="navbarprofilebutton mt-1 ml-3"
                               variant="outline-primary"
-                              style={{ width: "9.7rem" }}
+                              style={{ width: "10rem" }}
                             >
                               View Profile
                             </Button>

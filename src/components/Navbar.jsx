@@ -2,6 +2,7 @@ import React from "react";
 import LinkedInLogo from "../data/linkedin_logo.png";
 import "./Navbar.css";
 import NavbarProfile from "./NavbarProfile";
+import SearchBar from "./SearchBar";
 
 import {
   BrowserRouter as Router,
@@ -16,9 +17,12 @@ import {
   NavDropdown,
   Form,
   FormControl,
+  InputGroup,
   Button,
   Container,
   Card,
+  Col,
+  Row
 } from "react-bootstrap";
 import Profile from "../pages/Profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -39,85 +43,138 @@ class BootstrapNavbar extends React.Component {
       <div
         style={{
           backgroundColor: "white",
-          height: "4.2rem",
-          marginBottom: "2px",
+          height: "4rem",
+          marginBottom: "0.5rem",
+          paddingTop: "0rem",
         }}
+        
       >
-        <Container className="pt-0">
-          <div className="row">
+         <Container className="mb-5">
+           
+    
+
+
+          <div className="row" style={{ height: "3.5rem"}}>
             <div className="col-md-12">
-              <Navbar variant="light" expand="lg" sticky="top">
+
+
+
+              <Navbar variant="light" expand="lg" sticky="top" id="navbar" className="mr-1">
+              
+              
+
+         
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            
+                <Navbar.Collapse id="basic-navbar-nav">
+
                 <Link to="/feed">
                   <Navbar.Brand className="mb-5">
-                    <a className="mb-5" href="#">
+                    <a className="mb-5" href="#" id="navbarlogo">
                       <img
-                        className="mb-5 ml-1 pb-1"
+                        className="pb-1"
                         src={LinkedInLogo}
-                        width="45"
-                        height="45"
+                        width="43"
+                        height="43"
                         alt=""
+                        id="navbarlogo"
                       />
                     </a>
                   </Navbar.Brand>
                 </Link>
-
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                  <div className="mt-1 ml-5">
-                    <Nav className="row-md-12 ml-5 mb-5">
-                      <Nav.Link href="/">
+                  <div className="searchbar">
+                <Form
+            inline
+            className="align-items-center"
+            style={{ height: "40px" }}
+          >
+            <Col xs="auto" className="px-0">
+              <InputGroup className="flex-row">
+                <InputGroup.Text
+                  style={{
+                    height: "38px",
+                    width: "40px",
+                    borderRadius: "0.25rem 0px 0px 0.25rem",
+                    backgroundColor: "White",
+                    borderRight: 0,
+                    paddingLeft: "0.8rem",
+                    paddingRight: "0",
+                    border: "0",
+                    backgroundColor: "#EEF3F8",
+                  }}
+                >
+                  <FontAwesomeIcon
+                    style={{ height: "15px", width: "15px" }}
+                    icon={faSearch}
+                  />
+                </InputGroup.Text>
+                <SearchBar />
+                {/* <FormControl id="inlineFormInputGroup" placeholder="Search" style={{ backgroundColor: "#DCE6F1", border: "0" }} /> */}
+              </InputGroup>
+            </Col>
+          </Form>
+  </div>
+          <div className="nav">
+                <Nav className="d-inline-flex ml-auto mb-5">
+                <div className="d-flex flex-row">
+                  
+                      <Nav.Link style={{ height: "5vh" }} href="/">
                         <FontAwesomeIcon
                           icon={faHouseUser}
-                          className="ml-2 navicon"
+                          className="ml-2 mb-1 navicon"
                           color="#4d4d4d"
                         />
                         <br />
                         Home
                       </Nav.Link>
-                      <Nav.Link href="/">
+                      
+                      <Nav.Link style={{ height: "5vh" }} href="/">
                         <FontAwesomeIcon
                           icon={faUser}
-                          className="ml-4 navicon"
+                          className="ml-4 mb-1 navicon"
                           color="#4d4d4d"
                         />
                         <br />
                         My Network
                       </Nav.Link>
-                      <Nav.Link href="/">
+                     
+                      <Nav.Link style={{ height: "5vh" }} href="/">
                         <FontAwesomeIcon
                           icon={faSuitcase}
-                          className="ml-2 navicon"
+                          className="ml-2 mb-1 navicon"
                           color="#4d4d4d"
                         />
                         <br />
                         Jobs
                       </Nav.Link>
-                      <Nav.Link href="/">
+                     
+                      <Nav.Link style={{ height: "5vh" }} href="/">
                         <FontAwesomeIcon
                           icon={faCommentDots}
-                          className="ml-4 navicon"
+                          className="ml-4 mb-1 navicon"
                           color="#4d4d4d"
                         />
                         <br />
                         Messaging
                       </Nav.Link>
-                      <Nav.Link href="/">
+                     
+                      <Nav.Link style={{ height: "5vh" }} href="/">
                         <FontAwesomeIcon
                           icon={faBell}
-                          className="ml-4 navicon"
+                          className="ml-4 mb-1 navicon"
                           color="#4d4d4d"
                         />
                         <br />
                         Notifications
                       </Nav.Link>
-
-                      <div className="ml-0">
+                 
+                      <div className="ml-2 mb-4">
                         <NavbarProfileImage />
 
                         <NavDropdown
                           title="Me"
                           id="basic-nav-dropdown"
-                          className="ml-2"
+                          className="ml-2 mb-5"
                         >
                           <NavbarProfile />
 
@@ -155,12 +212,18 @@ class BootstrapNavbar extends React.Component {
                       </div>
 
 
-                        <div className="ml-2">
-                          <FontAwesomeIcon
+                        <div className="mr-1">
+                          {/* <FontAwesomeIcon
                             className="ml-3"
                             icon={faTable}
                             color="#4d4d4d"
-                          />
+                          /> */}
+                          <svg className="ml-3" height="25" width="25" viewBox="0 0 30 30">
+                <path
+                  transform="translate(2, 2)"
+                  d="M10 10h4v4h-4v-4zm0 11h4v-4h-4v4zm-7-7h4v-4H3v4zm0 7h4v-4H3v4zM3 7h4V3H3v4zm14 7h4v-4h-4v4zm0-11v4h4V3h-4zm-7 4h4V3h-4v4zm7 14h4v-4h-4v4z"
+                ></path>
+              </svg>
                           <br />
 {/*
                 <div className="mb-5">
@@ -281,7 +344,7 @@ class BootstrapNavbar extends React.Component {
 
                         <NavDropdown
                           title="Work"
-                          className="mb-5"
+                          className="ml-1"
                           id="basic-nav-dropdown"
                         >
                           <NavDropdown.Item href="#action/3.1">
@@ -299,19 +362,26 @@ class BootstrapNavbar extends React.Component {
                           </NavDropdown.Item>
                         </NavDropdown>
                       </div>
+                     
                       <Nav.Link
-                        className="ml-2"
-                        style={{ color: "#996c02" }}
+                        className="mr-2"
+                        style={{ color: "#996c02", height: "5vh" }}
                         href="/"
                       >
-                        Try Premium for
-                        <br />
-                        <p className="ml-4">free</p>
+                       Try Premium for
+                       <br/>
+                        <p className="freepremium">free</p>
                       </Nav.Link>
+                     </div>
                     </Nav>
-                  </div>
+                 </div>
+                 
+                  
                 </Navbar.Collapse>
+                
               </Navbar>
+              
+                     
               <br />
               <Switch>
                 <Route exact path="/">
@@ -319,9 +389,12 @@ class BootstrapNavbar extends React.Component {
                 </Route>
               </Switch>
             </div>
+            
           </div>
+         
         </Container>
       </div>
+      
     );
   }
 }
