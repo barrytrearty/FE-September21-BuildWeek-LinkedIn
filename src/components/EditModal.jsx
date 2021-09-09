@@ -1,10 +1,3 @@
-// fetch = 2003-23-01-14T42-481Z
-
-// format(
-//   parseISO(date), // 1)
-//   "yyyy MMMM"
-// );
-
 import { parseISO, format } from "date-fns";
 import React, { Component } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
