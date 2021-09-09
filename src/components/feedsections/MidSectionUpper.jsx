@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Button, Modal } from "react-bootstrap";
+import { Container, Row, Col, Button, Modal, Image } from "react-bootstrap";
 import "./MidSection.css";
 import { BiPhotoAlbum } from "react-icons/bi";
 import { AiOutlineVideoCamera } from "react-icons/ai";
@@ -15,9 +15,26 @@ const MidSectionUpper = () => {
   const [MyImage, setMyImage] = useState("");
   const [show, setShow] = useState(false);
   const [imageUploaded, setimageUploaded] = useState(false);
+  const [imageFile, setimageFile] = useState();
+  const [imagePreview, setimagePreview] = useState();
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setimageFile();
+    setimageUploaded(false);
+  };
   const handleShow = () => setShow(true);
+
+  const imageUpload = (e) => {
+    if (e.target.files.length == 0) {
+      console.log("No image selected!");
+    } else {
+      setimageFile(e.target.files[0]);
+      let imagepreview = URL.createObjectURL(e.target.files[0]);
+      setimagePreview(imagepreview);
+      setimageUploaded(true);
+    }
+  };
 
   const getMyProfile = async () => {
     try {
@@ -46,17 +63,21 @@ const MidSectionUpper = () => {
           <Modal.Title id="contactnametext">Edit your photo</Modal.Title>
         </Modal.Header>
         <Modal.Body className="px-4 d-flex py-5">
-          <div className="m-auto imageuploadtext text-primary px-2 pt-1">
-            <label for="file-upload" className="custom-file-upload">
-              Select images to share
-            </label>
-            <input
-              className="d-none"
-              id="file-upload"
-              type="file"
-              onChange={(e) => imageUpload(e)}
-            />
-          </div>
+          {imageUploaded ? (
+            <Image src={imagePreview} fluid />
+          ) : (
+            <div className="m-auto imageuploadtext text-primary px-2 pt-1">
+              <label for="file-upload" className="custom-file-upload">
+                Select images to share
+              </label>
+              <input
+                className="d-none"
+                id="file-upload"
+                type="file"
+                onChange={(e) => imageUpload(e)}
+              />
+            </div>
+          )}
         </Modal.Body>
         <Modal.Footer className="px-4" closeButton>
           <Button
@@ -64,6 +85,7 @@ const MidSectionUpper = () => {
             className="ml-3"
             variant="outline-primary"
             type="submit"
+            onClick={handleClose}
           >
             Cancel
           </Button>
