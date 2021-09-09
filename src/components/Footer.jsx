@@ -16,8 +16,8 @@ const Footer = () => (
           <img
             alt=""
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
-            width="120"
-            height="auto"
+            
+            id="linkedinlogo"
             className="d-inline-block align-top"
           />
 
@@ -94,7 +94,7 @@ const Footer = () => (
             </li>
           </ul>
         </div>
-        <div class="dropdownButton mt-5">
+        <div class="dropdownButton mt-4">
           <p className="selectLanguage">Select Language</p>
           <DropdownButton
             variant="outline-dark"

@@ -4,6 +4,8 @@ import { Card } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import RightSectionRow from "./RightSectionRow";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 // import "./components/ShowButton.css";
 import {
   IoIosArrowDown,
@@ -46,11 +48,12 @@ const RightSection = ({ sectionTitle }) => {
   return (
     <div>
 
-   <Container  style={{ minWidth: "23vw" }} className="mr-5 pl-2 mb-2 PeopleContainer container-fluid">
-      <h5 className="mt-3 ml-2">{sectionTitle}Add to your feed</h5>
+   <Container  style={{ minWidth: "20vw" }} className="mr-5 pl-2 mb-2 PeopleContainer container-fluid">
+      <h5 className="sectiontitle mt-3 ml-2 mb-2">{sectionTitle}Add to your feed <FontAwesomeIcon icon={faInfoCircle} className="infoicon"/></h5>
+     
       
       <RightSectionRow peopleInfos={peopleInfos} show={show} />
-      <div className="ShowDiv text-left p-0">
+      <div className="text-center p-0">
         <Button
           type="button"
           id="ViewButton"
@@ -59,7 +62,7 @@ const RightSection = ({ sectionTitle }) => {
         >
           {show && (
             <>
-              View all recommendations <IoIosArrowDropright size={22} className="ml-1"/>
+              View all recommendations <IoIosArrowDown size={18} className="ml-1"/>
             </>
           )}
           {!show && (
@@ -74,11 +77,12 @@ const RightSection = ({ sectionTitle }) => {
 
       <Card
         className="cardstyling text-left"
-        style={{ height: "37vh", minWidth: "23vw" }}
+        id="bottomcard"
+        style={{ height: "37vh", minWidth: "20vw" }}
       >
         <Card.Body>
-          <h5 className="mb-3">{sectionTitle}Today's top courses</h5>
-          <Card.Text>
+          <h5 className="sectiontitle mb-3">{sectionTitle}Today's top courses<FontAwesomeIcon icon={faInfoCircle} className="infoiconlower"/></h5>
+         
             <Card.Subtitle id="cardsubtitle" class="card-text">
               1. What is graphic design?
             </Card.Subtitle>
@@ -97,15 +101,15 @@ const RightSection = ({ sectionTitle }) => {
             <Card.Text id="cardtext" className="text ml-3">
               Kenji Yoishino
             </Card.Text>
-            <Card.Text className="learning text-left mr-2">
+            <Card.Text className="learning text-left mr-1">
               Show more on Linkedin Learning
-              <IoIosArrowDropright size={22} className="ml-2" />
+              <IoIosArrowDropright size={18} className="ml-1" />
             </Card.Text>
-          </Card.Text>
+          
         </Card.Body>
       </Card>
 
-      <footer className="footer ml-4 mt-4">
+      <footer className="footer ml-1 mt-4">
         <div className="container-fluid">
           <div className="col-md-12">
             <div className="row justify-content-center">

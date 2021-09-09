@@ -1,5 +1,6 @@
 import { Row, Col } from "react-bootstrap";
 import FeedRightCard from "./FeedRightCard";
+import "./RightSection.css"
 
 
 
@@ -20,12 +21,12 @@ console.log(shuffled_array)
     <>
       <Row>
         {show && shuffled_array.slice(0, 4).map((peopleInfo) => (
-          <Col sm={12} md={12} lg={12} key={peopleInfo._id} className="PeopleCol">
+          <Col sm={12} md={12} lg={12} key={peopleInfo._id}>
             <FeedRightCard peopleInfo={peopleInfo} />
           </Col>
         ))}
           {!show && shuffled_array.slice(0, 8).map((peopleInfo) => (
-          <Col sm={12} md={12} lg={12} key={peopleInfo._id} className="PeopleCol">
+          <Col sm={12} md={12} lg={12} key={peopleInfo._id}>
             <FeedRightCard peopleInfo={peopleInfo} />
           </Col>
         ))}

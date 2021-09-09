@@ -4,7 +4,44 @@
 }
 
 .navicon {
-    transform: scale(1.5)
+    transform: scale(1.5);
+    margin-top: 0rem;
+    
     
 }
 
+a {
+    box-sizing: none;
+}
+
+#navbar {
+   
+    margin-bottom: 10rem;
+}
+
+.freepremium {
+    margin-left: 2.1rem;
+}
+
+
+
+#navicons {
+    
+    margin-bottom: 5rem;
+    
+}
+
+
+#input {
+    background-color: #EEF3F8;
+}
+
+.searchbar {
+    margin-bottom: 8.2rem;
+    margin-left: 0.3rem;
+}
+
+#navbarlogo {
+    margin-bottom: 5rem;
+    margin-right: 0rem;
+}
