@@ -1,11 +1,13 @@
 import { Button } from "react-bootstrap";
 import { AiFillDelete } from "react-icons/ai";
 import { useEffect, useState, useCallback } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory } from "react-router";
 
-import "./DeleteExperience.css"
+import "./DeleteExperience.css";
 
 const DeleteExperience = ({ userId, experienceId }) => {
+  const history = useHistory();
   // e.preventDefault()
 
   // const userId = this.props.userId
@@ -21,14 +23,17 @@ const DeleteExperience = ({ userId, experienceId }) => {
         {
           method: "DELETE",
           headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
           },
         }
       );
       if (response.ok) {
         // this.props.fetchExperiences();
         // this.props.onHide();
-        console.log("Response ok")
+        console.log("Response ok");
+        alert("Delete successful");
+        history.go(0);
       } else {
         console.log("Delete unsuccessful");
       }
@@ -38,11 +43,14 @@ const DeleteExperience = ({ userId, experienceId }) => {
   };
 
   return (
-     
-    <Button onClick={deleteThisExperience} className="deleteButton mr-auto" variant="secondary-outline" type="button">
-    Delete experience
+    <Button
+      onClick={deleteThisExperience}
+      className="deleteButton mr-auto"
+      variant="secondary-outline"
+      type="button"
+    >
+      Delete experience
     </Button>
-    
   );
 };
 export default DeleteExperience;

@@ -14,8 +14,13 @@ import { RiSendPlaneFill, RiShareForwardLine } from "react-icons/ri";
 //   render() {
 
 const NewsFeedItem = (post) => {
-  //   const [liked, setLiked] = useState(false);
-  //   const [liked, setLiked] = useToggle();
+  // let liked = false;
+
+  // const [liked, setLiked] = useState(false);
+  // //   const [liked, setLiked] = useToggle();
+  // const changeLike = () => {
+  //   setLiked(true);
+  // };
 
   return (
     <Card className="cardstyling consistent-font" key={post._id}>
@@ -61,10 +66,11 @@ const NewsFeedItem = (post) => {
 
         {/* WITHOUT FUNCTIONALITY  */}
         <Button variant="light">
-          <AiOutlineLike /> "Like"
+          <AiOutlineLike />
+          Like
         </Button>
 
-        {/* <Button variant="light" onClick={setLiked(true)}>
+        {/* <Button variant="light" onChange={changeLike}>
           {liked ? <AiFillLike /> + "Like" : <AiOutlineLike /> + "Unlike"}
         </Button> */}
 
