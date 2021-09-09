@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import LeftSection from "./feedsections/LeftSection";
 import MidSection from "./feedsections/MidSection";
+import MidSectionUpper from "./feedsections/MidSectionUpper";
 import RightSection from "./feedsections/RightSection";
 
 const NewsFeed = () => {
@@ -14,6 +15,7 @@ const NewsFeed = () => {
           </Col>
 
           <Col lg={6} md={8} sm={12} className="px-2">
+            <MidSectionUpper />
             <MidSection />
           </Col>
 

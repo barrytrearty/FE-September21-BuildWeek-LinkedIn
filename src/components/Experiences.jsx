@@ -79,9 +79,9 @@ const Experiences = ({ match }) => {
             </div>
 
             {isMe === true && (
-              <div className="deleteButton ml-auto">
-                <EditModal userId={userId} experienceId={experience._id} />
 
+                <div className="ml-auto">
+                <EditModal userId={userId} experienceId={experience._id} />
                 <deleteExperience />
               </div>
             )}
