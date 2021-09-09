@@ -74,7 +74,7 @@ class LeftSection extends Component {
             <div id="feedprofilelinkssection">
               <Card.Text
                 id="profileconnectionssection"
-                className="pb-2 px-3 mb-0"
+                className="pb-2 px-3 mb-0 mr-0"
               >
                 <Link to="/mynetwork">
                   <div>
@@ -88,7 +88,7 @@ class LeftSection extends Component {
                 </Link>
               </Card.Text>
 
-              <Card.Text className="px-3 mb-2" id="viewedprofilesection">
+              <Card.Text className="px-3 mb-2 mr-0" id="viewedprofilesection">
                 <Link to="#">
                   <div className="d-flex justify-content-between mt-1 mb-0">
                     <small className="text-muted">
@@ -102,7 +102,7 @@ class LeftSection extends Component {
               <hr className="mt-1 mb-0" />
               <Card.Text
                 style={{ lineHeight: "16px" }}
-                className="pt-2 mb-0 pb-1 px-3"
+                className="pt-2 mb-0 pb-1 px-3 mr-0"
                 id="reactivatepremiumsection"
               >
                 <Link to="#">
@@ -118,7 +118,7 @@ class LeftSection extends Component {
                 </Link>
               </Card.Text>
               <hr className="my-0" />
-              <Card.Text id="feedmyitems" className="pr-3">
+              <Card.Text id="feedmyitems" className="pr-3 mr-0">
                 <Link to="#">
                   <div>
                     <small className="feedboldtext">
@@ -177,7 +177,7 @@ class LeftSection extends Component {
           </Card.Body>
         </Card>
 
-        <Card className="cardstyling feedleftcards">
+        <Card className="cardstyling feedleftcards mb-4">
           <Card.Body className="px-0 py-0">
             <div className="mx-3 my-2">
               <Link to="#">

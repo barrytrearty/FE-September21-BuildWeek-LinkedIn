@@ -2,6 +2,7 @@ import React from "react";
 import LinkedInLogo from "../data/linkedin_logo.png";
 import "./Navbar.css";
 import NavbarProfile from "./NavbarProfile";
+import SearchBar from "./SearchBar";
 
 import {
   BrowserRouter as Router,
@@ -17,10 +18,12 @@ import {
   Form,
   FormControl,
   InputGroup,
+
+  Button,
   Container,
   Card,
   Col,
-  Row,
+  Row
 } from "react-bootstrap";
 import Profile from "../pages/Profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -80,8 +83,15 @@ class BootstrapNavbar extends React.Component {
                           <FontAwesomeIcon
                             icon={faHouseUser}
                             className="ml-2 navicon"
+
                             color="#4d4d4d"
-                          />
+                          /> */}
+                          <svg className="ml-3" height="25" width="25" viewBox="0 0 30 30">
+                <path
+                  transform="translate(2, 2)"
+                  d="M10 10h4v4h-4v-4zm0 11h4v-4h-4v4zm-7-7h4v-4H3v4zm0 7h4v-4H3v4zM3 7h4V3H3v4zm14 7h4v-4h-4v4zm0-11v4h4V3h-4zm-7 4h4V3h-4v4zm7 14h4v-4h-4v4z"
+                ></path>
+              </svg>
                           <br />
                           Home
                         </Nav.Link>
@@ -213,6 +223,7 @@ class BootstrapNavbar extends React.Component {
                           className="ml-2"
                           style={{ color: "#996c02", height: "5vh" }}
                           href="/"
+
                         >
                           Try Premium for
                           <br />
@@ -234,6 +245,7 @@ class BootstrapNavbar extends React.Component {
           </Route>
         </Switch>
       </Container>
+
     );
   }
 }

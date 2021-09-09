@@ -39,12 +39,13 @@ const PeopleSection = ({ sectionTitle }) => {
 
     <Container className="mb-3 PeopleContainer container-fluid">
 
-      <h5 className="mt-3">{sectionTitle}</h5>
+      <h5 className="sectiontitle mt-3">{sectionTitle}</h5>
       <PeopleRow peopleInfos={peopleInfos} show={show} />
       <div className="ShowDiv text-center p-0">
         <Button
           type="button"
           id="ShowButton"
+          className="text-muted"
           //   variant="outline-secondary"
           onClick={() => setShow(!show)}
         >

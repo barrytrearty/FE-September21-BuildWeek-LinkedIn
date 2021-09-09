@@ -1,10 +1,3 @@
-// fetch = 2003-23-01-14T42-481Z
-
-// format(
-//   parseISO(date), // 1)
-//   "yyyy MMMM"
-// );
-
 import { parseISO, format } from "date-fns";
 import React, { Component } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
@@ -13,8 +6,10 @@ import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
 import DeleteExperience from "./DeleteExperience";
+import { useHistory } from "react-router";
 
 function EditModal({ userId, experienceId }) {
+  const history = useHistory();
   let years = [];
   for (let i = 2021; i >= 1921; i--) {
     years.push(i);
@@ -35,6 +30,7 @@ function EditModal({ userId, experienceId }) {
   const [endYear, setEndYear] = useState("");
   const [endDate, setEndDate] = useState(null);
   const [description, setDescription] = useState("");
+  const [imageFile, setimageFile] = useState();
 
   //fetching existing info
 
@@ -65,6 +61,7 @@ function EditModal({ userId, experienceId }) {
           parseISO(startDateMonthString), // 1)
           "yyyy MMM"
         );
+        console.log(startDateMonthString);
         let startArray = startDateMonthString.split(" ");
         setStartMonth(startArray[1]);
         setStartYear(startArray[0]);
@@ -76,6 +73,7 @@ function EditModal({ userId, experienceId }) {
           parseISO(endDateMonthString), // 1)
           "yyyy MMM"
         );
+        console.log(endDateMonthString);
         let endArray = endDateMonthString.split(" ");
         setEndMonth(endArray[1]);
         setEndYear(endArray[0]);
@@ -104,12 +102,17 @@ function EditModal({ userId, experienceId }) {
         method: "PUT",
         // fill in the () here with the states
         body: JSON.stringify({
-          "role": role,
-          "company": company,
-          "startDate": `${startYear}-${("0" + startMonthVariable).slice(-2)}-16`,
-          "endDate": `${endYear}-${("0" + endMonthVariable).slice(-2)}-16`,
-          "description": description,
-          "area": area,
+
+          role: role,
+          company: company,
+          startDate: `${startYear}-${(
+            "0" + (startMonthVariable ? startMonthVariable : startMonth)
+          ).slice(-2)}-16`,
+          endDate: `${endYear}-${(
+            "0" + (endMonthVariable ? endMonthVariable : endMonth)
+          ).slice(-2)}-16`,
+          description: description,
+          area: area,
         }),
 
         headers: {
@@ -121,9 +124,14 @@ function EditModal({ userId, experienceId }) {
       if (response.ok) {
         console.log(role);
         const ExperienceResponse = await response.json();
-        // console.log(ExperienceResponse);
-        alert("Profile is updated.");
 
+        // console.log(ExperienceResponse);
+        if (imageFile !== undefined) {
+          editImage();
+        }
+
+        alert("Profile is updated.");
+        history.go(0);
         return ExperienceResponse;
       } else {
         alert("Profile is not edited.");
@@ -133,8 +141,35 @@ function EditModal({ userId, experienceId }) {
     }
   };
 
-  console.log(startMonth)
-  console.log(endMonth)
+
+  const editImage = async () => {
+    const formData = new FormData();
+    formData.append("experience", imageFile);
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}/picture`,
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          },
+        }
+      );
+
+      if (response.ok) {
+        const reply = response.json();
+
+        console.log(reply);
+      } else {
+        alert("Error! Please complete the form!");
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+
 
   let startMonthVariable;
 
@@ -165,6 +200,14 @@ function EditModal({ userId, experienceId }) {
   if (endMonth === "Oct") endMonthVariable = 10;
   if (endMonth === "Nov") endMonthVariable = 11;
   if (endMonth === "Dec") endMonthVariable = 12;
+
+  const imageUpload = (e) => {
+    if (e.target.files.length == 0) {
+      console.log("No image selected!");
+    } else {
+      setimageFile(e.target.files[0]);
+    }
+  };
 
   return (
     <>
@@ -227,7 +270,10 @@ function EditModal({ userId, experienceId }) {
                 size="sm"
                 as="select"
                 defaultValue={startMonthVariable}
-                onChange={(e) => setStartMonth(e.target.value)}
+                onChange={(e) => {
+                  setStartMonth(e.target.value);
+                  console.log(startMonthVariable);
+                }}
                 // onChange={(e) => setStartDateMonth(e.target.value)}
               >
                 {/* <option value={startMonthVariable}>{startMonth}</option> */}
@@ -252,7 +298,7 @@ function EditModal({ userId, experienceId }) {
                 defaultValue={startYear}
                 onChange={(e) => {
                   setStartYear(e.target.value);
-                  // console.log(startYear);
+
                 }}
               >
                 {years.map((year) => (
@@ -268,7 +314,13 @@ function EditModal({ userId, experienceId }) {
                 size="sm"
                 as="select"
                 defaultValue={endMonthVariable}
-                onChange={(e) => setEndMonth(e.target.value)}
+                onChange={(e) => {
+                  console.log(endMonth);
+                  setEndMonth(e.target.value);
+                  console.log(e.target.value);
+
+                  // console.log(endMonthVariable);
+                }}
               >
                 {/* <option value={endMonthVariable}>{endMonth}</option> */}
                 <option value="1">Jan</option>
@@ -336,7 +388,7 @@ function EditModal({ userId, experienceId }) {
               <Form.Label>Description</Form.Label>
               <Form.Control
                 className="border-dark"
-                type="textarea"
+                as="textarea"
                 rows={3}
                 defaultValue={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -344,11 +396,20 @@ function EditModal({ userId, experienceId }) {
             </Form.Group>
 
             <Form.Group>
-              <Form.File id="imageUpload" label="Media" />
+              <Form.File
+                id="formImageUpload"
+                label="Image Upload"
+                onChange={(e) => imageUpload(e)}
+              />
             </Form.Group>
 
             <DeleteExperience userId={userId} experienceId={experienceId} />
-            <Button id="savemodalbutton" variant="primary" type="submit">
+            <Button
+              className="ml-3"
+              id="savemodalbutton"
+              variant="primary"
+              type="submit"
+            >
               Edit Experience
             </Button>
           </Form>

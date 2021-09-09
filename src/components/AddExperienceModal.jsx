@@ -4,8 +4,10 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 import { CgMathPlus } from "react-icons/cg";
 import { parseISO, format } from "date-fns";
+import { useHistory } from "react-router";
 
 function AddExperienceModal(props) {
+  const history = useHistory();
   const [show, setShow] = useState(false);
 
   const [experience, setExperience] = useState({
@@ -16,7 +18,6 @@ function AddExperienceModal(props) {
     description: "",
     area: "",
     company: "",
-    // image: "",
     // "role": "CTO",
     //     "company": "Strive School",
     //     "startDate": "2019-06-16",
@@ -24,6 +25,8 @@ function AddExperienceModal(props) {
     //     "description": "Doing stuff here and there",
     //     "area": "Berlin",
   });
+
+  const [imageFile, setimageFile] = useState();
 
   const [startDateObj, setStartDateObj] = useState({ year: "", month: "" });
   const [endDateObj, setEndDateObj] = useState({ year: "", month: "" });
@@ -76,12 +79,33 @@ function AddExperienceModal(props) {
         const hello = response.json();
 
         alert("Success!");
+        history.go(0);
         return hello;
       } else {
         alert("Error! Please complete the form!");
       }
     } catch (error) {
       alert(error);
+    }
+  };
+
+  const fetchNewestExperienceID = async () => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/611d2acd2d52620015b6de6e/experiences`,
+
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          },
+        }
+      );
+      let experienceArray1 = await response.json();
+      let lastexperience = experienceArray1[experienceArray1.length - 1];
+      return lastexperience._id;
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -96,12 +120,52 @@ function AddExperienceModal(props) {
     setcurrentlyWorking(e.target.checked);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (experience.endDate === "") {
       setExperience({ ...experience, endDate: null });
     }
-    postData();
+    await postData();
+    let id = await fetchNewestExperienceID();
+    if (imageFile.length !== 0) postImage(id);
+  };
+
+  const imageUpload = (e) => {
+    if (e.target.files.length == 0) {
+      console.log("No image selected!");
+    } else {
+      setimageFile(e.target.files[0]);
+    }
+  };
+
+  const postImage = async (id) => {
+    const formData = new FormData();
+    formData.append("experience", imageFile);
+
+    console.log(formData);
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/611d2acd2d52620015b6de6e/experiences/${id}/picture`,
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          },
+        }
+      );
+
+      if (response.ok) {
+        const reply = response.json();
+
+        console.log(reply);
+      } else {
+        alert("Error! Please complete the form!");
+      }
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
@@ -208,6 +272,7 @@ function AddExperienceModal(props) {
             <small>End date*</small>
             <div className="d-flex mb-4">
               <Form.Control
+                disabled={currentlyWorking}
                 className="mr-2 border-dark"
                 size="sm"
                 as="select"
@@ -259,7 +324,7 @@ function AddExperienceModal(props) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-4" controlId="formImageUrl">
+            {/* <Form.Group className="mb-4" controlId="formImageUrl">
               <Form.Label className="mb-0">
                 <small>Image URL</small>
               </Form.Label>
@@ -269,6 +334,14 @@ function AddExperienceModal(props) {
                 type="text"
                 placeholder="Ex: https://fakeimg.pl/10x10/"
                 onChange={(e) => handleInput(e, "image")}
+              />
+            </Form.Group> */}
+
+            <Form.Group>
+              <Form.File
+                id="formImageUpload"
+                label="Image Upload"
+                onChange={(e) => imageUpload(e)}
               />
             </Form.Group>
           </Form>
