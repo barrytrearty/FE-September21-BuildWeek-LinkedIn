@@ -12,7 +12,7 @@ const userId = "611d2acd2d52620015b6de6e";
 const endpoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
 
 
-const MidSection = () => {
+const MidSectionUpper = () => {
 
   const [MyImage, setMyImage] = useState("");
 
@@ -92,4 +92,4 @@ const MidSection = () => {
   );
 };
 
-export default MidSection;
+export default MidSectionUpper;
