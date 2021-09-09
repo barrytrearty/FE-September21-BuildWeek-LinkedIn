@@ -1,5 +1,14 @@
 import React from "react";
-import { Container, Row, Col, Button, Modal, Image } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Modal,
+  Image,
+  InputGroup,
+  FormControl,
+} from "react-bootstrap";
 import "./MidSection.css";
 import { BiPhotoAlbum } from "react-icons/bi";
 import { AiOutlineVideoCamera } from "react-icons/ai";
@@ -9,21 +18,32 @@ import AddPost from "./AddPost";
 import { useState, useEffect } from "react";
 
 const userId = "611d2acd2d52620015b6de6e";
-const endpoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
+const endpointprofile = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
 
 const MidSectionUpper = () => {
   const [MyImage, setMyImage] = useState("");
-  const [show, setShow] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [showPostModal, setShowPostModal] = useState(false);
   const [imageUploaded, setimageUploaded] = useState(false);
   const [imageFile, setimageFile] = useState();
   const [imagePreview, setimagePreview] = useState();
+  const [postContent, setPostContent] = useState("");
 
-  const handleClose = () => {
-    setShow(false);
+  const handleCloseImageModal = () => {
+    setShowImageModal(false);
     setimageFile();
     setimageUploaded(false);
   };
-  const handleShow = () => setShow(true);
+  const handleShowImageModal = () => setShowImageModal(true);
+
+  const handleClosePostModal = () => {
+    setShowPostModal(false);
+    setShowImageModal(false);
+  };
+  const handleShowPostModal = () => {
+    setShowImageModal(false);
+    setShowPostModal(true);
+  };
 
   const imageUpload = (e) => {
     if (e.target.files.length == 0) {
@@ -38,7 +58,7 @@ const MidSectionUpper = () => {
 
   const getMyProfile = async () => {
     try {
-      let response = await fetch(endpoint, {
+      let response = await fetch(endpointprofile, {
         method: "GET",
         headers: {
           Authorization:
@@ -51,14 +71,42 @@ const MidSectionUpper = () => {
       console.log(error);
     }
   };
-  console.log(imageUploaded);
+
   useEffect(() => getMyProfile(), []);
+
+  const endpoint = "https://striveschool-api.herokuapp.com/api/posts/";
+  const createPost = async () => {
+    try {
+      let response = await fetch(endpoint, {
+        method: "POST",
+        body: JSON.stringify({
+          text: postContent,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+        },
+      });
+
+      if (response.ok) {
+        const hello = response.json();
+
+        alert("Success!");
+        // history.go(0);
+      } else {
+        alert("Error! Please complete the form!");
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
   return (
     <>
       <br />
 
       {/* Upload Image Modal */}
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={showImageModal} onHide={handleCloseImageModal}>
         <Modal.Header className="px-4" closeButton>
           <Modal.Title id="contactnametext">Edit your photo</Modal.Title>
         </Modal.Header>
@@ -85,18 +133,62 @@ const MidSectionUpper = () => {
             className="ml-3"
             variant="outline-primary"
             type="submit"
-            onClick={handleClose}
+            onClick={handleCloseImageModal}
           >
             Cancel
           </Button>
-          <Button
-            className="ml-2"
-            id="donemodalbutton"
-            variant="primary"
-            type="submit"
-            disabled={!imageUploaded}
-          >
-            Done
+          {imageUploaded ? (
+            <Button
+              className="ml-2"
+              id="donemodalbutton"
+              variant="primary"
+              type="submit"
+              onClick={handleShowPostModal}
+            >
+              Done
+            </Button>
+          ) : (
+            <Button
+              className="ml-2"
+              id="donemodalbutton"
+              variant="primary"
+              type="submit"
+              disabled={!imageUploaded}
+            >
+              Done
+            </Button>
+          )}
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={showPostModal} onHide={handleClosePostModal}>
+        <Modal.Header className="px-4" closeButton>
+          <Modal.Title id="contactnametext">Create a post</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="px-4">
+          <Row className="d-flex flex-row align-items-top">
+            <Col>
+              <img src={MyImage} className="mr-5 userImage" />
+              <Button className="AuthorButton">James Sutcliffe</Button>
+              <Button className="AuthorButton">Anyone</Button>
+            </Col>
+            <Col xs={12} className="mt-4">
+              <InputGroup className="postContent">
+                <FormControl
+                  as="textarea"
+                  aria-label="With textarea"
+                  placeholder="What do you want to talk about?"
+                  className="postContent"
+                  onChange={(e) => setPostContent(e.target.value)}
+                />
+              </InputGroup>
+            </Col>
+            <Image src={imagePreview} fluid />
+          </Row>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button id="savemodalbutton" type="button" onClick={createPost}>
+            Post
           </Button>
         </Modal.Footer>
       </Modal>
@@ -114,7 +206,7 @@ const MidSectionUpper = () => {
         {/* <Col xs="auto" className="my-2"> */}
         <div className="d-flex justify-content-between mt-3">
           <Button
-            onClick={handleShow}
+            onClick={handleShowImageModal}
             variant="light"
             className="d-flex flex-row IconAndText"
           >
