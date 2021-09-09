@@ -82,17 +82,15 @@ const Experiences = ({ match }) => {
             {isMe === true && (
 
 
+
               <div className="ml-auto">
 
+              
+                <EditModal userId={userId} experienceId={experience._id} />
 
-              <EditModal
-                userId={userId}
-                experienceId={experience._id}
-              />
 
-              <deleteExperience/>
+                <deleteExperience />
               </div>
-
             )}
 
             {/* dont need the add experience on exsiting experience */}

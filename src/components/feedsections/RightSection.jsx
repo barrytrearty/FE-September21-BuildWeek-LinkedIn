@@ -5,10 +5,13 @@ import { useState, useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import RightSectionRow from "./RightSectionRow";
 // import "./components/ShowButton.css";
-import { IoIosArrowDown, IoIosArrowDropright, IoIosArrowUp } from "react-icons/io";
+import {
+  IoIosArrowDown,
+  IoIosArrowDropright,
+  IoIosArrowUp,
+} from "react-icons/io";
 // import "./components/PeopleSection.css";
 import "./RightSection.css";
-
 
 const RightSection = ({ sectionTitle }) => {
   const [peopleInfos, setPeopleInfos] = useState([]);
@@ -42,6 +45,7 @@ const RightSection = ({ sectionTitle }) => {
   console.log(peopleInfos);
   return (
     <div>
+
    <Container  style={{ minWidth: "23vw" }} className="mr-5 pl-2 mb-2 PeopleContainer container-fluid">
       <h5 className="mt-3 ml-2">{sectionTitle}Add to your feed</h5>
       
@@ -65,65 +69,72 @@ const RightSection = ({ sectionTitle }) => {
           )}
         </Button>
       </div>
+
       </Container>
-    
+
       <Card
         className="cardstyling text-left"
         style={{ height: "37vh", minWidth: "23vw" }}
       >
         <Card.Body>
-        <h5 className="mb-3">{sectionTitle}Today's top courses</h5>
+          <h5 className="mb-3">{sectionTitle}Today's top courses</h5>
           <Card.Text>
-          
-<Card.Subtitle id="cardsubtitle" class="card-text">1. What is graphic design?</Card.Subtitle>
-<Card.Text id="cardtext" className="text ml-3">Sean Adams</Card.Text>
-<Card.Subtitle id="cardsubtitle" class="card-text">2. Customer Service Foundations</Card.Subtitle>
-<Card.Text id="cardtext" className="text ml-3">Jeff Toister</Card.Text>
-<Card.Subtitle id="cardsubtitle" class="card-text">3. Uncovering Your Authentic Self at Work</Card.Subtitle>
-<Card.Text id="cardtext" className="text ml-3">Kenji Yoishino</Card.Text>
-<Card.Text className="learning text-left mr-2">Show more on Linkedin Learning<IoIosArrowDropright size={22} className="ml-2"/></Card.Text>
+            <Card.Subtitle id="cardsubtitle" class="card-text">
+              1. What is graphic design?
+            </Card.Subtitle>
+            <Card.Text id="cardtext" className="text ml-3">
+              Sean Adams
+            </Card.Text>
+            <Card.Subtitle id="cardsubtitle" class="card-text">
+              2. Customer Service Foundations
+            </Card.Subtitle>
+            <Card.Text id="cardtext" className="text ml-3">
+              Jeff Toister
+            </Card.Text>
+            <Card.Subtitle id="cardsubtitle" class="card-text">
+              3. Uncovering Your Authentic Self at Work
+            </Card.Subtitle>
+            <Card.Text id="cardtext" className="text ml-3">
+              Kenji Yoishino
+            </Card.Text>
+            <Card.Text className="learning text-left mr-2">
+              Show more on Linkedin Learning
+              <IoIosArrowDropright size={22} className="ml-2" />
+            </Card.Text>
           </Card.Text>
-         
         </Card.Body>
-        
-      
       </Card>
-      
+
       <footer className="footer ml-4 mt-4">
-    <div className="container-fluid">
-      <div className="col-md-12">
-        <div className="row justify-content-center">
-                <p>
-                About
-                </p>
-                
-                  <p>Accessibility
-                    </p>
-                <p>Help Center</p>
-                </div>
-                <div className="row justify-content-center">
-                <p>Impressum</p>
-                <p>Privacy and Terms</p>
+        <div className="container-fluid">
+          <div className="col-md-12">
+            <div className="row justify-content-center">
+              <p>About</p>
+
+              <p>Accessibility</p>
+              <p>Help Center</p>
             </div>
             <div className="row justify-content-center">
-                <p>Ad Choices</p>
-                <p>Advertising</p>
+              <p>Impressum</p>
+              <p>Privacy and Terms</p>
             </div>
             <div className="row justify-content-center">
-                <p>Business Services</p>
-                <p>Get the Linkedin app</p>
+              <p>Ad Choices</p>
+              <p>Advertising</p>
             </div>
             <div className="row justify-content-center">
-                <p>More</p>
-                
+              <p>Business Services</p>
+              <p>Get the Linkedin app</p>
             </div>
-    
-          
-  
-    <div className="row">
-      <img
+            <div className="row justify-content-center">
+              <p>More</p>
+            </div>
+
+            <div className="row">
+              <img
                 alt=""
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
+
                 width="50em"
                 height="15em"
                 className="d-inline-block align-top mr-2 ml-4"
@@ -136,11 +147,9 @@ const RightSection = ({ sectionTitle }) => {
 
 </footer>
      
+
     </div>
- 
   );
 };
 
 export default RightSection;
-
-
