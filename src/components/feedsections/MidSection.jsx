@@ -111,14 +111,14 @@ const MidSection = () => {
             </div>
 
            
-           // <div id="interaction">
-           //   <div>32. 13 Comments</div>
-           //   <div className="d-flex justify-content-around">
-            //    <span>Like</span> <span>Comment</span> <span> Share </span>
-             //   <span>Send</span>
-            //  </div>
-           // </div>
-
+           {/* <div id="interaction">
+           <div>32. 13 Comments</div>
+           <div className="d-flex justify-content-around">
+            <span>Like</span> <span>Comment</span> <span> Share </span>
+             <span>Send</span>
+            </div>
+      </div> */}
+      
           </Card.Body>
           {/* <div> */}
           <div
