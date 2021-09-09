@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Modal } from "react-bootstrap";
 import "./MidSection.css";
 import { BiPhotoAlbum } from "react-icons/bi";
 import { AiOutlineVideoCamera } from "react-icons/ai";
@@ -13,6 +13,11 @@ const endpoint = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
 
 const MidSectionUpper = () => {
   const [MyImage, setMyImage] = useState("");
+  const [show, setShow] = useState(false);
+  const [imageUploaded, setimageUploaded] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const getMyProfile = async () => {
     try {
@@ -29,12 +34,50 @@ const MidSectionUpper = () => {
       console.log(error);
     }
   };
-
+  console.log(imageUploaded);
   useEffect(() => getMyProfile(), []);
-
   return (
     <>
       <br />
+
+      {/* Upload Image Modal */}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header className="px-4" closeButton>
+          <Modal.Title id="contactnametext">Edit your photo</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="px-4 d-flex py-5">
+          <div className="m-auto imageuploadtext text-primary px-2 pt-1">
+            <label for="file-upload" className="custom-file-upload">
+              Select images to share
+            </label>
+            <input
+              className="d-none"
+              id="file-upload"
+              type="file"
+              onChange={(e) => imageUpload(e)}
+            />
+          </div>
+        </Modal.Body>
+        <Modal.Footer className="px-4" closeButton>
+          <Button
+            id="cancelmodalbutton"
+            className="ml-3"
+            variant="outline-primary"
+            type="submit"
+          >
+            Cancel
+          </Button>
+          <Button
+            className="ml-2"
+            id="donemodalbutton"
+            variant="primary"
+            type="submit"
+            disabled={!imageUploaded}
+          >
+            Done
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       <Container fluid className=" MidSectionContainer mt-5">
         <Row className="text-center SpaceBetween">
@@ -48,7 +91,11 @@ const MidSectionUpper = () => {
         {/* <Row className="text-center SpaceBetween"> */}
         {/* <Col xs="auto" className="my-2"> */}
         <div className="d-flex justify-content-between mt-3">
-          <Button variant="light" className="d-flex flex-row IconAndText">
+          <Button
+            onClick={handleShow}
+            variant="light"
+            className="d-flex flex-row IconAndText"
+          >
             <BiPhotoAlbum />
             <span>Photo</span>
           </Button>
