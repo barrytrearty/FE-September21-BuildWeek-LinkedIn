@@ -9,8 +9,10 @@ import {
 import { useState } from "react";
 import "./MidSection.css";
 import { AiOutlineUser } from "react-icons/ai";
+import { useHistory } from "react-router-dom";
 
 function AddPost({ MyImage }) {
+  const history = useHistory();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -36,6 +38,7 @@ function AddPost({ MyImage }) {
         const hello = response.json();
 
         alert("Success!");
+        history.go(0);
         return hello;
       } else {
         alert("Error! Please complete the form!");
