@@ -6,8 +6,10 @@ import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
 import DeleteExperience from "./DeleteExperience";
+import { useHistory } from "react-router";
 
 function EditModal({ userId, experienceId }) {
+  const history = useHistory();
   let years = [];
   for (let i = 2021; i >= 1921; i--) {
     years.push(i);
@@ -59,6 +61,7 @@ function EditModal({ userId, experienceId }) {
           parseISO(startDateMonthString), // 1)
           "yyyy MMM"
         );
+        console.log(startDateMonthString);
         let startArray = startDateMonthString.split(" ");
         setStartMonth(startArray[1]);
         setStartYear(startArray[0]);
@@ -70,6 +73,7 @@ function EditModal({ userId, experienceId }) {
           parseISO(endDateMonthString), // 1)
           "yyyy MMM"
         );
+        console.log(endDateMonthString);
         let endArray = endDateMonthString.split(" ");
         setEndMonth(endArray[1]);
         setEndYear(endArray[0]);
@@ -100,8 +104,12 @@ function EditModal({ userId, experienceId }) {
         body: JSON.stringify({
           role: role,
           company: company,
-          startDate: `${startYear}-${("0" + startMonthVariable).slice(-2)}-16`,
-          endDate: `${endYear}-${("0" + endMonthVariable).slice(-2)}-16`,
+          startDate: `${startYear}-${(
+            "0" + (startMonthVariable ? startMonthVariable : startMonth)
+          ).slice(-2)}-16`,
+          endDate: `${endYear}-${(
+            "0" + (endMonthVariable ? endMonthVariable : endMonth)
+          ).slice(-2)}-16`,
           description: description,
           area: area,
         }),
@@ -115,12 +123,14 @@ function EditModal({ userId, experienceId }) {
       if (response.ok) {
         console.log(role);
         const ExperienceResponse = await response.json();
+
         // console.log(ExperienceResponse);
         if (imageFile !== undefined) {
           editImage();
         }
-        alert("Profile is updated.");
 
+        alert("Profile is updated.");
+        history.go(0);
         return ExperienceResponse;
       } else {
         alert("Profile is not edited.");
@@ -257,7 +267,10 @@ function EditModal({ userId, experienceId }) {
                 size="sm"
                 as="select"
                 defaultValue={startMonthVariable}
-                onChange={(e) => setStartMonth(e.target.value)}
+                onChange={(e) => {
+                  setStartMonth(e.target.value);
+                  console.log(startMonthVariable);
+                }}
                 // onChange={(e) => setStartDateMonth(e.target.value)}
               >
                 {/* <option value={startMonthVariable}>{startMonth}</option> */}
@@ -282,6 +295,7 @@ function EditModal({ userId, experienceId }) {
                 defaultValue={startYear}
                 onChange={(e) => {
                   setStartYear(e.target.value);
+                  console.log(e.target.value);
                   console.log(startYear);
                 }}
               >
@@ -298,7 +312,13 @@ function EditModal({ userId, experienceId }) {
                 size="sm"
                 as="select"
                 defaultValue={endMonthVariable}
-                onChange={(e) => setEndMonth(e.target.value)}
+                onChange={(e) => {
+                  console.log(endMonth);
+                  setEndMonth(e.target.value);
+                  console.log(e.target.value);
+
+                  // console.log(endMonthVariable);
+                }}
               >
                 {/* <option value={endMonthVariable}>{endMonth}</option> */}
                 <option value="1">Jan</option>

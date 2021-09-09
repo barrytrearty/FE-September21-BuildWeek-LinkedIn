@@ -4,8 +4,10 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 import { CgMathPlus } from "react-icons/cg";
 import { parseISO, format } from "date-fns";
+import { useHistory } from "react-router";
 
 function AddExperienceModal(props) {
+  const history = useHistory();
   const [show, setShow] = useState(false);
 
   const [experience, setExperience] = useState({
@@ -77,6 +79,7 @@ function AddExperienceModal(props) {
         const hello = response.json();
 
         alert("Success!");
+        history.go(0);
         return hello;
       } else {
         alert("Error! Please complete the form!");
