@@ -82,7 +82,7 @@ const Experiences = ({ match }) => {
             {isMe === true && (
 
 
-              <div className="deleteButton ml-auto">
+              <div className="ml-auto">
 
 
               <EditModal

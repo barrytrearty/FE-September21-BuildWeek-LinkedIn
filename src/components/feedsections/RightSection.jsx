@@ -44,9 +44,9 @@ const RightSection = ({ sectionTitle }) => {
     <div>
    <Container  style={{ minWidth: "23vw" }} className="mr-5 pl-2 mb-2 PeopleContainer container-fluid">
       <h5 className="mt-3 ml-2">{sectionTitle}Add to your feed</h5>
-      <div className="ShowDiv text-left p-0">
-      <RightSectionRow peopleInfos={peopleInfos} show={show} />
       
+      <RightSectionRow peopleInfos={peopleInfos} show={show} />
+      <div className="ShowDiv text-left p-0">
         <Button
           type="button"
           id="ViewButton"
@@ -69,7 +69,7 @@ const RightSection = ({ sectionTitle }) => {
     
       <Card
         className="cardstyling text-left"
-        style={{ height: "36vh", minWidth: "23vw" }}
+        style={{ height: "37vh", minWidth: "23vw" }}
       >
         <Card.Body>
         <h5 className="mb-3">{sectionTitle}Today's top courses</h5>
@@ -124,9 +124,9 @@ const RightSection = ({ sectionTitle }) => {
       <img
                 alt=""
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
-                width="60"
-                height="15"
-                className="d-inline-block align-top mr-2 ml-2"
+                width="50em"
+                height="15em"
+                className="d-inline-block align-top mr-2 ml-4"
             /><p>Linkedin Corporation © 2021</p>
             
     </div>
