@@ -269,6 +269,7 @@ function AddExperienceModal(props) {
             <small>End date*</small>
             <div className="d-flex mb-4">
               <Form.Control
+                disabled={currentlyWorking}
                 className="mr-2 border-dark"
                 size="sm"
                 as="select"
