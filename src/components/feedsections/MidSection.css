@@ -1,0 +1,39 @@
+.shopifytext {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.shopifytitle {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.consistent-font {
+  font-size: 0.8rem;
+}
+
+.shopifysubtitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* button {
+  background-color: none !important;
+} */
+
+img {
+  width: 100%;
+}
+
+/* #interaction {
+  position: relative;
+  bottom: 0;
+} */
+
+#follow {
+  color: rgb(0, 89, 255);
+}
