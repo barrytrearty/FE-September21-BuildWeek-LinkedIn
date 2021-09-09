@@ -18,8 +18,12 @@ img {
   width: 100%;
 }
 
-#interaction {
+/* #interaction {
   position: relative;
   bottom: 0;
+} */
+
+#follow {
+  color: rgb(0, 89, 255);
 }
 
