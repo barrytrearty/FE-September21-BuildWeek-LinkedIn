@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Container, Card, Button } from "react-bootstrap";
-import StriveLogo from "../data/logo.png";
 import EditModal from "./EditModal";
 import { format, parseISO } from "date-fns";
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
-import { BiPurchaseTag } from "react-icons/bi";
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -30,7 +28,7 @@ const Experiences = ({ match }) => {
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFjZTBiMTJkNTI2MjAwMTViNmRjOGQiLCJpYXQiOjE2MzEwMTE2NDMsImV4cCI6MTYzMjIyMTI0M30.wxo-L7vPKDv0DeIAf5S_h2cwEHJqqvPcL0Il7sQlPYs",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
           },
         }
       );

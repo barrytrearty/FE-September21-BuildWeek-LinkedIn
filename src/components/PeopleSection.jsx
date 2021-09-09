@@ -45,6 +45,7 @@ const PeopleSection = ({ sectionTitle }) => {
         <Button
           type="button"
           id="ShowButton"
+          block
           //   variant="outline-secondary"
           onClick={() => setShow(!show)}
         >

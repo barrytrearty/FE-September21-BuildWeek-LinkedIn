@@ -1,0 +1,56 @@
+.startPostButton {
+  border-radius: 5rem;
+  box-shadow: none !important;
+}
+
+.startPostButton:focus,
+.startPostButton:active,
+.startPostButton:hover {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.PostText {
+  font-size: 1rem;
+}
+
+.MidSectionContainer {
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.IconAndText {
+  align-content: center;
+  align-items: center;
+}
+
+.AuthorButton {
+  border-radius: 5rem;
+  background-color: white;
+  color: black;
+  margin-right: 1rem;
+  border: 1px solid gray;
+}
+
+.AuthorButton:hover {
+  background-color: lightgray;
+  border: 1px solid lightgrey;
+  color: black;
+}
+
+.postContent{
+    box-shadow: none !important;
+    border: none;
+}
+
+.userImage{
+    border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.SpaceBetween{
+    justify-content: space-between;
+}
+
+
