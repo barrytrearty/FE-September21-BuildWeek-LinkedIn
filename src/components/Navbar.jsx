@@ -69,7 +69,7 @@ class BootstrapNavbar extends React.Component {
                 <Navbar.Collapse id="basic-navbar-nav">
 
                 <Link to="/feed">
-                  <Navbar.Brand className="mb-5">
+                  <Navbar.Brand className="mb-5 mr-3">
                     <a className="mb-5" href="#" id="navbarlogo">
                       <img
                         className="pb-1"
