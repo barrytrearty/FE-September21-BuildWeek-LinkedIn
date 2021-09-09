@@ -154,15 +154,17 @@ class BootstrapNavbar extends React.Component {
                         </NavDropdown>
                       </div>
 
-                      <div className="ml-2">
-                        <FontAwesomeIcon
-                          className="ml-3"
-                          icon={faTable}
-                          color="#4d4d4d"
-                        />
-                        <br />
-                        /*
-                        {/* <div className="mb-5">
+
+                        <div className="ml-2">
+                          <FontAwesomeIcon
+                            className="ml-3"
+                            icon={faTable}
+                            color="#4d4d4d"
+                          />
+                          <br />
+{/*
+                <div className="mb-5">
+
                   <Form inline>
                     <FormControl
                       type="text"
@@ -273,7 +275,10 @@ class BootstrapNavbar extends React.Component {
                           icon={faTable}
                           color="#4d4d4d"
                         />
-                        <br /> */}
+
+<br /> */}
+
+
                         <NavDropdown
                           title="Work"
                           className="mb-5"

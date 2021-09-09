@@ -42,7 +42,7 @@ function AddExperienceModal(props) {
     let parsedDate = `${startDateObj.year}-${("0" + startDateObj.month).slice(
       -2
     )}-01`;
-    console.log(parsedDate);
+    // console.log(parsedDate);
     setExperience({ ...experience, startDate: parsedDate });
   }, [startDateObj]);
 
@@ -51,7 +51,7 @@ function AddExperienceModal(props) {
       endDateObj.year !== "" || endDateObj.month !== ""
         ? `${endDateObj.year}-${("0" + endDateObj.month).slice(-2)}-01`
         : null;
-    console.log(parsedDate);
+    // console.log(parsedDate);
     setExperience({ ...experience, endDate: parsedDate });
   }, [endDateObj]);
 
@@ -170,12 +170,6 @@ function AddExperienceModal(props) {
                 className="mr-2 border border-dark"
                 size="sm"
                 as="select"
-                // onChange={(e) => handleDateInput(e, "startDateMonth")}
-                // onChange={(e) =>
-                //   setExperience((prevState, e) => ({
-                //     ...prevState,
-                //     startDate: { ...prevState.startDate, month: e },
-                //   })) }
                 onChange={(e) =>
                   setStartDateObj({ ...startDateObj, month: e.target.value })
                 }
