@@ -17,7 +17,6 @@ const Experiences = ({ match }) => {
     isMe = false;
   }
 
-  const experienceId = "611d2acd2d52620015b6de6e";
   const userId = "611d2acd2d52620015b6de6e";
 
   const [experienceArray, setExperienceArray] = useState([]);
@@ -80,6 +79,7 @@ const Experiences = ({ match }) => {
             </div>
 
             {isMe === true && (
+
                 <div className="ml-auto">
                 <EditModal userId={userId} experienceId={experience._id} />
                 <deleteExperience />

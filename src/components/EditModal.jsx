@@ -37,6 +37,7 @@ function EditModal({ userId, experienceId }) {
   const [endYear, setEndYear] = useState("");
   const [endDate, setEndDate] = useState(null);
   const [description, setDescription] = useState("");
+  const [imageFile, setimageFile] = useState();
 
   //fetching existing info
 
@@ -129,7 +130,12 @@ function EditModal({ userId, experienceId }) {
       if (response.ok) {
         console.log(role);
         const ExperienceResponse = await response.json();
-        console.log(ExperienceResponse);
+
+        // console.log(ExperienceResponse);
+        if (imageFile !== undefined) {
+          editImage();
+        }
+
         alert("Profile is updated.");
         history.go(0);
         return ExperienceResponse;
@@ -138,6 +144,34 @@ function EditModal({ userId, experienceId }) {
       }
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const editImage = async () => {
+    const formData = new FormData();
+    formData.append("experience", imageFile);
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${experienceId}/picture`,
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          },
+        }
+      );
+
+      if (response.ok) {
+        const reply = response.json();
+
+        console.log(reply);
+      } else {
+        alert("Error! Please complete the form!");
+      }
+    } catch (error) {
+      alert(error);
     }
   };
 
@@ -170,6 +204,14 @@ function EditModal({ userId, experienceId }) {
   if (endMonth === "Oct") endMonthVariable = 10;
   if (endMonth === "Nov") endMonthVariable = 11;
   if (endMonth === "Dec") endMonthVariable = 12;
+
+  const imageUpload = (e) => {
+    if (e.target.files.length == 0) {
+      console.log("No image selected!");
+    } else {
+      setimageFile(e.target.files[0]);
+    }
+  };
 
   return (
     <>
@@ -351,7 +393,7 @@ function EditModal({ userId, experienceId }) {
               <Form.Label>Description</Form.Label>
               <Form.Control
                 className="border-dark"
-                type="textarea"
+                as="textarea"
                 rows={3}
                 defaultValue={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -359,11 +401,20 @@ function EditModal({ userId, experienceId }) {
             </Form.Group>
 
             <Form.Group>
-              <Form.File id="imageUpload" label="Media" />
+              <Form.File
+                id="formImageUpload"
+                label="Image Upload"
+                onChange={(e) => imageUpload(e)}
+              />
             </Form.Group>
 
             <DeleteExperience userId={userId} experienceId={experienceId} />
-            <Button id="savemodalbutton" variant="primary" type="submit">
+            <Button
+              className="ml-3"
+              id="savemodalbutton"
+              variant="primary"
+              type="submit"
+            >
               Edit Experience
             </Button>
           </Form>
