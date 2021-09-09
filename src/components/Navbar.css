@@ -1,10 +1,35 @@
 .connectbutton {
-    border-radius: 30px;
-    font-size: 12px;
+  border-radius: 30px;
+  font-size: 12px;
 }
 
 .navicon {
-    transform: scale(1.5)
-    
+  transform: scale(1.5);
 }
 
+.navContainer {
+  background-color: white;
+  min-width: 100vw;
+}
+
+.navContainer .NavRow {
+  width: 80vw;
+  background-color: white;
+
+}
+
+.logodiv {
+  position: relative;
+  display: flex !important;
+  flex-direction: row !important;
+  left: 5
+}
+
+.NavLogos {
+  position: absolute;
+  right: 0;
+}
+
+.SearchBar{
+    border-radius: 1rem;
+}

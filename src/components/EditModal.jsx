@@ -104,12 +104,12 @@ function EditModal({ userId, experienceId }) {
         method: "PUT",
         // fill in the () here with the states
         body: JSON.stringify({
-          role: role,
-          company: company,
-          startDate: `${startYear}-${("0" + startMonthVariable).slice(-2)}-16`,
-          endDate: `${endYear}-${("0" + endMonthVariable).slice(-2)}-16`,
-          description: description,
-          area: area,
+          "role": role,
+          "company": company,
+          "startDate": `${startYear}-${("0" + startMonthVariable).slice(-2)}-16`,
+          "endDate": `${endYear}-${("0" + endMonthVariable).slice(-2)}-16`,
+          "description": description,
+          "area": area,
         }),
 
         headers: {
@@ -132,6 +132,9 @@ function EditModal({ userId, experienceId }) {
       console.log(error);
     }
   };
+
+  console.log(startMonth)
+  console.log(endMonth)
 
   let startMonthVariable;
 
@@ -249,7 +252,7 @@ function EditModal({ userId, experienceId }) {
                 defaultValue={startYear}
                 onChange={(e) => {
                   setStartYear(e.target.value);
-                  console.log(startYear);
+                  // console.log(startYear);
                 }}
               >
                 {years.map((year) => (
@@ -290,7 +293,7 @@ function EditModal({ userId, experienceId }) {
                 defaultValue={endYear}
                 onChange={(e) => {
                   setEndYear(e.target.value);
-                  console.log(endYear);
+                  // console.log(endYear);
                 }}
               >
                 {years.map((year) => (
