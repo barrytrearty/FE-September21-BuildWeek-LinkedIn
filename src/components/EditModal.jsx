@@ -102,6 +102,7 @@ function EditModal({ userId, experienceId }) {
         method: "PUT",
         // fill in the () here with the states
         body: JSON.stringify({
+
           role: role,
           company: company,
           startDate: `${startYear}-${(
@@ -140,6 +141,7 @@ function EditModal({ userId, experienceId }) {
     }
   };
 
+
   const editImage = async () => {
     const formData = new FormData();
     formData.append("experience", imageFile);
@@ -167,6 +169,7 @@ function EditModal({ userId, experienceId }) {
       alert(error);
     }
   };
+
 
   let startMonthVariable;
 
@@ -295,8 +298,7 @@ function EditModal({ userId, experienceId }) {
                 defaultValue={startYear}
                 onChange={(e) => {
                   setStartYear(e.target.value);
-                  console.log(e.target.value);
-                  console.log(startYear);
+
                 }}
               >
                 {years.map((year) => (
@@ -343,7 +345,7 @@ function EditModal({ userId, experienceId }) {
                 defaultValue={endYear}
                 onChange={(e) => {
                   setEndYear(e.target.value);
-                  console.log(endYear);
+                  // console.log(endYear);
                 }}
               >
                 {years.map((year) => (

@@ -1,47 +1,36 @@
 .connectbutton {
-    border-radius: 30px;
-    font-size: 12px;
+  border-radius: 30px;
+  font-size: 12px;
 }
 
 .navicon {
-    transform: scale(1.5);
-    margin-top: 0rem;
-    
-    
+  transform: scale(1.5);
 }
 
-a {
-    box-sizing: none;
+.navContainer {
+  background-color: white;
+  min-width: 100vw;
 }
 
-#navbar {
-   
-    margin-bottom: 10rem;
+.navContainer .NavRow {
+  width: 80vw;
+  background-color: white;
+
 }
 
-.freepremium {
-    margin-left: 2.1rem;
+.logodiv {
+  position: relative;
+  display: flex !important;
+  flex-direction: row !important;
+  left: 5
 }
 
-
-
-#navicons {
-    
-    margin-bottom: 5rem;
-    
+.NavLogos {
+  position: absolute;
+  right: 0;
 }
 
-
-#input {
-    background-color: #EEF3F8;
+.SearchBar{
+    border-radius: 1rem;
 }
 
-.searchbar {
-    margin-bottom: 8.2rem;
-    margin-left: 0.3rem;
-}
-
-#navbarlogo {
-    margin-bottom: 5rem;
-    margin-right: 0rem;
-}
