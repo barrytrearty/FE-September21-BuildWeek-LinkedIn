@@ -6,7 +6,12 @@ import PeopleSection from "./components/PeopleSection";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import MeSection from "./components/MeSection";
 import NewsFeed from "./components/NewsFeed";
@@ -16,7 +21,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      
+
       <Switch>
         <Container>
           {/* needs profile id  */}
@@ -49,7 +54,7 @@ function App() {
           />
           {/ we are James for now (me) */}
           <Route exact path="/">
-            {<Redirect to="/me"/>}
+            {<Redirect to="/feed" />}
           </Route>
           <Route
             path="/me"
