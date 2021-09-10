@@ -37,8 +37,8 @@ const PeopleSection = ({ sectionTitle, marginTop }) => {
   console.log(peopleInfos);
   return (
 
-    <Container className="topmargin PeopleContainer container-fluid">
-{/*'${topMargin?"topmargin":""}'*/}
+    <Container className=" mb-3 PeopleContainer container-fluid">
+
       <h5 className="sectiontitle mt-3">{sectionTitle}</h5>
       <PeopleRow peopleInfos={peopleInfos} show={show} />
       <div className="ShowDiv text-center p-0">

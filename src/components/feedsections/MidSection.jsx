@@ -113,7 +113,10 @@ const MidSection = () => {
         </div>
       </Card>
 
-      {postsArray.slice(-25).reverse().map((post) => NewsFeedItem(post))}
+      {postsArray
+        .slice(-25)
+        .reverse()
+        .map((post) => NewsFeedItem(post))}
       {/* {setIsLoading(false)} */}
     </div>
   );
