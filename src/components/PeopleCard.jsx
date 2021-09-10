@@ -1,24 +1,30 @@
-import { Card, Button} from "react-bootstrap";
+import { Card, Button, Row, Col } from "react-bootstrap";
 import "./PeopleCard.css";
 import "./feedsections/FeedRightCard.css";
 
 const PeopleCard = ({ peopleInfo }) => {
   return (
     <Card className="PeopleCard d-flex flex-row no-gutters">
+      <Row className="feedright">
+        <Col className="col-md-4">
       <Card.Img
-        className="RightFeedImage ml-1 mt-3"
+        className="RightFeedImage ml-3 mt-3"
         variant="top"
         src={peopleInfo.image}
       />
+      </Col>
+      <Col className="col-md-8">
       <Card.Body className="d-flex flex-column">
         <Card.Title className="RightFeedTitle">
           {peopleInfo.name} {peopleInfo.surname}
         </Card.Title>
         <Card.Text className="RightFeedSubtitle text-muted">{peopleInfo.title}</Card.Text>
         <Card.Text>
-          <Button type="button" variant="outline-secondary" className="RightFeedButton">Message</Button>{" "}
+          <Button type="button" variant="outline-secondary" className="RightFeedButton mr-5">Message</Button>{" "}
         </Card.Text>
       </Card.Body>
+      </Col>
+      </Row>
     </Card>
   );
 };
