@@ -47,6 +47,7 @@ function AddPost({ MyImage }) {
       alert(error);
     }
   };
+
   return (
     <>
       <Button
