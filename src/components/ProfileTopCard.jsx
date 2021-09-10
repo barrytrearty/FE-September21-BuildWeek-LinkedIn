@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Image, Card, Button, Row, Col } from "react-bootstrap";
 import ContactInfoModal from "./ContactInfoModal";
+import "./PeopleSection.css";
 
 class ProfileTopCard extends Component {
   state = {
@@ -38,7 +39,7 @@ class ProfileTopCard extends Component {
 
   render() {
     return (
-      <Container className="px-0">
+      <Container className="topmargin px-0">
         <Card style={{ width: "100%", borderRadius: "8px" }}>
           <Card.Img
             variant="top"

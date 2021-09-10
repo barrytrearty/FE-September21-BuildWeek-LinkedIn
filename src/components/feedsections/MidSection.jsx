@@ -89,6 +89,7 @@ const MidSection = () => {
         </Card.Body>
         <Card.Img
           variant="bottom"
+          className="mb-3"
           src="https://www.bloggersideas.com/wp-content/uploads/2015/07/Shopify-Homepage.png"
         />
         <div
@@ -96,18 +97,18 @@ const MidSection = () => {
           className="d-flex justify-content-around flex-end mb-1"
         >
           {/* <span> */}
-          <Button variant="light">
-            <AiOutlineLike /> Like
+          <Button className="midbutton pb-3" variant="light">
+            <AiOutlineLike style={{color: "#6b6b6b"}} size="1.3rem"/> Like
           </Button>
           {/* </span> */}
-          <Button variant="light">
-            <BiCommentDetail /> Comment
+          <Button className="midbutton pb-3" variant="light">
+            <BiCommentDetail style={{color: "#6b6b6b"}} size="1.3rem"/> Comment
           </Button>
-          <Button variant="light">
-            <RiShareForwardLine /> Share
+          <Button className="midbutton pb-3" variant="light">
+            <RiShareForwardLine style={{color: "#6b6b6b"}} size="1.3rem"/> Share
           </Button>
-          <Button variant="light">
-            <RiSendPlaneFill /> Send
+          <Button className="midbutton pb-3" variant="light">
+            <RiSendPlaneFill style={{color: "#6b6b6b"}} size="1.3rem"/> Send
           </Button>
         </div>
       </Card>

@@ -41,6 +41,8 @@ img {
 .startPostButton {
   border-radius: 5rem;
   box-shadow: none !important;
+  background-color: white;
+  border: 1px solid lightgrey;
 }
 
 .startPostButton:focus,
@@ -57,6 +59,7 @@ img {
 .MidSectionContainer {
   background-color: white;
   border-radius: 0.5rem;
+  border: 1px solid lightgrey;
 }
 
 .IconAndText {
@@ -91,4 +94,17 @@ img {
 
 .SpaceBetween {
   justify-content: space-between;
+}
+
+.midbutton {
+    background-color: white;
+    border: none;
+}
+
+.topmargin {
+    margin-top: 5rem;
+}
+
+.topmidmargin {
+    margin-top: 3.5rem;
 }

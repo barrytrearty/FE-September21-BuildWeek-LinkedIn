@@ -48,7 +48,11 @@ const RightSection = ({ sectionTitle }) => {
   return (
     <div>
 
+<<<<<<< Updated upstream
    <Container  style={{ minWidth: "20vw" }} className="mr-5 pl-2 mb-2 PeopleContainer container-fluid mt-5">
+=======
+   <Container  style={{ minWidth: "20vw" }} className="topmargin mr-5 pl-2 mb-2 PeopleContainer container-fluid">
+>>>>>>> Stashed changes
       <h5 className="sectiontitle mt-3 ml-2 mb-2">{sectionTitle}Add to your feed <FontAwesomeIcon icon={faInfoCircle} className="infoicon"/></h5>
      
       

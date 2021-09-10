@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
 .connectbutton {
   border-radius: 30px;
   font-size: 12px;
+=======
+/* .connectbutton {
+    border-radius: 30px;
+    font-size: 12px;
+>>>>>>> Stashed changes
 }
 
 .navicon {
@@ -17,9 +23,19 @@
   
 }
 
+<<<<<<< Updated upstream
 .navContainer .NavRow {
   width: 80vw;
   background-color: white;
+=======
+#navbar {
+   
+    margin-bottom: 10rem;
+	position: fixed;
+	top: 0;
+    z-index: 4;
+}
+>>>>>>> Stashed changes
 
 }
 
@@ -43,3 +59,56 @@
 
 
 
+<<<<<<< Updated upstream
+=======
+
+.scrolleddiv {
+    z-index: 3;
+} */
+
+.connectbutton {
+    border-radius: 30px;
+    font-size: 12px;
+  }
+  
+  .navicon {
+    transform: scale(1.5);
+  }
+  
+  .navContainer {
+    background-color: white;
+    min-width: 100vw;
+    /* margin-bottom: 4rem; */
+    position: fixed;
+    z-index: 99;
+    /* margin-bottom: 10rem; */
+    
+  }
+  
+  .navContainer .NavRow {
+    width: 80vw;
+    background-color: white;
+  
+  }
+  
+  .logodiv {
+    position: relative;
+    display: flex !important;
+    flex-direction: row !important;
+    left: 5
+  }
+  
+  .LinkedInLogo{
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+  
+  .NavLogos {
+    position: absolute;
+    right: 0;
+  }
+
+  .freepremium {
+      margin-left: 2rem;
+  }
+>>>>>>> Stashed changes

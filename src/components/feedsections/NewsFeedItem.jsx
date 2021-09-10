@@ -65,8 +65,8 @@ const NewsFeedItem = (post) => {
          */}
 
         {/* WITHOUT FUNCTIONALITY  */}
-        <Button variant="light">
-          <AiOutlineLike />
+        <Button className="midbutton pb-3" variant="light">
+          <AiOutlineLike style={{color: "#6b6b6b"}} size="1.3rem" className="mr-1"/>
           Like
         </Button>
 
@@ -74,14 +74,14 @@ const NewsFeedItem = (post) => {
           {liked ? <AiFillLike /> + "Like" : <AiOutlineLike /> + "Unlike"}
         </Button> */}
 
-        <Button variant="light">
-          <BiCommentDetail /> Comment
+        <Button className="midbutton pb-3" variant="light">
+          <BiCommentDetail style={{color: "#6b6b6b"}} size="1.3rem" className="mr-1"/> Comment
         </Button>
-        <Button variant="light">
-          <RiShareForwardLine /> Share
+        <Button className="midbutton pb-3" variant="light">
+          <RiShareForwardLine style={{color: "#6b6b6b"}} size="1.3rem"/> Share
         </Button>
-        <Button variant="light">
-          <RiSendPlaneFill /> Send
+        <Button className="midbutton pb-3" variant="light">
+          <RiSendPlaneFill style={{color: "#6b6b6b"}} size="1.3rem"/> Send
         </Button>
       </div>
     </Card>
