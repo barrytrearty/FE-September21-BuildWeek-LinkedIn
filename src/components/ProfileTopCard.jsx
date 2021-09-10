@@ -7,9 +7,30 @@ import EditProfileModal from "./EditProfileModal";
 class ProfileTopCard extends Component {
   state = {
     user: [],
+    editImageClosed: false,
   };
 
-  componentDidMount = async () => {
+  componentDidMount = () => {
+    this.fetchDetails();
+  };
+
+  componentDidUpdate = () => {
+    if (this.state.editImageClosed === true) {
+      this.fetchDetails();
+      this.setState({
+        editImageClosed: false,
+      });
+    }
+  };
+
+  setImageClosed = () => {
+    this.setState({
+      editImageClosed: true,
+    });
+    this.forceUpdate();
+  };
+
+  fetchDetails = async () => {
     try {
       var myHeaders = new Headers();
       myHeaders.append(
@@ -53,7 +74,7 @@ class ProfileTopCard extends Component {
               src={this.state.user.image}
               roundedCircle
             />
-            <EditProfileModal />
+            <EditProfileModal setclosed={this.setImageClosed} />
           </div>
 
           <Card.Body className="pt-1 px-1 pb-2">

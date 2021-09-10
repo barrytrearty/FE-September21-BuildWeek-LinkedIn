@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./DeleteExperience.css";
 
-const DeleteExperience = ({ userId, experienceId }) => {
+const DeleteExperience = ({ userId, experienceId, handleClose }) => {
   // const history = useHistory();
   // e.preventDefault()
 
@@ -34,6 +34,7 @@ const DeleteExperience = ({ userId, experienceId }) => {
         // console.log("Response ok");
         // alert("Delete successful");
         // history.go(0);
+        handleClose();
       } else {
         console.log("Delete unsuccessful");
       }
@@ -45,7 +46,7 @@ const DeleteExperience = ({ userId, experienceId }) => {
   return (
     <Button
       onClick={deleteThisExperience}
-      className="deleteButton mr-auto pl-1 pr-2"
+      className="deleteButton mr-auto pl-3 pr-3"
       variant="secondary-outline"
       type="button"
     >

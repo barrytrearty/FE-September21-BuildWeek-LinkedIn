@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Image, Card, Button, Row, Col } from "react-bootstrap";
 import "./NavbarProfile.css";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 class NavbarProfile extends Component {
   state = {
@@ -55,15 +55,15 @@ class NavbarProfile extends Component {
           <small className="text-muted">{this.state.user.title}</small>
         </p>
 
-    <Link to={"/me"}>
+        <Link to={"/me"}>
           <Button
-            className="navbarprofilebutton mt-1 ml-3"
+            className="navbarprofilebutton mt-1 ml-4 pb-4"
             variant="outline-primary"
-            style={{ width: "10rem" }}
+            style={{ width: "8rem" }}
           >
             View Profile
           </Button>
-    </Link>
+        </Link>
       </div>
     );
   }

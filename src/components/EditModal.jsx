@@ -215,10 +215,9 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
 
   return (
     <>
-    
       <a onClick={handleShow} className="modallink ml-auto">
-      <div className="editbutton">
-        <FiEdit2 className="m-auto" size={18}/>
+        <div className="editbutton">
+          <FiEdit2 className="m-auto" size={18} />
         </div>
       </a>
       <Modal size="lg" show={show} onHide={handleClose}>
@@ -407,16 +406,20 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
                 onChange={(e) => imageUpload(e)}
               />
             </Form.Group>
-<div className="d-flex flex-row">
-            <DeleteExperience userId={userId} experienceId={experienceId} />
-            <Button
-              className="mb-0"
-              id="editmodalbutton"
-              variant="primary"
-              type="submit"
-            >
-              Edit Experience
-            </Button>
+            <div className="d-flex flex-row">
+              <DeleteExperience
+                userId={userId}
+                experienceId={experienceId}
+                handleClose={handleClose}
+              />
+              <Button
+                className="mb-0"
+                id="editmodalbutton"
+                variant="primary"
+                type="submit"
+              >
+                Edit Experience
+              </Button>
             </div>
           </Form>
         </Modal.Body>
