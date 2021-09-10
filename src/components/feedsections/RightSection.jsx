@@ -51,39 +51,6 @@ const RightSection = ({ sectionTitle }) => {
 <Container style={{ minWidth: "20vw", marginTop: "6rem" }} className="pl-2 mb-3 PeopleContainer container-fluid">
 
       <h5 className="d-flex flex-row sectiontitle mt-3 ml-2 mb-2">{sectionTitle}Add to your feed <FontAwesomeIcon icon={faInfoCircle} className="infoicon"/></h5>
-     
-      
-      <RightSectionRow peopleInfos={peopleInfos} show={show} />
-      <div className="text-center p-0">
-        <Button
-          type="button"
-          id="ViewButton"
-          //   variant="outline-secondary"
-          onClick={() => setShow(!show)}
-        >
-          {show && (
-            <>
-              View all recommendations <IoIosArrowDown size={18} className="ml-1"/>
-            </>
-          )}
-          {!show && (
-            <>
-              Show Less <IoIosArrowUp />
-            </>
-          )}
-        </Button>
-      </div>
-{/*
-    <div>
-      <Container
-        style={{ minWidth: "330px", marginTop: "6rem" }}
-        className="pl-2 mb-3 PeopleContainer container-fluid"
-      >
-        <h5 className="d-flex flex-row sectiontitle mt-3 ml-2 mb-2">
-          {sectionTitle}Add to your feed{" "}
-          <FontAwesomeIcon icon={faInfoCircle} className="infoicon" />
-        </h5>
-*/}
 
         <RightSectionRow peopleInfos={peopleInfos} show={show} />
         <div className="text-center p-0">
@@ -111,7 +78,7 @@ const RightSection = ({ sectionTitle }) => {
       <Card
         className="cardstyling text-left"
         id="bottomcard"
-        style={{ minWidth: "330px" }}
+        style={{ minWidth: "20vw" }}
       >
         <Card.Body>
           <h5 className="d-flex flex-row sectiontitle mb-3">
