@@ -10,11 +10,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import MeSection from "./components/MeSection";
 import NewsFeed from "./components/NewsFeed";
+import ScrollableNav from "./components/ScrollableNav";
 
 function App() {
   return (
     <Router>
       <Navbar />
+      
       <Switch>
         <Container>
           {/* needs profile id  */}

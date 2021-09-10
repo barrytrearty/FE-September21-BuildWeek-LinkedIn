@@ -45,7 +45,7 @@ const DeleteExperience = ({ userId, experienceId }) => {
   return (
     <Button
       onClick={deleteThisExperience}
-      className="deleteButton mr-auto"
+      className="deleteButton mr-auto pl-1 pr-2"
       variant="secondary-outline"
       type="button"
     >
