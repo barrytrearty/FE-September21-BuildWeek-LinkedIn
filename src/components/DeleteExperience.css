@@ -5,5 +5,8 @@
     border-color: rgb(109, 109, 109) !important;
     border-radius: 20px;
     font-weight: 600;
+    font-size: 0.9rem;
+    height: 2.2rem;
+    max-width: 9.5rem
     
 }

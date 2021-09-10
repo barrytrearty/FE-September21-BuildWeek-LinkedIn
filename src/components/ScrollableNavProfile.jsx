@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Container, Image, Card, Button, Row, Col } from "react-bootstrap";
-import "./NavbarProfile.css";
-import {Link} from "react-router-dom"
+import "./NavbarProfile.css"
 
-class NavbarProfile extends Component {
+class ScrollableNavProfile extends Component {
   state = {
     user: [],
   };
@@ -39,34 +38,31 @@ class NavbarProfile extends Component {
 
   render() {
     return (
-      <div className="row pl-1">
-        <Image
-          className="profileimageNav ml-3"
-          height="40px"
-          src={this.state.user.image}
-          roundedCircle
-        />
-        <p
-          className="mb-1 ml-1 mr-1 mt-1 text-right"
-          id="navprofiletext"
-          style={{ fontSize: "0.8em" }}
-        >
-          {this.state.user.name} {this.state.user.surname} <br />
-          <small className="text-muted">{this.state.user.title}</small>
-        </p>
+     
+       <div className="row ml-5">
 
-    <Link to={"/me"}>
-          <Button
-            className="navbarprofilebutton mt-1 ml-3"
-            variant="outline-primary"
-            style={{ width: "10rem" }}
-          >
-            View Profile
-          </Button>
-    </Link>
-      </div>
+          <Image
+            className="scrollednavbarprofileimage ml-5"
+            height="40px"
+            src={this.state.user.image}
+            roundedCircle
+          />
+                <p className="text-right ml-2" id="navprofiletext" style={{ fontSize: "0.8em" }}>
+                  {this.state.user.name} {this.state.user.surname}{" "}<br/>
+                  <small className="text-muted">{this.state.user.title}</small>
+                </p>
+            
+              <Button
+                              className="scrollednavbutton"
+                              variant="outline-primary"
+                              style={{ width: "8rem" }}
+                            >
+                              View Profile
+                            </Button>
+              </div>
+     
     );
   }
 }
 
-export default NavbarProfile;
+export default ScrollableNavProfile;

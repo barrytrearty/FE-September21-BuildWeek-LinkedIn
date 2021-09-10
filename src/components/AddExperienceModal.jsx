@@ -177,7 +177,7 @@ function AddExperienceModal({ setAddModalClosed }) {
   return (
     <>
       <a onClick={handleShow} className="modallink">
-        <CgMathPlus size={27} />
+        <CgMathPlus size={27} className="mr-2"/>
       </a>
 
       <Modal size="lg" show={show} onHide={handleClose}>

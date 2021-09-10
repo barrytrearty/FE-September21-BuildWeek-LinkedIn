@@ -405,16 +405,17 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
                 onChange={(e) => imageUpload(e)}
               />
             </Form.Group>
-
+<div className="d-flex flex-row">
             <DeleteExperience userId={userId} experienceId={experienceId} />
             <Button
-              className="ml-3"
-              id="savemodalbutton"
+              className="mb-0"
+              id="editmodalbutton"
               variant="primary"
               type="submit"
             >
               Edit Experience
             </Button>
+            </div>
           </Form>
         </Modal.Body>
       </Modal>

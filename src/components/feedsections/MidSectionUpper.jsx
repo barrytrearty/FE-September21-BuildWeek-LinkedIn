@@ -163,6 +163,7 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
     <>
       <br />
 
+
       {/* Upload Image Modal */}
       <Modal show={showImageModal} onHide={handleCloseImageModal}>
         <Modal.Header className="px-4" closeButton>
@@ -251,7 +252,9 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
         </Modal.Footer>
       </Modal>
 
-      <Container fluid className=" MidSectionContainer mt-5">
+     
+      <Container fluid className="topmidmargin MidSectionContainer">
+
         <Row className="text-center SpaceBetween">
           <Col xs={1} className="text-left mt-3">
             <img src={MyImage} className="userImage" />
@@ -263,43 +266,46 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
         {/* <Row className="text-center SpaceBetween"> */}
         {/* <Col xs="auto" className="my-2"> */}
         <div className="d-flex justify-content-between mt-3">
+
           <Button
             onClick={handleShowImageModal}
             variant="light"
-            className="d-flex flex-row IconAndText"
+            className="midbutton d-flex flex-row IconAndText"
           >
-            <BiPhotoAlbum />
+           
+            <BiPhotoAlbum color="#4287f5" size="1.3rem"/>
             <span>Photo</span>
+            </Button>
+
+          {/* </Col> */}
+          {/* <Col xs="auto" className="my-2"> */}
+          <Button
+            variant="light"
+            className="midbutton d-flex flex-row IconAndText"
+            onClick
+          >
+            <AiOutlineVideoCamera color="green" size="1.4rem"/>
+            <span className="ml-3">Video</span>
           </Button>
           {/* </Col> */}
           {/* <Col xs="auto" className="my-2"> */}
           <Button
             variant="light"
-            className="d-flex flex-row IconAndText"
+            className="midbutton d-flex flex-row IconAndText"
             onClick
           >
-            <AiOutlineVideoCamera />
-            <span>Video</span>
+            <MdEvent color="orange" size="1.4rem"/>
+            <span className="ml-3">Event</span>
           </Button>
           {/* </Col> */}
           {/* <Col xs="auto" className="my-2"> */}
           <Button
             variant="light"
-            className="d-flex flex-row IconAndText"
+            className="midbutton d-flex flex-row IconAndText"
             onClick
           >
-            <MdEvent />
-            <span>Event</span>
-          </Button>
-          {/* </Col> */}
-          {/* <Col xs="auto" className="my-2"> */}
-          <Button
-            variant="light"
-            className="d-flex flex-row IconAndText"
-            onClick
-          >
-            <RiArticleLine />
-            <span>Write Article</span>
+            <RiArticleLine color="coral" size="1.2rem"/>
+            <span className="ml-1">Write Article</span>
           </Button>
           {/* </Col> */}
           {/* </Row> */}
