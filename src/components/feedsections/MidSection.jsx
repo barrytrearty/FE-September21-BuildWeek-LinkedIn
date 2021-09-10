@@ -28,7 +28,7 @@ const MidSection = () => {
       let postsProm = await response.json();
       setPostsArray(postsProm);
       console.log("Posts" + postsArray);
-      // setIsLoading(false);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -36,7 +36,6 @@ const MidSection = () => {
 
   useEffect(() => {
     getPosts();
-    // setIsLoading(false);
   }, []);
 
   return (
