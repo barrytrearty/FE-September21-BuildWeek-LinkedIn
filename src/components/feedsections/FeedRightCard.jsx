@@ -28,7 +28,7 @@ const FeedRightCard = ({ peopleInfo }) => {
             <Button
               type="button"
               variant="outline-secondary"
-              className="RightFeedButton mr-auto"
+              className="RightFeedButton mr-5"
             >
               {" "}
               <CgMathPlus size={18} />
