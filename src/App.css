@@ -404,3 +404,13 @@ button.morebutton {
 .custom-file-upload:hover {
   cursor: pointer;
 }
+
+.spinnerrelative {
+  position: relative;
+}
+
+.imagespinner {
+  z-index: 5;
+  position: absolute;
+  left: -40px;
+}

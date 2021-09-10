@@ -8,6 +8,7 @@ import {
   Image,
   InputGroup,
   FormControl,
+  Spinner,
 } from "react-bootstrap";
 import "./MidSection.css";
 import { BiPhotoAlbum } from "react-icons/bi";
@@ -20,7 +21,7 @@ import { useState, useEffect } from "react";
 const userId = "611d2acd2d52620015b6de6e";
 const endpointprofile = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
 
-const MidSectionUpper = ({ setAddPostClosed }) => {
+const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
   const [MyImage, setMyImage] = useState("");
   const [showImageModal, setShowImageModal] = useState(false);
   const [showPostModal, setShowPostModal] = useState(false);
@@ -28,6 +29,7 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
   const [imageFile, setimageFile] = useState();
   const [imagePreview, setimagePreview] = useState();
   const [postContent, setPostContent] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // const [addPostClose, setAddPostClosed] = useState(false);
 
@@ -35,10 +37,15 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
     setShowImageModal(false);
     setimageFile();
     setimageUploaded(false);
+    // setAddImagePostClosed(true);
   };
-  const handleShowImageModal = () => setShowImageModal(true);
+  const handleShowImageModal = () => {
+    setShowImageModal(true);
+    // setAddImagePostClosed(false);
+  };
 
   const handleClosePostModal = () => {
+    setAddImagePostClosed(true);
     setShowPostModal(false);
     setShowImageModal(false);
     setimageFile();
@@ -47,6 +54,7 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
   const handleShowPostModal = () => {
     setShowImageModal(false);
     setShowPostModal(true);
+    setAddImagePostClosed(false);
   };
 
   const imageUpload = (e) => {
@@ -124,6 +132,7 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
   };
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     await createPost();
     let id = await fetchNewestPostID();
     if (imageFile.length !== 0) postImage(id);
@@ -148,8 +157,9 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
       );
 
       if (response.ok) {
+        handleClosePostModal();
         const reply = response.json();
-
+        setIsLoading(false);
         console.log(reply);
       } else {
         alert("Error! Please complete the form!");
@@ -162,7 +172,6 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
   return (
     <>
       <br />
-
 
       {/* Upload Image Modal */}
       <Modal show={showImageModal} onHide={handleCloseImageModal}>
@@ -242,19 +251,31 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
                 />
               </InputGroup>
             </Col>
+
             <Image src={imagePreview} fluid />
           </Row>
         </Modal.Body>
         <Modal.Footer>
-          <Button id="savemodalbutton" type="button" onClick={handleSubmit}>
-            Post
-          </Button>
+          <div className="spinnerrelative">
+            {isLoading ? (
+              <Spinner
+                animation="border"
+                variant="primary"
+                role="status"
+                className="imagespinner"
+                show={isLoading}
+              ></Spinner>
+            ) : (
+              ""
+            )}
+            <Button id="savemodalbutton" type="button" onClick={handleSubmit}>
+              Post
+            </Button>
+          </div>
         </Modal.Footer>
       </Modal>
 
-     
       <Container fluid className="topmidmargin MidSectionContainer">
-
         <Row className="text-center SpaceBetween">
           <Col xs={1} className="text-left mt-3">
             <img src={MyImage} className="userImage" />
@@ -265,17 +286,15 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
         </Row>
         {/* <Row className="text-center SpaceBetween"> */}
         {/* <Col xs="auto" className="my-2"> */}
-        <div className="d-flex justify-content-between mt-3">
-
+        <div className="d-flex justify-content-between mt-3 mb-2">
           <Button
             onClick={handleShowImageModal}
             variant="light"
             className="midbutton d-flex flex-row IconAndText"
           >
-           
-            <BiPhotoAlbum color="#4287f5" size="1.3rem"/>
+            <BiPhotoAlbum color="#4287f5" size="1.3rem" />
             <span>Photo</span>
-            </Button>
+          </Button>
 
           {/* </Col> */}
           {/* <Col xs="auto" className="my-2"> */}
@@ -284,7 +303,7 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
             className="midbutton d-flex flex-row IconAndText"
             onClick
           >
-            <AiOutlineVideoCamera color="green" size="1.4rem"/>
+            <AiOutlineVideoCamera color="green" size="1.4rem" />
             <span className="ml-3">Video</span>
           </Button>
           {/* </Col> */}
@@ -294,7 +313,7 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
             className="midbutton d-flex flex-row IconAndText"
             onClick
           >
-            <MdEvent color="orange" size="1.4rem"/>
+            <MdEvent color="orange" size="1.4rem" />
             <span className="ml-3">Event</span>
           </Button>
           {/* </Col> */}
@@ -304,7 +323,7 @@ const MidSectionUpper = ({ setAddPostClosed }) => {
             className="midbutton d-flex flex-row IconAndText"
             onClick
           >
-            <RiArticleLine color="coral" size="1.2rem"/>
+            <RiArticleLine color="coral" size="1.2rem" />
             <span className="ml-1">Write Article</span>
           </Button>
           {/* </Col> */}

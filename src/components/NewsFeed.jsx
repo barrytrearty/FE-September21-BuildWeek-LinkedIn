@@ -7,6 +7,7 @@ import RightSection from "./feedsections/RightSection";
 
 const NewsFeed = () => {
   const [addPostClosed, setAddPostClosed] = useState(false);
+  const [addImagePostClosed, setAddImagePostClosed] = useState(false);
   return (
     <div>
       <Container>
@@ -17,10 +18,13 @@ const NewsFeed = () => {
 
           <Col lg={6} md={8} sm={12} className="px-2">
             <MidSectionUpper
-              addPostClosed={addPostClosed}
               setAddPostClosed={setAddPostClosed}
+              setAddImagePostClosed={setAddImagePostClosed}
             />
-            <MidSection addPostClosed={addPostClosed} />
+            <MidSection
+              addPostClosed={addPostClosed}
+              addImagePostClosed={addImagePostClosed}
+            />
           </Col>
 
           <Col lg={3} className="d-none d-lg-block px-2">
