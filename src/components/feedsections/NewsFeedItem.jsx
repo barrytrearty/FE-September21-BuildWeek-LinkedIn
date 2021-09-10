@@ -28,7 +28,10 @@ const NewsFeedItem = (post) => {
         <div>
           <div className="border-bottom">
             <p>
-              <strong>{post.username}</strong> likes this
+              <strong>
+                {post.user.name} {post.user.surname}{" "}
+              </strong>
+              likes this
             </p>
           </div>
           <Col>
@@ -37,7 +40,9 @@ const NewsFeedItem = (post) => {
           <Col>
             <div className="d-flex justify-content-between">
               <div>
-                <strong>{post.username}</strong>{" "}
+                <strong>
+                  {post.user.name} {post.user.surname}{" "}
+                </strong>
                 <span className="text-muted">3rd+</span>
                 <div>{post.title} 45m</div>
               </div>
@@ -66,7 +71,11 @@ const NewsFeedItem = (post) => {
 
         {/* WITHOUT FUNCTIONALITY  */}
         <Button className="midbutton pb-3" variant="light">
-          <AiOutlineLike style={{color: "#6b6b6b"}} size="1.3rem" className="mr-1"/>
+          <AiOutlineLike
+            style={{ color: "#6b6b6b" }}
+            size="1.3rem"
+            className="mr-1"
+          />
           Like
         </Button>
 
@@ -75,13 +84,19 @@ const NewsFeedItem = (post) => {
         </Button> */}
 
         <Button className="midbutton pb-3" variant="light">
-          <BiCommentDetail style={{color: "#6b6b6b"}} size="1.3rem" className="mr-1"/> Comment
+          <BiCommentDetail
+            style={{ color: "#6b6b6b" }}
+            size="1.3rem"
+            className="mr-1"
+          />{" "}
+          Comment
         </Button>
         <Button className="midbutton pb-3" variant="light">
-          <RiShareForwardLine style={{color: "#6b6b6b"}} size="1.3rem"/> Share
+          <RiShareForwardLine style={{ color: "#6b6b6b" }} size="1.3rem" />{" "}
+          Share
         </Button>
         <Button className="midbutton pb-3" variant="light">
-          <RiSendPlaneFill style={{color: "#6b6b6b"}} size="1.3rem"/> Send
+          <RiSendPlaneFill style={{ color: "#6b6b6b" }} size="1.3rem" /> Send
         </Button>
       </div>
     </Card>
