@@ -34,4 +34,13 @@
     font-size: 0.7rem;
 }
 
+.editbutton {
+    border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+}
 
+.editbutton:hover {
+  background-color: rgba(104, 174, 231, 0.185);
+}
