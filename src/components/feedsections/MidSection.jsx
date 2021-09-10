@@ -28,7 +28,7 @@ const MidSection = () => {
       let postsProm = await response.json();
       setPostsArray(postsProm);
       console.log("Posts" + postsArray);
-      // setIsLoading(false);
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -112,7 +112,10 @@ const MidSection = () => {
         </div>
       </Card>
 
-      {postsArray.slice(-25).reverse().map((post) => NewsFeedItem(post))}
+      {postsArray
+        .slice(-25)
+        .reverse()
+        .map((post) => NewsFeedItem(post))}
       {/* {setIsLoading(false)} */}
     </div>
   );
