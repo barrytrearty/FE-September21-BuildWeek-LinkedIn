@@ -177,6 +177,45 @@ button.morebutton {
   font-weight: 500;
 }
 
+#cancelmodalbutton {
+  border-radius: 25px;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
+#donemodalbutton {
+  border-radius: 25px;
+  background-color: #1d66c2;
+  border: none;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
+#donemodalbutton:hover {
+  border-radius: 25px;
+  background-color: #1d66c2;
+  border: none;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
+#donemodalbutton:disabled {
+  border-radius: 25px;
+  background-color: rgba(104, 174, 231, 0.185);
+  color: grey;
+  border: none;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+  cursor: not-allowed;
+}
+
+#cancelmodalbutton:hover {
+  background-color: #1d66c2;
+  border-radius: 25px;
+  padding: 4px 16px 4px 16px;
+  font-weight: 500;
+}
+
 .modal-content {
   -webkit-border-radius: 11px !important;
   -moz-border-radius: 11px !important;
@@ -314,4 +353,19 @@ button.morebutton {
 
 #eventsplusdiv:hover {
   background-color: rgba(104, 174, 231, 0.185);
+}
+
+.imageuploadtext {
+  font-weight: 500;
+}
+
+.imageuploadtext:hover {
+  font-weight: 500;
+  background-color: rgba(104, 174, 231, 0.185);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.custom-file-upload:hover {
+  cursor: pointer;
 }
