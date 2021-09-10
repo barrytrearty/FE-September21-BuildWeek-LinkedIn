@@ -6,18 +6,24 @@ import { FiEdit2 } from "react-icons/fi";
 import { useEffect, useState, useCallback } from "react";
 import "./Edit.css";
 import DeleteExperience from "./DeleteExperience";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 
-function EditModal({ userId, experienceId }) {
-  const history = useHistory();
+function EditModal({ userId, experienceId, setEditModalClosed }) {
+  // const history = useHistory();
   let years = [];
   for (let i = 2021; i >= 1921; i--) {
     years.push(i);
   }
 
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    setShow(false);
+    setEditModalClosed(true);
+  };
+  const handleShow = () => {
+    setShow(true);
+    setEditModalClosed(false);
+  };
 
   // preload this info in edit modal
   const [role, setRole] = useState("");
@@ -102,7 +108,6 @@ function EditModal({ userId, experienceId }) {
         method: "PUT",
         // fill in the () here with the states
         body: JSON.stringify({
-
           role: role,
           company: company,
           startDate: `${startYear}-${(
@@ -130,8 +135,9 @@ function EditModal({ userId, experienceId }) {
           editImage();
         }
 
-        alert("Profile is updated.");
-        history.go(0);
+        // alert("Profile is updated.");
+        // history.go(0);
+        handleClose();
         return ExperienceResponse;
       } else {
         alert("Profile is not edited.");
@@ -140,7 +146,6 @@ function EditModal({ userId, experienceId }) {
       console.log(error);
     }
   };
-
 
   const editImage = async () => {
     const formData = new FormData();
@@ -169,7 +174,6 @@ function EditModal({ userId, experienceId }) {
       alert(error);
     }
   };
-
 
   let startMonthVariable;
 
@@ -298,7 +302,6 @@ function EditModal({ userId, experienceId }) {
                 defaultValue={startYear}
                 onChange={(e) => {
                   setStartYear(e.target.value);
-
                 }}
               >
                 {years.map((year) => (

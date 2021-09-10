@@ -20,7 +20,7 @@ import { useState, useEffect } from "react";
 const userId = "611d2acd2d52620015b6de6e";
 const endpointprofile = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
 
-const MidSectionUpper = () => {
+const MidSectionUpper = ({ setAddPostClosed }) => {
   const [MyImage, setMyImage] = useState("");
   const [showImageModal, setShowImageModal] = useState(false);
   const [showPostModal, setShowPostModal] = useState(false);
@@ -28,6 +28,8 @@ const MidSectionUpper = () => {
   const [imageFile, setimageFile] = useState();
   const [imagePreview, setimagePreview] = useState();
   const [postContent, setPostContent] = useState("");
+
+  // const [addPostClose, setAddPostClosed] = useState(false);
 
   const handleCloseImageModal = () => {
     setShowImageModal(false);
@@ -258,7 +260,7 @@ const MidSectionUpper = () => {
             <img src={MyImage} className="userImage" />
           </Col>
           <Col xs={11} className="mt-3">
-            <AddPost MyImage={MyImage} />
+            <AddPost MyImage={MyImage} setAddPostClosed={setAddPostClosed} />
           </Col>
         </Row>
         {/* <Row className="text-center SpaceBetween"> */}

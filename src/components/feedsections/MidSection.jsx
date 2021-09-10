@@ -9,7 +9,8 @@ import MyLoader from "./MyLoader";
 import NewsFeedItem from "./NewsFeedItem";
 // import {RiShareForwardLine}
 
-const MidSection = () => {
+const MidSection = ({ addPostClosed }) => {
+  // const [hasPostClosed, setHasPostClosed] = useState(addPostClosed);
   const [postsArray, setPostsArray] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -38,6 +39,10 @@ const MidSection = () => {
     getPosts();
     // setIsLoading(false);
   }, []);
+
+  useEffect(() => {
+    getPosts();
+  }, [addPostClosed]);
 
   return (
     <div>

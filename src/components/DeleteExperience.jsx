@@ -2,12 +2,12 @@ import { Button } from "react-bootstrap";
 import { AiFillDelete } from "react-icons/ai";
 import { useEffect, useState, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 
 import "./DeleteExperience.css";
 
 const DeleteExperience = ({ userId, experienceId }) => {
-  const history = useHistory();
+  // const history = useHistory();
   // e.preventDefault()
 
   // const userId = this.props.userId
@@ -31,9 +31,9 @@ const DeleteExperience = ({ userId, experienceId }) => {
       if (response.ok) {
         // this.props.fetchExperiences();
         // this.props.onHide();
-        console.log("Response ok");
-        alert("Delete successful");
-        history.go(0);
+        // console.log("Response ok");
+        // alert("Delete successful");
+        // history.go(0);
       } else {
         console.log("Delete unsuccessful");
       }
