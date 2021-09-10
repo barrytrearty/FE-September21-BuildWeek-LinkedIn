@@ -18,12 +18,11 @@ import {
   Form,
   FormControl,
   InputGroup,
-
   Button,
   Container,
   Card,
   Col,
-  Row
+  Row,
 } from "react-bootstrap";
 import Profile from "../pages/Profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -46,46 +45,43 @@ class BootstrapNavbar extends React.Component {
 
         <Row className="NavRow">
           <Col>
-            <Navbar variant="light" expand="md" sticky="top" id="navbar">
+            <Navbar variant="light" expand="lg" sticky="top" id="navbar">
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
               <Navbar.Collapse id="basic-navbar-nav">
                 <div className="navicons" id="navicons">
                   <Nav id="navbar">
                     <div className="d-flex justify-content-between NavDiv">
-                      <div classname="logodiv">
-                        <Link to="/feed">
-                          <Navbar.Brand >
-                            <a href="#" id="navbarlogo">
-                              <img
-                                className="pb-1"
-                                src={LinkedInLogo}
-                                width="45"
-                                height="45"
-                                alt=""
-                                id="navbarlogo"
-                              />
-                            </a>
-                          </Navbar.Brand>
-                        </Link>
-                        {/* search bar  */}
-                        {/* <InputGroup >
+                      <Link to="/feed" >
+                        <Navbar.Brand classname="logodiv">
+                          <a href="#" id="navbarlogo">
+                            <img
+                              className="pb-1 LinkedInLogo"
+                              src={LinkedInLogo}
+                              alt=""
+                              id="navbarlogo"
+                            />
+                          </a>
+                        </Navbar.Brand>
+                      </Link>
+
+                   <div className="mx-3 mt-2">
+                        <InputGroup className="InputSearch ml-0">
                           <FormControl
                             placeholder="Search..."
                             aria-label="Searchbar"
                             aria-describedby="basic-addon1"
                             className="SearchBar"
                           />
-                        </InputGroup> */}
-                      </div>
-                      <div className="d-flex flex-row NavLogos">
+                        </InputGroup>
+                   </div>
+                      <div className="d-flex flex-row NavLogos ">
                         <Nav.Link style={{ height: "5vh" }} href="/">
                           <FontAwesomeIcon
                             icon={faHouseUser}
                             className="ml-2 navicon"
-
                             color="#4d4d4d"
-                          /> 
+                          />
                           <br />
                           Home
                         </Nav.Link>
@@ -217,7 +213,6 @@ class BootstrapNavbar extends React.Component {
                           className="ml-2"
                           style={{ color: "#996c02", height: "5vh" }}
                           href="/"
-
                         >
                           Try Premium for
                           <br />
@@ -239,7 +234,6 @@ class BootstrapNavbar extends React.Component {
           </Route>
         </Switch>
       </Container>
-
     );
   }
 }
