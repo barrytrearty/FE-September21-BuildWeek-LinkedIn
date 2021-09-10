@@ -46,9 +46,11 @@ const RightSection = ({ sectionTitle }) => {
 
   console.log(peopleInfos);
   return (
-    <div className="p-0">
+
+    <div>
       <Container
-        style={{ minWidth: "330px", marginTop: "6rem" }}
+        style={{ minWidth: "20vw", marginTop: "6rem" }}
+
         className="pl-2 mb-3 PeopleContainer container-fluid"
       >
         <h5 className="d-flex flex-row sectiontitle mt-3 ml-2 mb-2">

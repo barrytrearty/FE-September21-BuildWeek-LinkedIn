@@ -1,9 +1,13 @@
+
 import { Card, Button, Row, Col } from "react-bootstrap";
+
 import "./PeopleCard.css";
 import "./feedsections/FeedRightCard.css";
+import { Link } from "react-router-dom";
 
 const PeopleCard = ({ peopleInfo }) => {
   return (
+ <Link to={`/profile/${peopleInfo._id}`}>
     <Card className="PeopleCard d-flex flex-row no-gutters">
       <Row className="feedright">
         <Col className="col-md-4">
@@ -25,7 +29,8 @@ const PeopleCard = ({ peopleInfo }) => {
       </Card.Body>
       </Col>
       </Row>
-    </Card>
+    </Card> </Link>
+
   );
 };
 

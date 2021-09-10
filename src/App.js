@@ -6,6 +6,9 @@ import PeopleSection from "./components/PeopleSection";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
+import ProfileSection from "./components/ProfileSection";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -46,21 +49,23 @@ function App() {
           </Route> */}
           {/* we are James for now (me) */}
 
-          {/* needs profile id  /}
+          {/* needs profile id  */}
           <Route
-            path="/linkedin/:id"
-            exact
-            render={(routerProps) => <MeSection {...routerProps} />}
+            path="/profile/:id"
+            render={(routerProps) => <ProfileSection {...routerProps} />}
           />
-          {/ we are James for now (me) */}
+
           <Route exact path="/">
+
             {<Redirect to="/feed" />}
+
           </Route>
           <Route
             path="/me"
             exact
             render={(routerProps) => <MeSection {...routerProps} />}
           />
+
           <Route path="/feed" exact component={NewsFeed} />
         </Container>
       </Switch>
