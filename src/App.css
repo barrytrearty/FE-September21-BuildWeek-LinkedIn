@@ -391,6 +391,7 @@ button.morebutton {
 
 .imageuploadtext {
   font-weight: 500;
+  border: 1px solid rgba(104, 174, 231, 0.185);
 }
 
 .imageuploadtext:hover {
