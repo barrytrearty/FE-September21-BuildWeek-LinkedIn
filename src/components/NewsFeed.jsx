@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import LeftSection from "./feedsections/LeftSection";
 import MidSection from "./feedsections/MidSection";
@@ -6,6 +6,7 @@ import MidSectionUpper from "./feedsections/MidSectionUpper";
 import RightSection from "./feedsections/RightSection";
 
 const NewsFeed = () => {
+  const [addPostClosed, setAddPostClosed] = useState(false);
   return (
     <div>
       <Container>
@@ -15,8 +16,11 @@ const NewsFeed = () => {
           </Col>
 
           <Col lg={6} md={8} sm={12} className="px-2">
-            <MidSectionUpper />
-            <MidSection />
+            <MidSectionUpper
+              addPostClosed={addPostClosed}
+              setAddPostClosed={setAddPostClosed}
+            />
+            <MidSection addPostClosed={addPostClosed} />
           </Col>
 
           <Col lg={3} className="d-none d-lg-block px-2">

@@ -4,11 +4,19 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { useState } from "react";
 import { CgMathPlus } from "react-icons/cg";
 import { parseISO, format } from "date-fns";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 
-function AddExperienceModal(props) {
-  const history = useHistory();
+function AddExperienceModal({ setAddModalClosed }) {
+  // const history = useHistory();
   const [show, setShow] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+    setAddModalClosed(true);
+  };
+  const handleShow = () => {
+    setShow(true);
+    setAddModalClosed(false);
+  };
 
   const [experience, setExperience] = useState({
     role: "",
@@ -37,9 +45,6 @@ function AddExperienceModal(props) {
   for (let i = 2021; i >= 1921; i--) {
     years.push(i);
   }
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   useEffect(() => {
     let parsedDate = `${startDateObj.year}-${("0" + startDateObj.month).slice(
@@ -77,9 +82,9 @@ function AddExperienceModal(props) {
 
       if (response.ok) {
         const hello = response.json();
-
-        alert("Success!");
-        history.go(0);
+        handleClose();
+        // alert("Success!");
+        // history.go(0);
         return hello;
       } else {
         alert("Error! Please complete the form!");
@@ -127,7 +132,8 @@ function AddExperienceModal(props) {
     }
     await postData();
     let id = await fetchNewestExperienceID();
-    if (imageFile.length !== 0) postImage(id);
+    if (imageFile.length > 0) postImage(id);
+    if (imageFile === undefined) console.log("Undefined image");
   };
 
   const imageUpload = (e) => {
