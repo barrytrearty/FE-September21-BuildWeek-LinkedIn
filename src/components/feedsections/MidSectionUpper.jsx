@@ -161,7 +161,7 @@ const MidSectionUpper = () => {
     <>
       <br />
 
-<<<<<<< Updated upstream
+
       {/* Upload Image Modal */}
       <Modal show={showImageModal} onHide={handleCloseImageModal}>
         <Modal.Header className="px-4" closeButton>
@@ -250,10 +250,9 @@ const MidSectionUpper = () => {
         </Modal.Footer>
       </Modal>
 
-      <Container fluid className=" MidSectionContainer mt-5">
-=======
+     
       <Container fluid className="topmidmargin MidSectionContainer">
->>>>>>> Stashed changes
+
         <Row className="text-center SpaceBetween">
           <Col xs={1} className="text-left mt-3">
             <img src={MyImage} className="userImage" />
@@ -265,20 +264,17 @@ const MidSectionUpper = () => {
         {/* <Row className="text-center SpaceBetween"> */}
         {/* <Col xs="auto" className="my-2"> */}
         <div className="d-flex justify-content-between mt-3">
-<<<<<<< Updated upstream
+
           <Button
             onClick={handleShowImageModal}
             variant="light"
-            className="d-flex flex-row IconAndText"
+            className="midbutton d-flex flex-row IconAndText"
           >
-            <BiPhotoAlbum />
-            <span>Photo</span>
-=======
-          <Button variant="light" className="midbutton d-flex flex-row IconAndText">
+           
             <BiPhotoAlbum color="#4287f5" size="1.3rem"/>
-            <span className="ml-3">Photo</span>
->>>>>>> Stashed changes
-          </Button>
+            <span>Photo</span>
+            </Button>
+
           {/* </Col> */}
           {/* <Col xs="auto" className="my-2"> */}
           <Button
