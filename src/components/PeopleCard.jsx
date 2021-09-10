@@ -16,7 +16,7 @@ const PeopleCard = ({ peopleInfo }) => {
         </Card.Title>
         <Card.Text className="RightFeedSubtitle text-muted">{peopleInfo.title}</Card.Text>
         <Card.Text>
-          <Button type="button" variant="outline-secondary" className="RightFeedButton mr-auto">Message</Button>{" "}
+          <Button type="button" variant="outline-secondary" className="RightFeedButton mr-5">Message</Button>{" "}
         </Card.Text>
       </Card.Body>
     </Card>

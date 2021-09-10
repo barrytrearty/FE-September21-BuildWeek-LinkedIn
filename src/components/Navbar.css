@@ -68,3 +68,10 @@
 }
 
 
+#inlineFormInputGroup {
+    background-color: #EEF3F8;
+    border-left: 0;
+    padding-left: 0;
+    width: 12rem;
+}
+
