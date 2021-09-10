@@ -6,7 +6,7 @@ import PeopleSection from "./components/PeopleSection";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import MeSection from "./components/MeSection";
 import NewsFeed from "./components/NewsFeed";
@@ -19,7 +19,7 @@ function App() {
         <Container>
           {/* needs profile id  */}
 
-          <Route
+          {/* <Route
             path="/linkedin/:id"
             exact
             render={(routerProps) => <MeSection {...routerProps} />}
@@ -36,7 +36,7 @@ function App() {
                 <PeopleSection sectionTitle="People you may know" />
               </Col>
             </Row>
-          </Route>
+          </Route> */}
           {/* we are James for now (me) */}
 
           {/* needs profile id  /}
@@ -46,7 +46,9 @@ function App() {
             render={(routerProps) => <MeSection {...routerProps} />}
           />
           {/ we are James for now (me) */}
-
+          <Route exact path="/">
+            {<Redirect to="/me"/>}
+          </Route>
           <Route
             path="/me"
             exact
@@ -55,7 +57,7 @@ function App() {
           <Route path="/feed" exact component={NewsFeed} />
         </Container>
       </Switch>
-      {window.location.pathname !== "/feed" ? <Footer /> : null }
+      {window.location.pathname !== "/feed" ? <Footer /> : null}
     </Router>
   );
 }

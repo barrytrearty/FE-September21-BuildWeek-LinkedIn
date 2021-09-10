@@ -10,10 +10,8 @@
 .navContainer {
   background-color: white;
   min-width: 100vw;
-  /* margin-bottom: 4rem; */
   position: fixed;
   z-index: 99;
-  /* margin-bottom: 10rem; */
   
 }
 
@@ -39,6 +37,8 @@
   position: absolute;
   right: 0;
 }
+
+
 
 
 
