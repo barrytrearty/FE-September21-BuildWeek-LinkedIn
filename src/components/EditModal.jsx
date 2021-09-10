@@ -215,10 +215,12 @@ function EditModal({ userId, experienceId, setEditModalClosed }) {
 
   return (
     <>
+    
       <a onClick={handleShow} className="modallink ml-auto">
-        <FiEdit2 className="EditIcon" />
+      <div className="editbutton">
+        <FiEdit2 className="m-auto" size={18}/>
+        </div>
       </a>
-
       <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header className="px-4" closeButton>
           <Modal.Title id="contactnametext">Edit experience</Modal.Title>

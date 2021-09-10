@@ -63,10 +63,10 @@ const MidSection = ({ addPostClosed }) => {
       <Card className="mt-3 mb-3">
         <Card.Body>
           <Row>
-            <Col className="col-md-1">
+            <Col className="col-md-1 mr-2">
               <Card.Img
                 variant="top-left"
-                height="30rem"
+                className="shopifylogo"
                 src="https://cdn.tutsplus.com/net/uploads/legacy/2136_shopify/shopify-logo.png"
               />
             </Col>

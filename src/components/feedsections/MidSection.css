@@ -21,6 +21,11 @@ strong {
   font-weight: 700;
 }
 
+.shopifylogo {
+    height: 2rem;
+    width: 2rem;
+}
+
 /* button {
   background-color: none !important;
 } */
