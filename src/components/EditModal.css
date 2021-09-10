@@ -8,7 +8,28 @@
    
 }
 
-#savemodalbutton {
+#editmodalbutton {
     font-weight: 600;
     height: 2.2rem;
+    border-radius: 30px;
+    margin-left: 3rem;
+    font-size: 0.9rem
+
+}
+
+.modallink {
+    background-color: white;
+    color: rgb(97, 97, 97);
+}
+
+.p-heading {
+    font-size: 0.9rem;
+}
+
+.p-secondary {
+    font-size: 0.8rem;
+}
+
+.startenddate {
+    font-size: 0.7rem;
 }

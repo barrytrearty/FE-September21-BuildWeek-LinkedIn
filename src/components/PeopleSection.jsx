@@ -5,7 +5,7 @@ import "./ShowButton.css";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import "./PeopleSection.css";
 
-const PeopleSection = ({ sectionTitle }) => {
+const PeopleSection = ({ sectionTitle, marginTop }) => {
   const [peopleInfos, setPeopleInfos] = useState([]);
   const [show, setShow] = useState(true);
 
@@ -37,7 +37,7 @@ const PeopleSection = ({ sectionTitle }) => {
   console.log(peopleInfos);
   return (
 
-    <Container className="mb-3 PeopleContainer container-fluid">
+    <Container className=" mb-3 PeopleContainer container-fluid">
 
       <h5 className="sectiontitle mt-3">{sectionTitle}</h5>
       <PeopleRow peopleInfos={peopleInfos} show={show} />

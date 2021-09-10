@@ -6,6 +6,7 @@ import { format, parseISO } from "date-fns";
 import { render } from "@testing-library/react";
 import AddExperienceModal from "./AddExperienceModal";
 import { BiPurchaseTag } from "react-icons/bi";
+import "./EditModal.css"
 
 const Experiences = ({ match }) => {
   // const experienceId = match.params.id;
@@ -70,9 +71,9 @@ const Experiences = ({ match }) => {
           </Col>
           <Col className="my-3 d-flex flex-row ml-3">
             <div className="Experience">
-              <p className="p-heading">{experience.role}</p>
+              <p className="p-heading text-strong">{experience.role}</p>
               <p className="p-secondary">{experience.company}</p>
-              <p className="p-muted">
+              <p className="startenddate text-muted">
                 {fixDate(experience.startDate)} - {fixDate(experience.endDate)}{" "}
               </p>
               <p className="p-secondary">{experience.description}</p>

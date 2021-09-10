@@ -4,6 +4,7 @@ import { IoIosBookmark } from "react-icons/io";
 import { BsSquareFill } from "react-icons/bs";
 import { GoPlus } from "react-icons/go";
 import { Link, NavLink } from "react-router-dom";
+import "./MidSection.css";
 
 class LeftSection extends Component {
   state = {
@@ -42,7 +43,8 @@ class LeftSection extends Component {
   render() {
     return (
       <>
-        <Card className="cardstyling feedleftcards mt-5">
+
+        <Card className="topmargin cardstyling feedleftcards">
           <Card.Img
             variant="top"
             src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fjosephliu%2Ffiles%2F2019%2F06%2F10-ferdinand-stohr-149422-unsplash-1200x298.jpg"

@@ -17,7 +17,7 @@ function SearchBar() {
             border: "0",
             height: "38px",
             width: "180px",
-            marginRight: "12.3rem",
+            
             
           }}
           />

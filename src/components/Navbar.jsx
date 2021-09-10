@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import LinkedInLogo from "../data/linkedin_logo.png";
 import "./Navbar.css";
@@ -72,6 +74,7 @@ class BootstrapNavbar extends React.Component {
                               className="SearchBar"
                             />
                           </InputGroup>
+
                         </div>
                         <div className="d-flex flex-row NavLogos ">
                           <Nav.Link style={{ height: "5vh" }} href="/">
@@ -235,6 +238,7 @@ class BootstrapNavbar extends React.Component {
    
 
       );
+
   }
 }
 
