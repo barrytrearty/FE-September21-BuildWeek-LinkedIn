@@ -78,7 +78,7 @@ const RightSection = ({ sectionTitle }) => {
       <Card
         className="cardstyling text-left"
         id="bottomcard"
-        style={{ height: "37vh", minWidth: "20vw" }}
+        style={{ minWidth: "20vw" }}
       >
         <Card.Body>
           <h5 className="d-flex flex-row sectiontitle mb-3">{sectionTitle}Today's top courses<FontAwesomeIcon icon={faInfoCircle} className="infoiconlower"/></h5>
