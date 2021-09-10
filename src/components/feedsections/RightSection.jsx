@@ -47,13 +47,9 @@ const RightSection = ({ sectionTitle }) => {
   console.log(peopleInfos);
   return (
     <div>
+<Container style={{ minWidth: "20vw", marginTop: "6rem" }} className="pl-2 mb-3 PeopleContainer container-fluid">
 
-<<<<<<< Updated upstream
-   <Container  style={{ minWidth: "20vw" }} className="mr-5 pl-2 mb-2 PeopleContainer container-fluid mt-5">
-=======
-   <Container  style={{ minWidth: "20vw" }} className="topmargin mr-5 pl-2 mb-2 PeopleContainer container-fluid">
->>>>>>> Stashed changes
-      <h5 className="sectiontitle mt-3 ml-2 mb-2">{sectionTitle}Add to your feed <FontAwesomeIcon icon={faInfoCircle} className="infoicon"/></h5>
+      <h5 className="d-flex flex-row sectiontitle mt-3 ml-2 mb-2">{sectionTitle}Add to your feed <FontAwesomeIcon icon={faInfoCircle} className="infoicon"/></h5>
      
       
       <RightSectionRow peopleInfos={peopleInfos} show={show} />
@@ -85,7 +81,7 @@ const RightSection = ({ sectionTitle }) => {
         style={{ height: "37vh", minWidth: "20vw" }}
       >
         <Card.Body>
-          <h5 className="sectiontitle mb-3">{sectionTitle}Today's top courses<FontAwesomeIcon icon={faInfoCircle} className="infoiconlower"/></h5>
+          <h5 className="d-flex flex-row sectiontitle mb-3">{sectionTitle}Today's top courses<FontAwesomeIcon icon={faInfoCircle} className="infoiconlower"/></h5>
          
             <Card.Subtitle id="cardsubtitle" class="card-text">
               1. What is graphic design?
