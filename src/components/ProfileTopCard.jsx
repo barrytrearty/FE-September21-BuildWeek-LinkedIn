@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Image, Card, Button, Row, Col } from "react-bootstrap";
 import ContactInfoModal from "./ContactInfoModal";
 import "./PeopleSection.css";
+import EditProfileModal from "./EditProfileModal";
 
 class ProfileTopCard extends Component {
   state = {
@@ -46,12 +47,14 @@ class ProfileTopCard extends Component {
             src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fjosephliu%2Ffiles%2F2019%2F06%2F10-ferdinand-stohr-149422-unsplash-1200x298.jpg"
             className="bannerImage"
           />
-
-          <Image
-            className="profileimage ml-4"
-            src={this.state.user.image}
-            roundedCircle
-          />
+          <div className="profileimagewrapper">
+            <Image
+              className="profileimage ml-4"
+              src={this.state.user.image}
+              roundedCircle
+            />
+            <EditProfileModal />
+          </div>
 
           <Card.Body className="pt-1 px-1 pb-2">
             <Row className="ml-1 mr-3">
@@ -75,7 +78,7 @@ class ProfileTopCard extends Component {
                     </a>
                   </small>
                 </Card.Text>
-                <Card.Text>
+                {/* <Card.Text>
                   <small className="text-muted">
                     <a style={{ fontWeight: "500", color: "inherit" }} href="">
                       2 mutual connections:{" "}
@@ -84,7 +87,7 @@ class ProfileTopCard extends Component {
                       </span>
                     </a>
                   </small>
-                </Card.Text>
+                </Card.Text> */}
                 <Button
                   className="mr-2 messagebutton px-3 py-1 mb-3"
                   variant="primary"
