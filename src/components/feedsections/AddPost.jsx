@@ -9,13 +9,19 @@ import {
 import { useState } from "react";
 import "./MidSection.css";
 import { AiOutlineUser } from "react-icons/ai";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
-function AddPost({ MyImage }) {
-  const history = useHistory();
+function AddPost({ MyImage, setAddPostClosed }) {
+  // const history = useHistory();
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    setShow(false);
+    setAddPostClosed(true);
+  };
+  const handleShow = () => {
+    setShow(true);
+    setAddPostClosed(false);
+  };
 
   const [postContent, setPostContent] = useState("");
 
@@ -37,8 +43,9 @@ function AddPost({ MyImage }) {
       if (response.ok) {
         const hello = response.json();
 
-        alert("Success!");
-        history.go(0);
+        // alert("Success!");
+        // history.go(0);
+        handleClose();
         return hello;
       } else {
         alert("Error! Please complete the form!");
@@ -58,7 +65,9 @@ function AddPost({ MyImage }) {
         type="button"
         onClick={handleShow}
       >
-        <div className="text-left PostText">Start a post</div>
+        <div className="text-left PostText">
+          <small className="feedboldtext text-muted">Start a post</small>
+        </div>
       </Button>
 
       <Modal size="lg" show={show} onHide={handleClose}>

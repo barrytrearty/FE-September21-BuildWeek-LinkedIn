@@ -4,6 +4,8 @@
     border-radius: 1%;
     max-width: 21vw !important;
     margin-left: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .PeopleContainer .row .PeopleCol:last-child{

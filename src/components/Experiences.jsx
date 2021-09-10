@@ -20,6 +20,8 @@ const Experiences = ({ match }) => {
 
   const userId = "611d2acd2d52620015b6de6e";
 
+  const [addModalClosed, setAddModalClosed] = useState(true);
+  const [editModalClosed, setEditModalClosed] = useState(true);
   const [experienceArray, setExperienceArray] = useState([]);
 
   const getArray = async () => {
@@ -56,11 +58,21 @@ const Experiences = ({ match }) => {
     getArray();
   }, []);
 
+  useEffect(() => {
+    getArray();
+  }, [editModalClosed]);
+
+  useEffect(() => {
+    getArray();
+  }, [addModalClosed]);
+
   return (
     <Card className="px-4 py-2 sectiontext pt-4">
       <Row className="d-flex justify-content-between">
         <Card.Title className="px-3 sectionheader">Experience</Card.Title>
-        {isMe === true && <AddExperienceModal />}
+        {isMe === true && (
+          <AddExperienceModal setAddModalClosed={setAddModalClosed} />
+        )}
       </Row>
       {/* {console.log(experienceArray)} */}
 
@@ -80,10 +92,13 @@ const Experiences = ({ match }) => {
             </div>
 
             {isMe === true && (
-
-                <div className="ml-auto">
-                <EditModal userId={userId} experienceId={experience._id} />
-                <deleteExperience />
+              <div className="ml-auto">
+                <EditModal
+                  userId={userId}
+                  experienceId={experience._id}
+                  setEditModalClosed={setEditModalClosed}
+                />
+                <deleteExperience setEditModalClosed={setEditModalClosed} />
               </div>
             )}
 

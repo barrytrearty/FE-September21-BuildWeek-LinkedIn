@@ -6,7 +6,9 @@ import PeopleSection from "./components/PeopleSection";
 import Profile from "./pages/Profile";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
 import ProfileSection from "./components/ProfileSection";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -54,7 +56,9 @@ function App() {
           />
 
           <Route exact path="/">
-            {<Redirect to="/me" />}
+
+            {<Redirect to="/feed" />}
+
           </Route>
           <Route
             path="/me"

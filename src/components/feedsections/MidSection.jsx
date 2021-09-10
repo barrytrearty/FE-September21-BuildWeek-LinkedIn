@@ -9,7 +9,8 @@ import MyLoader from "./MyLoader";
 import NewsFeedItem from "./NewsFeedItem";
 // import {RiShareForwardLine}
 
-const MidSection = () => {
+const MidSection = ({ addPostClosed, addImagePostClosed }) => {
+  // const [hasPostClosed, setHasPostClosed] = useState(addPostClosed);
   const [postsArray, setPostsArray] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -39,6 +40,14 @@ const MidSection = () => {
     // setIsLoading(false);
   }, []);
 
+  useEffect(() => {
+    getPosts();
+  }, [addPostClosed]);
+
+  useEffect(() => {
+    getPosts();
+  }, [addImagePostClosed]);
+
   return (
     <div>
       <hr />
@@ -58,10 +67,10 @@ const MidSection = () => {
       <Card className="mt-3 mb-3">
         <Card.Body>
           <Row>
-            <Col className="col-md-1">
+            <Col className="col-md-1 mr-2">
               <Card.Img
                 variant="top-left"
-                height="30rem"
+                className="shopifylogo"
                 src="https://cdn.tutsplus.com/net/uploads/legacy/2136_shopify/shopify-logo.png"
               />
             </Col>
@@ -98,17 +107,19 @@ const MidSection = () => {
         >
           {/* <span> */}
           <Button className="midbutton pb-3" variant="light">
-            <AiOutlineLike style={{color: "#6b6b6b"}} size="1.3rem"/> Like
+            <AiOutlineLike style={{ color: "#6b6b6b" }} size="1.3rem" /> Like
           </Button>
           {/* </span> */}
           <Button className="midbutton pb-3" variant="light">
-            <BiCommentDetail style={{color: "#6b6b6b"}} size="1.3rem"/> Comment
+            <BiCommentDetail style={{ color: "#6b6b6b" }} size="1.3rem" />{" "}
+            Comment
           </Button>
           <Button className="midbutton pb-3" variant="light">
-            <RiShareForwardLine style={{color: "#6b6b6b"}} size="1.3rem"/> Share
+            <RiShareForwardLine style={{ color: "#6b6b6b" }} size="1.3rem" />{" "}
+            Share
           </Button>
           <Button className="midbutton pb-3" variant="light">
-            <RiSendPlaneFill style={{color: "#6b6b6b"}} size="1.3rem"/> Send
+            <RiSendPlaneFill style={{ color: "#6b6b6b" }} size="1.3rem" /> Send
           </Button>
         </div>
       </Card>

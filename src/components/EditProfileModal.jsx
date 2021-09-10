@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal, Image } from "react-bootstrap";
+import { Button, Modal, Image, Spinner } from "react-bootstrap";
 
 import { useState, useEffect } from "react";
 import { FiEdit2 } from "react-icons/fi";
@@ -7,17 +7,19 @@ import { FiEdit2 } from "react-icons/fi";
 const userId = "611d2acd2d52620015b6de6e";
 const endpointprofile = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
 
-const EditProfileModal = () => {
+const EditProfileModal = ({ setclosed }) => {
   const [show, setShow] = useState(false);
   const [imageUploaded, setimageUploaded] = useState(false);
   const [imageFile, setimageFile] = useState();
   const [imagePreview, setimagePreview] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClose = () => {
     setShow(false);
     setimageFile();
     setimageUploaded(false);
     getMyProfile();
+    setclosed();
   };
   const handleShow = () => setShow(true);
 
@@ -51,6 +53,7 @@ const EditProfileModal = () => {
   useEffect(() => getMyProfile(), []);
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     if (imageFile.length !== 0) postImage();
   };
 
@@ -74,7 +77,8 @@ const EditProfileModal = () => {
 
       if (response.ok) {
         const reply = response.json();
-
+        handleClose();
+        setIsLoading(false);
         console.log(reply);
       } else {
         alert("Error! Please complete the form!");
@@ -121,13 +125,23 @@ const EditProfileModal = () => {
         <Modal.Footer className="px-4" closeButton>
           <Button
             id="cancelmodalbutton"
-            className="ml-3"
+            className="ml-3 mr-2"
             variant="outline-primary"
             type="submit"
             onClick={handleClose}
           >
             Cancel
           </Button>
+          {isLoading ? (
+            <Spinner
+              animation="border"
+              variant="primary"
+              role="status"
+              show={isLoading}
+            ></Spinner>
+          ) : (
+            ""
+          )}
           {imageUploaded ? (
             <Button
               className="ml-2"

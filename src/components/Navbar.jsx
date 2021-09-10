@@ -65,22 +65,42 @@ class BootstrapNavbar extends React.Component {
                           </Navbar.Brand>
                         </Link>
   
-                        <div className="mx-3 mt-2">
-                          <InputGroup className="InputSearch ml-0">
-                            <FormControl
-                              placeholder="Search..."
-                              aria-label="Searchbar"
-                              aria-describedby="basic-addon1"
-                              className="SearchBar"
-                            />
-                          </InputGroup>
+                        <div className="searchbarform mx-3 mt-2">
+                         
+                        <Form
+            inline
+            className="align-items-center"
+            style={{ height: "40px" }}
+          >
+            <Col sm="auto" className="px-0">
+              <InputGroup className="flex-row mb-2">
+                <InputGroup.Text
+                  style={{
+                    height: "2.4rem",
+                    width: "2.5rem",
+                    borderRadius: "0.25rem 0px 0px 0.25rem",
+                    backgroundColor: "#EEF3F8",
+                    borderRight: 0,
+                    paddingLeft: "1rem",
+                    paddingRight: "0",
+                  }}
+                >
+                  <FontAwesomeIcon
+                    style={{ height: "15px", width: "15px" }}
+                    icon={faSearch}
+                  />
+                </InputGroup.Text>
+                <FormControl id="inlineFormInputGroup" placeholder="Search" />
+              </InputGroup>
+            </Col>
+          </Form>
 
                         </div>
                         <div className="d-flex flex-row NavLogos ">
                           <Nav.Link style={{ height: "5vh" }} href="/">
                             <FontAwesomeIcon
                               icon={faHouseUser}
-                              className="ml-2 navicon"
+                              className="ml-2 mb-1 mt-1 navicon"
                               color="#4d4d4d"
                             />
                             <br />
@@ -90,7 +110,7 @@ class BootstrapNavbar extends React.Component {
                           <Nav.Link style={{ height: "5vh" }} href="/">
                             <FontAwesomeIcon
                               icon={faUser}
-                              className="ml-4 navicon"
+                              className="ml-4 mb-1 mt-1 navicon"
                               color="#4d4d4d"
                             />
                             <br />
@@ -100,7 +120,7 @@ class BootstrapNavbar extends React.Component {
                           <Nav.Link style={{ height: "5vh" }} href="/">
                             <FontAwesomeIcon
                               icon={faSuitcase}
-                              className="ml-2 navicon"
+                              className="ml-2 mb-1 mt-1 navicon"
                               color="#4d4d4d"
                             />
                             <br />
@@ -110,7 +130,7 @@ class BootstrapNavbar extends React.Component {
                           <Nav.Link style={{ height: "5vh" }} href="/">
                             <FontAwesomeIcon
                               icon={faCommentDots}
-                              className="ml-4 navicon"
+                              className="ml-4 mb-1 mt-1 navicon"
                               color="#4d4d4d"
                             />
                             <br />
@@ -120,14 +140,14 @@ class BootstrapNavbar extends React.Component {
                           <Nav.Link style={{ height: "5vh" }} href="/">
                             <FontAwesomeIcon
                               icon={faBell}
-                              className="ml-4 navicon"
+                              className="ml-4 mb-1 mt-1 navicon"
                               color="#4d4d4d"
                             />
                             <br />
                             Notifications
                           </Nav.Link>
   
-                          <div className="ml-2">
+                          <div className="ml-0">
                             <NavbarProfileImage />
   
                             <NavDropdown
