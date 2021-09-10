@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal, Image } from "react-bootstrap";
+import { Button, Modal, Image, Spinner } from "react-bootstrap";
 
 import { useState, useEffect } from "react";
 import { FiEdit2 } from "react-icons/fi";
@@ -12,6 +12,7 @@ const EditProfileModal = ({ setclosed }) => {
   const [imageUploaded, setimageUploaded] = useState(false);
   const [imageFile, setimageFile] = useState();
   const [imagePreview, setimagePreview] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClose = () => {
     setShow(false);
@@ -52,6 +53,7 @@ const EditProfileModal = ({ setclosed }) => {
   useEffect(() => getMyProfile(), []);
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     if (imageFile.length !== 0) postImage();
   };
 
@@ -76,6 +78,7 @@ const EditProfileModal = ({ setclosed }) => {
       if (response.ok) {
         const reply = response.json();
         handleClose();
+        setIsLoading(false);
         console.log(reply);
       } else {
         alert("Error! Please complete the form!");
@@ -122,13 +125,23 @@ const EditProfileModal = ({ setclosed }) => {
         <Modal.Footer className="px-4" closeButton>
           <Button
             id="cancelmodalbutton"
-            className="ml-3"
+            className="ml-3 mr-2"
             variant="outline-primary"
             type="submit"
             onClick={handleClose}
           >
             Cancel
           </Button>
+          {isLoading ? (
+            <Spinner
+              animation="border"
+              variant="primary"
+              role="status"
+              show={isLoading}
+            ></Spinner>
+          ) : (
+            ""
+          )}
           {imageUploaded ? (
             <Button
               className="ml-2"

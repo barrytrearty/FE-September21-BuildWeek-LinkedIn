@@ -263,7 +263,6 @@ const MidSectionUpper = ({ setAddPostClosed, setAddImagePostClosed }) => {
                 variant="primary"
                 role="status"
                 className="imagespinner"
-                show={isLoading}
               ></Spinner>
             ) : (
               ""
