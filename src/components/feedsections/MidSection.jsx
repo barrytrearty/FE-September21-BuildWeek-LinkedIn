@@ -9,7 +9,7 @@ import MyLoader from "./MyLoader";
 import NewsFeedItem from "./NewsFeedItem";
 // import {RiShareForwardLine}
 
-const MidSection = ({ addPostClosed }) => {
+const MidSection = ({ addPostClosed, addImagePostClosed }) => {
   // const [hasPostClosed, setHasPostClosed] = useState(addPostClosed);
   const [postsArray, setPostsArray] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +43,10 @@ const MidSection = ({ addPostClosed }) => {
   useEffect(() => {
     getPosts();
   }, [addPostClosed]);
+
+  useEffect(() => {
+    getPosts();
+  }, [addImagePostClosed]);
 
   return (
     <div>
@@ -103,17 +107,19 @@ const MidSection = ({ addPostClosed }) => {
         >
           {/* <span> */}
           <Button className="midbutton pb-3" variant="light">
-            <AiOutlineLike style={{color: "#6b6b6b"}} size="1.3rem"/> Like
+            <AiOutlineLike style={{ color: "#6b6b6b" }} size="1.3rem" /> Like
           </Button>
           {/* </span> */}
           <Button className="midbutton pb-3" variant="light">
-            <BiCommentDetail style={{color: "#6b6b6b"}} size="1.3rem"/> Comment
+            <BiCommentDetail style={{ color: "#6b6b6b" }} size="1.3rem" />{" "}
+            Comment
           </Button>
           <Button className="midbutton pb-3" variant="light">
-            <RiShareForwardLine style={{color: "#6b6b6b"}} size="1.3rem"/> Share
+            <RiShareForwardLine style={{ color: "#6b6b6b" }} size="1.3rem" />{" "}
+            Share
           </Button>
           <Button className="midbutton pb-3" variant="light">
-            <RiSendPlaneFill style={{color: "#6b6b6b"}} size="1.3rem"/> Send
+            <RiSendPlaneFill style={{ color: "#6b6b6b" }} size="1.3rem" /> Send
           </Button>
         </div>
       </Card>

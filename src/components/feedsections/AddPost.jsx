@@ -65,7 +65,9 @@ function AddPost({ MyImage, setAddPostClosed }) {
         type="button"
         onClick={handleShow}
       >
-        <div className="text-left PostText">Start a post</div>
+        <div className="text-left PostText">
+          <small className="feedboldtext text-muted">Start a post</small>
+        </div>
       </Button>
 
       <Modal size="lg" show={show} onHide={handleClose}>
