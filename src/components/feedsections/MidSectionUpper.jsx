@@ -303,7 +303,7 @@ const MidSectionUpper = () => {
             onClick
           >
             <RiArticleLine color="coral" size="1.2rem"/>
-            <span className="ml-3">Write Article</span>
+            <span className="ml-1">Write Article</span>
           </Button>
           {/* </Col> */}
           {/* </Row> */}
