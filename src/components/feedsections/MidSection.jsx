@@ -16,7 +16,7 @@ const MidSection = () => {
   const getPosts = async () => {
     try {
       let response = await fetch(
-        `//striveschool-api.herokuapp.com/api/posts/ `,
+        `https://striveschool-api.herokuapp.com/api/posts/ `,
 
         {
           headers: {
@@ -27,8 +27,8 @@ const MidSection = () => {
       );
       let postsProm = await response.json();
       setPostsArray(postsProm);
-      console.log("Posts" + postsArray);
-      // setIsLoading(false);
+     
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -112,7 +112,7 @@ const MidSection = () => {
         </div>
       </Card>
 
-      {postsArray.map((post) => NewsFeedItem(post))}
+      {postsArray.slice(-25).reverse().map((post) => NewsFeedItem(post))}
       {/* {setIsLoading(false)} */}
     </div>
   );

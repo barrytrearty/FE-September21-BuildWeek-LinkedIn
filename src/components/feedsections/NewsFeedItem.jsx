@@ -32,7 +32,7 @@ const NewsFeedItem = (post) => {
             </p>
           </div>
           <Col>
-            <img src={post.image} alt="" />
+            <img src={post.image} alt="" loading="lazy" />
           </Col>
           <Col>
             <div className="d-flex justify-content-between">
