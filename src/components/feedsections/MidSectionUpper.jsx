@@ -39,6 +39,8 @@ const MidSectionUpper = () => {
   const handleClosePostModal = () => {
     setShowPostModal(false);
     setShowImageModal(false);
+    setimageFile();
+    setimageUploaded(false);
   };
   const handleShowPostModal = () => {
     setShowImageModal(false);
@@ -75,6 +77,7 @@ const MidSectionUpper = () => {
   useEffect(() => getMyProfile(), []);
 
   const endpoint = "https://striveschool-api.herokuapp.com/api/posts/";
+
   const createPost = async () => {
     try {
       let response = await fetch(endpoint, {
@@ -90,10 +93,7 @@ const MidSectionUpper = () => {
       });
 
       if (response.ok) {
-        const hello = response.json();
-
-        alert("Success!");
-        // history.go(0);
+        console.log(response.json());
       } else {
         alert("Error! Please complete the form!");
       }
@@ -101,6 +101,62 @@ const MidSectionUpper = () => {
       alert(error);
     }
   };
+  const fetchNewestPostID = async () => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/`,
+
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          },
+        }
+      );
+      let PostArray = await response.json();
+      let lastpost = PostArray[PostArray.length - 1];
+      return lastpost._id;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSubmit = async () => {
+    await createPost();
+    let id = await fetchNewestPostID();
+    if (imageFile.length !== 0) postImage(id);
+  };
+
+  const postImage = async (id) => {
+    const formData = new FormData();
+    formData.append("post", imageFile);
+
+    console.log(formData);
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/${id}`,
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMmFjZDJkNTI2MjAwMTViNmRlNmUiLCJpYXQiOjE2MzA5MTc5MjEsImV4cCI6MTYzMjEyNzUyMX0.OI99GOLixgQzINFZv184V2X1a8to4c2LekZY38u19tg",
+          },
+        }
+      );
+
+      if (response.ok) {
+        const reply = response.json();
+
+        console.log(reply);
+      } else {
+        alert("Error! Please complete the form!");
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   return (
     <>
       <br />
@@ -108,7 +164,7 @@ const MidSectionUpper = () => {
       {/* Upload Image Modal */}
       <Modal show={showImageModal} onHide={handleCloseImageModal}>
         <Modal.Header className="px-4" closeButton>
-          <Modal.Title id="contactnametext">Edit your photo</Modal.Title>
+          <Modal.Title id="contactnametext">Edit your photo </Modal.Title>
         </Modal.Header>
         <Modal.Body className="px-4 d-flex py-5">
           {imageUploaded ? (
@@ -163,7 +219,7 @@ const MidSectionUpper = () => {
 
       <Modal show={showPostModal} onHide={handleClosePostModal}>
         <Modal.Header className="px-4" closeButton>
-          <Modal.Title id="contactnametext">Create a post</Modal.Title>
+          <Modal.Title id="contactnametext">Create a post </Modal.Title>
         </Modal.Header>
         <Modal.Body className="px-4">
           <Row className="d-flex flex-row align-items-top">
@@ -187,7 +243,7 @@ const MidSectionUpper = () => {
           </Row>
         </Modal.Body>
         <Modal.Footer>
-          <Button id="savemodalbutton" type="button" onClick={createPost}>
+          <Button id="savemodalbutton" type="button" onClick={handleSubmit}>
             Post
           </Button>
         </Modal.Footer>
