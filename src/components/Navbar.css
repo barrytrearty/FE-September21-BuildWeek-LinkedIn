@@ -10,6 +10,11 @@
 .navContainer {
   background-color: white;
   min-width: 100vw;
+  /* margin-bottom: 4rem; */
+  position: fixed;
+  z-index: 99;
+  /* margin-bottom: 10rem; */
+  
 }
 
 .navContainer .NavRow {
@@ -25,12 +30,16 @@
   left: 5
 }
 
+.LinkedInLogo{
+  width: 3rem !important;
+  height: 3rem !important;
+}
+
 .NavLogos {
   position: absolute;
   right: 0;
 }
 
-.SearchBar{
-    border-radius: 1rem;
-}
+
+
 

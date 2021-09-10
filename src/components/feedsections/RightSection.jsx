@@ -48,7 +48,7 @@ const RightSection = ({ sectionTitle }) => {
   return (
     <div>
 
-   <Container  style={{ minWidth: "20vw" }} className="mr-5 pl-2 mb-2 PeopleContainer container-fluid">
+   <Container  style={{ minWidth: "20vw" }} className="mr-5 pl-2 mb-2 PeopleContainer container-fluid mt-5">
       <h5 className="sectiontitle mt-3 ml-2 mb-2">{sectionTitle}Add to your feed <FontAwesomeIcon icon={faInfoCircle} className="infoicon"/></h5>
      
       
