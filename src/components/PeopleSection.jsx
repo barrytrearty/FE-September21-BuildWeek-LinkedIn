@@ -36,9 +36,7 @@ const PeopleSection = ({ sectionTitle }) => {
 
   console.log(peopleInfos);
   return (
-
-    <Container className="mb-3 PeopleContainer container-fluid">
-
+    <Container className=" mb-3 PeopleContainer container-fluid">
       <h5 className="sectiontitle mt-3">{sectionTitle}</h5>
       <PeopleRow peopleInfos={peopleInfos} show={show} />
       <div className="ShowDiv text-center p-0">
