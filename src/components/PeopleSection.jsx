@@ -36,7 +36,6 @@ const PeopleSection = ({ sectionTitle, marginTop }) => {
 
   console.log(peopleInfos);
   return (
-
     <Container className=" mb-3 PeopleContainer container-fluid">
 
       <h5 className="sectiontitle mt-3">{sectionTitle}</h5>
@@ -62,6 +61,7 @@ const PeopleSection = ({ sectionTitle, marginTop }) => {
         </Button>
       </div>
     </Container>
+    
   );
 };
 
