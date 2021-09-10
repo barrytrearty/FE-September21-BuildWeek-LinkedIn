@@ -7,7 +7,7 @@ import { FiEdit2 } from "react-icons/fi";
 const userId = "611d2acd2d52620015b6de6e";
 const endpointprofile = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
 
-const EditProfileModal = () => {
+const EditProfileModal = ({ setclosed }) => {
   const [show, setShow] = useState(false);
   const [imageUploaded, setimageUploaded] = useState(false);
   const [imageFile, setimageFile] = useState();
@@ -18,6 +18,7 @@ const EditProfileModal = () => {
     setimageFile();
     setimageUploaded(false);
     getMyProfile();
+    setclosed();
   };
   const handleShow = () => setShow(true);
 
@@ -74,7 +75,7 @@ const EditProfileModal = () => {
 
       if (response.ok) {
         const reply = response.json();
-
+        handleClose();
         console.log(reply);
       } else {
         alert("Error! Please complete the form!");
