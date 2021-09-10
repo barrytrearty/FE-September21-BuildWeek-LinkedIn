@@ -90,6 +90,7 @@ const EditProfileModal = () => {
         <span id="editprofilediv">
           <FiEdit2 size={22} className="editprofileicon" />
         </span>
+        <div id="editprofileonclick"></div>
       </a>
       ;{/* Upload Image Modal */}
       <Modal show={show} onHide={handleClose}>

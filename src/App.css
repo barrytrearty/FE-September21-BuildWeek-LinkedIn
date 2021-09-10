@@ -73,6 +73,15 @@ body {
   background-color: rgba(104, 174, 231, 0.185);
 }
 
+#editprofileonclick {
+  height: 152px;
+  width: 152px;
+  position: absolute;
+  border-radius: 50%;
+  top: 69px;
+  left: 28px;
+}
+
 .bannerImage {
   position: absolute;
   top: 0;
