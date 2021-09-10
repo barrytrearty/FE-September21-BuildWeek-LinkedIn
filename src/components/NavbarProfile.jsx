@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Image, Card, Button, Row, Col } from "react-bootstrap";
-import "./NavbarProfile.css"
+import "./NavbarProfile.css";
+import {Link} from "react-router-dom"
 
 class NavbarProfile extends Component {
   state = {
@@ -38,31 +39,32 @@ class NavbarProfile extends Component {
 
   render() {
     return (
-     
-       <div className="row pl-1">
+      <div className="row pl-1">
+        <Image
+          className="profileimageNav ml-3"
+          height="40px"
+          src={this.state.user.image}
+          roundedCircle
+        />
+        <p
+          className="mb-1 ml-1 mr-1 mt-1 text-right"
+          id="navprofiletext"
+          style={{ fontSize: "0.8em" }}
+        >
+          {this.state.user.name} {this.state.user.surname} <br />
+          <small className="text-muted">{this.state.user.title}</small>
+        </p>
 
-          <Image
-            className="profileimageNav ml-3"
-            height="40px"
-            src={this.state.user.image}
-            roundedCircle
-          />
-                <p className="mb-1 ml-1 mr-1 mt-1 text-right" id="navprofiletext" style={{ fontSize: "0.8em" }}>
-                  {this.state.user.name} {this.state.user.surname}{" "}<br/>
-                  <small className="text-muted">{this.state.user.title}</small>
-                </p>
-              
-
-             
-              <Button
-                              className="navbarprofilebutton mt-1 ml-3"
-                              variant="outline-primary"
-                              style={{ width: "10rem" }}
-                            >
-                              View Profile
-                            </Button>
-              </div>
-     
+    <Link to={"/me"}>
+          <Button
+            className="navbarprofilebutton mt-1 ml-3"
+            variant="outline-primary"
+            style={{ width: "10rem" }}
+          >
+            View Profile
+          </Button>
+    </Link>
+      </div>
     );
   }
 }
